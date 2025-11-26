@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#ffffff"/>
+  
+  <!-- Strategy Type 1: Vertical Integration -->
+  <rect x="50" y="80" width="340" height="650" fill="#e8f4f8" stroke="#1a5490" stroke-width="3" rx="10"/>
+  <text x="220" y="120" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a5490" text-anchor="middle">類型1：垂直統合戦略</text>
+  
+  <!-- Vertical Integration Icon -->
+  <rect x="160" y="150" width="120" height="80" fill="#1a5490" rx="5"/>
+  <text x="220" y="195" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">プラットフォーム</text>
+  <line x1="220" y1="230" x2="220" y2="270" stroke="#1a5490" stroke-width="4"/>
+  <rect x="100" y="270" width="70" height="50" fill="#1a5490" rx="3"/>
+  <text x="135" y="300" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">物流</text>
+  <rect x="180" y="270" width="80" height="50" fill="#1a5490" rx="3"/>
+  <text x="220" y="300" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">決済</text>
+  <rect x="270" y="270" width="80" height="50" fill="#1a5490" rx="3"/>
+  <text x="310" y="300" font-family="Arial, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">技術</text>
+  
+  <!-- Vertical Integration Characteristics -->
+  <text x="220" y="360" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">特徴</text>
+  <text x="70" y="390" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 物流・決済・技術を自社保有</text>
+  <text x="70" y="415" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 完全な品質管理</text>
+  <text x="70" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 高い固定費</text>
+  <text x="70" y="465" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 規模の経済追求</text>
+  
+  <text x="220" y="510" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">理論的基盤</text>
+  <text x="70" y="535" font-family="Arial, sans-serif" font-size="12" fill="#555555">取引コスト経済学</text>
+  <text x="70" y="555" font-family="Arial, sans-serif" font-size="12" fill="#555555">(Williamson, 1985)</text>
+  
+  <text x="220" y="595" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">典型例</text>
+  <text x="70" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Amazon (FBA)</text>
+  <text x="70" y="645" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Coupang (Rocket Delivery)</text>
+  <text x="70" y="670" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 適合市場：小規模超成熟市場</text>
+  
+  <!-- Strategy Type 2: Ecosystem Strategy -->
+  <rect x="430" y="80" width="340" height="650" fill="#e8f8f0" stroke="#52be80" stroke-width="3" rx="10"/>
+  <text x="600" y="120" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#52be80" text-anchor="middle">類型2：エコシステム戦略</text>
+  
+  <!-- Ecosystem Icon -->
+  <circle cx="600" cy="190" r="30" fill="#52be80"/>
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">Hub</text>
+  <circle cx="530" cy="260" r="20" fill="#7dcea0" stroke="#52be80" stroke-width="2"/>
+  <text x="530" y="267" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3P</text>
+  <circle cx="600" cy="280" r="20" fill="#7dcea0" stroke="#52be80" stroke-width="2"/>
+  <text x="600" y="287" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3P</text>
+  <circle cx="670" cy="260" r="20" fill="#7dcea0" stroke="#52be80" stroke-width="2"/>
+  <text x="670" y="267" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3P</text>
+  <line x1="600" y1="220" x2="530" y2="240" stroke="#52be80" stroke-width="2"/>
+  <line x1="600" y1="220" x2="600" y2="260" stroke="#52be80" stroke-width="2"/>
+  <line x1="600" y1="220" x2="670" y2="240" stroke="#52be80" stroke-width="2"/>
+  
+  <!-- Ecosystem Characteristics -->
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">特徴</text>
+  <text x="450" y="390" font-family="Arial, sans-serif" font-size="13" fill="#333333">• サードパーティに開放</text>
+  <text x="450" y="415" font-family="Arial, sans-serif" font-size="13" fill="#333333">• API提供・データ共有</text>
+  <text x="450" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 手数料ベース収益</text>
+  <text x="450" y="465" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 間接ネットワーク効果</text>
+  
+  <text x="600" y="510" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">理論的基盤</text>
+  <text x="450" y="535" font-family="Arial, sans-serif" font-size="12" fill="#555555">プラットフォーム理論</text>
+  <text x="450" y="555" font-family="Arial, sans-serif" font-size="12" fill="#555555">(Parker et al., 2016)</text>
+  
+  <text x="600" y="595" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">典型例</text>
+  <text x="450" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Shopify</text>
+  <text x="450" y="645" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Flipkart, Tokopedia</text>
+  <text x="450" y="670" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 適合市場：急成長市場</text>
+  
+  <!-- Strategy Type 3: Hybrid Strategy -->
+  <rect x="810" y="80" width="340" height="650" fill="#fff4e6" stroke="#f39c12" stroke-width="3" rx="10"/>
+  <text x="980" y="120" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f39c12" text-anchor="middle">類型3：ハイブリッド戦略</text>
+  
+  <!-- Hybrid Icon -->
+  <rect x="920" y="150" width="120" height="50" fill="#f39c12" rx="5"/>
+  <text x="980" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">統合部門</text>
+  <circle cx="920" cy="250" r="25" fill="#f8c471" stroke="#f39c12" stroke-width="2"/>
+  <text x="920" y="257" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">物流</text>
+  <circle cx="980" cy="250" r="25" fill="#f8c471" stroke="#f39c12" stroke-width="2"/>
+  <text x="980" y="257" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">決済</text>
+  <circle cx="1040" cy="250" r="25" fill="#aed6f1" stroke="#2874a6" stroke-width="2"/>
+  <text x="1040" y="257" font-family="Arial, sans-serif" font-size="10" fill="#333333" text-anchor="middle">3P</text>
+  <line x1="980" y1="200" x2="920" y2="225" stroke="#f39c12" stroke-width="2"/>
+  <line x1="980" y1="200" x2="980" y2="225" stroke="#f39c12" stroke-width="2"/>
+  <line x1="980" y1="200" x2="1040" y2="225" stroke="#2874a6" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Hybrid Characteristics -->
+  <text x="980" y="360" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">特徴</text>
+  <text x="830" y="390" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 選択的垂直統合</text>
+  <text x="830" y="415" font-family="Arial, sans-serif" font-size="13" fill="#333333">• エコシステム並存</text>
+  <text x="830" y="440" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 多角的収益構造</text>
+  <text x="830" y="465" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 組織的相補性</text>
+  
+  <text x="980" y="510" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">理論的基盤</text>
+  <text x="830" y="535" font-family="Arial, sans-serif" font-size="12" fill="#555555">組織的相補性理論</text>
+  <text x="830" y="555" font-family="Arial, sans-serif" font-size="12" fill="#555555">(Milgrom & Roberts, 1995)</text>
+  
+  <text x="980" y="595" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">典型例</text>
+  <text x="830" y="620" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Alibaba/Tmall</text>
+  <text x="830" y="645" font-family="Arial, sans-serif" font-size="13" fill="#333333">• Sea Limited/Shopee</text>
+  <text x="830" y="670" font-family="Arial, sans-serif" font-size="13" fill="#333333">• 適合市場：大規模超成熟/新興</text>
+  
+</svg>

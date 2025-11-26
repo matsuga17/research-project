@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#ffffff"/>
+  
+  <!-- Left Side: Ecosystem Strategy (Initial) -->
+  <rect x="100" y="100" width="380" height="200" fill="#e8f5e9" stroke="#388e3c" stroke-width="4" rx="10"/>
+  <text x="290" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#388e3c" text-anchor="middle">エコシステム戦略</text>
+  <text x="290" y="170" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">（初期戦略A）</text>
+  
+  <text x="120" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">特徴：</text>
+  <text x="140" y="235" font-family="Arial, sans-serif" font-size="12" fill="#555555">• サードパーティ依存</text>
+  <text x="140" y="255" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 軽量な資産構造</text>
+  <text x="140" y="275" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 柔軟な組織文化</text>
+  
+  <!-- Right Side: Vertical Integration Strategy (Initial) -->
+  <rect x="720" y="100" width="380" height="200" fill="#e3f2fd" stroke="#1976d2" stroke-width="4" rx="10"/>
+  <text x="910" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1976d2" text-anchor="middle">垂直統合戦略</text>
+  <text x="910" y="170" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">（初期戦略B）</text>
+  
+  <text x="740" y="210" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">特徴：</text>
+  <text x="760" y="235" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 重厚な資産投資</text>
+  <text x="760" y="255" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 完全コントロール</text>
+  <text x="760" y="275" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 効率重視の組織文化</text>
+  
+  <!-- Path 1: Ecosystem to Hybrid (Easy - Green Arrow) -->
+  <line x1="290" y1="300" x2="500" y2="500" stroke="#52be80" stroke-width="8" marker-end="url(#arrowhead-green)"/>
+  <rect x="250" y="350" width="200" height="110" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="8"/>
+  <text x="350" y="375" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#2e7d32" text-anchor="middle">移行：比較的容易 ✓</text>
+  <text x="270" y="400" font-family="Arial, sans-serif" font-size="11" fill="#333333">方法：</text>
+  <text x="285" y="420" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 物流への段階的投資</text>
+  <text x="285" y="435" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 決済システム構築</text>
+  <text x="285" y="450" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 選択的内部化</text>
+  
+  <!-- Path 2: Vertical to Hybrid (Difficult - Red Dashed Arrow) -->
+  <line x1="910" y1="300" x2="700" y2="500" stroke="#e57373" stroke-width="8" stroke-dasharray="15,10" marker-end="url(#arrowhead-red)"/>
+  <rect x="750" y="350" width="200" height="110" fill="#ffcdd2" stroke="#c62828" stroke-width="2" rx="8"/>
+  <text x="850" y="375" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#c62828" text-anchor="middle">移行：極めて困難 ✗</text>
+  <text x="770" y="400" font-family="Arial, sans-serif" font-size="11" fill="#333333">障壁：</text>
+  <text x="785" y="420" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 沈没コスト（設備）</text>
+  <text x="785" y="435" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 組織的慣性</text>
+  <text x="785" y="450" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 文化的抵抗</text>
+  
+  <!-- Bottom: Hybrid Strategy (Convergence Point) -->
+  <rect x="400" y="530" width="400" height="200" fill="#fff3e0" stroke="#f57c00" stroke-width="5" rx="10"/>
+  <text x="600" y="575" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f57c00" text-anchor="middle">ハイブリッド戦略</text>
+  <text x="600" y="605" font-family="Arial, sans-serif" font-size="15" fill="#333333" text-anchor="middle">（最適収束点）</text>
+  
+  <text x="420" y="645" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">特徴：</text>
+  <text x="440" y="670" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 選択的垂直統合 + エコシステム開放</text>
+  <text x="440" y="690" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 組織的相補性による競争優位</text>
+  <text x="440" y="710" font-family="Arial, sans-serif" font-size="12" fill="#555555">• 模倣困難性：極めて高い</text>
+  
+  <!-- Case Examples -->
+  <rect x="100" y="770" width="1000" height="100" fill="#f0f0f0" stroke="#333333" stroke-width="2" rx="8"/>
+  <text x="600" y="800" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">実証事例</text>
+  
+  <text x="120" y="830" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2e7d32">成功例（緑の経路）：</text>
+  <text x="280" y="830" font-family="Arial, sans-serif" font-size="12" fill="#555555">Amazon India（エコシステム → 主要都市での物流統合追加 → ハイブリッド実現）</text>
+  
+  <text x="120" y="855" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c62828">失敗例（赤の経路）：</text>
+  <text x="280" y="855" font-family="Arial, sans-serif" font-size="12" fill="#555555">Amazon China（垂直統合戦略 → エコシステム開放への転換失敗 → 市場撤退）</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="30" width="300" height="80" fill="#ffffff" stroke="#666666" stroke-width="2" rx="5"/>
+  <text x="200" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333333" text-anchor="middle">凡例</text>
+  <line x1="70" y1="75" x2="120" y2="75" stroke="#52be80" stroke-width="6"/>
+  <text x="130" y="80" font-family="Arial, sans-serif" font-size="11" fill="#333333">比較的容易な進化経路</text>
+  <line x1="70" y1="95" x2="120" y2="95" stroke="#e57373" stroke-width="6" stroke-dasharray="10,5"/>
+  <text x="130" y="100" font-family="Arial, sans-serif" font-size="11" fill="#333333">困難な進化経路（経路依存性）</text>
+  
+  <!-- Theory Note -->
+  <rect x="850" y="30" width="300" height="80" fill="#fffde7" stroke="#f57c00" stroke-width="2" rx="5"/>
+  <text x="1000" y="55" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f57c00" text-anchor="middle">理論的根拠</text>
+  <text x="870" y="75" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 動的能力理論 (Teece et al., 1997)</text>
+  <text x="870" y="90" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 経路依存性理論 (Arthur, 1989)</text>
+  <text x="870" y="105" font-family="Arial, sans-serif" font-size="10" fill="#555555">• 組織的慣性 (Hannan & Freeman, 1984)</text>
+  
+  <!-- Arrow definitions -->
+  <defs>
+    <marker id="arrowhead-green" markerWidth="15" markerHeight="15" refX="7.5" refY="7.5" orient="auto">
+      <polygon points="0 0, 15 7.5, 0 15" fill="#52be80"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="15" markerHeight="15" refX="7.5" refY="7.5" orient="auto">
+      <polygon points="0 0, 15 7.5, 0 15" fill="#e57373"/>
+    </marker>
+  </defs>
+  
+</svg>

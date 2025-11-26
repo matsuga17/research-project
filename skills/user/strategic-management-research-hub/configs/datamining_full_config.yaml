@@ -1,0 +1,621 @@
+# ============================================================================
+# Strategic Management Research Hub - Data Mining Configuration
+# ============================================================================
+#
+# 本格的なデータマイニング分析のための完全設定ファイル
+#
+# 使用方法:
+#   python scripts/comprehensive_datamining_pipeline.py --config configs/datamining_full_config.yaml
+#
+# Version: 3.1
+# Date: 2025-11-01
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# DATA SETTINGS
+# ----------------------------------------------------------------------------
+# データの基本設定
+data_path: "./data/final/analysis_panel.dta"
+firm_id: "gvkey"
+time_var: "year"
+output_dir: "./datamining_output/"
+
+# ----------------------------------------------------------------------------
+# ANALYSIS VARIABLES
+# ----------------------------------------------------------------------------
+# 分析対象変数の指定
+
+# 戦略的特徴量（Strategic Features）
+# 企業の戦略的ポジショニングを表す変数
+strategic_features:
+  - "rd_intensity"              # R&D集約度
+  - "capital_intensity"          # 資本集約度
+  - "advertising_intensity"      # 広告集約度
+  - "international_sales"        # 国際化度
+  - "vertical_integration"       # 垂直統合度
+  - "product_diversification"    # 製品多角化
+  - "geographic_diversification" # 地理的多角化
+
+# パフォーマンス指標（Performance Target）
+# 予測対象となる企業業績指標
+performance_target: "roa"  # Options: "roa", "roe", "tobin_q", "sales_growth"
+
+# 制御変数（Control Variables）
+# モデルに含める制御変数
+control_variables:
+  - "firm_size"        # 企業規模（log of total assets）
+  - "firm_age"         # 企業年齢
+  - "leverage"         # 財務レバレッジ
+  - "sales_growth"     # 売上成長率
+  - "cash_holdings"    # 現金保有比率
+  - "tangibility"      # 有形資産比率
+
+# ----------------------------------------------------------------------------
+# STRATEGIC GROUP ANALYSIS
+# ----------------------------------------------------------------------------
+# 戦略的グループ分析の設定
+
+# クラスタ数（null = 自動決定）
+n_clusters: null
+
+# クラスタリング手法
+# Options: "kmeans", "hierarchical", "dbscan", "gaussian_mixture"
+clustering_method: "kmeans"
+
+# 最大クラスタ数（自動決定時の上限）
+max_clusters: 10
+
+# 最適クラスタ数の決定方法
+# Options: "silhouette", "elbow", "calinski_harabasz"
+optimal_k_method: "silhouette"
+
+# 距離メトリック
+# Options: "euclidean", "manhattan", "cosine"
+distance_metric: "euclidean"
+
+# 標準化手法
+# Options: "standard", "robust", "minmax"
+scaling_method: "standard"
+
+# ----------------------------------------------------------------------------
+# PERFORMANCE PREDICTION
+# ----------------------------------------------------------------------------
+# パフォーマンス予測モデルの設定
+
+# 使用するモデル
+# Options: "rf", "gbm", "xgboost", "lightgbm", "linear", "ridge", "lasso", "ensemble"
+prediction_models:
+  - "rf"         # Random Forest
+  - "gbm"        # Gradient Boosting Machine
+  - "xgboost"    # XGBoost
+  - "lightgbm"   # LightGBM
+  - "ensemble"   # Ensemble of all models
+
+# Train-Test分割比率
+test_size: 0.2
+
+# Cross-Validation の Fold 数
+cv_folds: 5
+
+# ハイパーパラメータチューニング
+hyperparameter_tuning:
+  enabled: true
+  method: "grid_search"  # Options: "grid_search", "random_search", "bayesian"
+  n_iter: 20             # Random/Bayesian search の反復回数
+
+# Random Forest パラメータ
+rf_params:
+  n_estimators: [50, 100, 200]
+  max_depth: [10, 20, 30, null]
+  min_samples_split: [2, 5, 10]
+  min_samples_leaf: [1, 2, 4]
+
+# XGBoost パラメータ
+xgb_params:
+  n_estimators: [50, 100, 200]
+  max_depth: [3, 5, 7]
+  learning_rate: [0.01, 0.05, 0.1]
+  subsample: [0.7, 0.8, 1.0]
+  colsample_bytree: [0.7, 0.8, 1.0]
+
+# LightGBM パラメータ
+lgb_params:
+  n_estimators: [50, 100, 200]
+  num_leaves: [20, 31, 40]
+  learning_rate: [0.01, 0.05, 0.1]
+  feature_fraction: [0.7, 0.8, 1.0]
+
+# ----------------------------------------------------------------------------
+# FEATURE IMPORTANCE ANALYSIS
+# ----------------------------------------------------------------------------
+# 特徴量重要度分析の設定
+
+# 重要度算出手法
+# Options: "mdi", "permutation", "shap"
+importance_method: "mdi"  # Mean Decrease in Impurity
+
+# SHAP分析（Explainable AI）
+shap_analysis:
+  enabled: true
+  max_samples: 1000  # SHAP計算のサンプル数上限（計算コスト削減）
+  plot_types:
+    - "summary"      # Summary plot
+    - "bar"          # Bar plot
+    - "waterfall"    # Waterfall plot (individual prediction)
+    - "dependence"   # Dependence plot
+
+# Permutation Importance
+permutation_importance:
+  enabled: true
+  n_repeats: 10
+  random_state: 42
+
+# ----------------------------------------------------------------------------
+# ANOMALY DETECTION
+# ----------------------------------------------------------------------------
+# 異常検知の設定
+
+# 異常値の割合（contamination）
+contamination: 0.05  # 5%を異常値と仮定
+
+# 異常検知手法
+# Options: "isolation_forest", "lof", "one_class_svm", "elliptic_envelope"
+anomaly_method: "isolation_forest"
+
+# Isolation Forest パラメータ
+isolation_forest_params:
+  n_estimators: 100
+  max_samples: "auto"
+  max_features: 1.0
+  bootstrap: false
+
+# Local Outlier Factor パラメータ
+lof_params:
+  n_neighbors: 20
+  algorithm: "auto"
+  leaf_size: 30
+  metric: "minkowski"
+
+# ----------------------------------------------------------------------------
+# CAUSAL INFERENCE
+# ----------------------------------------------------------------------------
+# 因果推論の設定（オプション）
+
+# 処置変数（Treatment Variable）
+# 因果効果を推定したい変数
+treatment_var: "rd_intensity"  # 例: R&D投資の効果
+
+# 結果変数（Outcome Variable）
+# 処置の影響を受ける変数
+outcome_var: "roa_lead1"  # 例: 翌年のROA
+
+# 因果推論手法
+# Options: "dml", "causal_forest", "dr_learner", "ipw"
+causal_method: "dml"  # Double Machine Learning
+
+# Double Machine Learning 設定
+dml_params:
+  model_y: "gradient_boosting"  # Outcome model
+  model_t: "gradient_boosting"  # Treatment model
+  n_splits: 2
+  n_repeats: 1
+
+# Causal Forest 設定
+causal_forest_params:
+  n_estimators: 100
+  min_samples_leaf: 10
+  max_depth: null
+
+# 共変量（Confounders）
+# 処置と結果の両方に影響する変数
+confounders:
+  - "firm_size"
+  - "firm_age"
+  - "leverage"
+  - "industry_concentration"
+  - "gdp_growth"
+
+# 操作変数（Instrumental Variables）
+# 因果推論の識別のための変数
+instruments:
+  - "industry_avg_rd"  # 産業平均R&D集約度
+  - "rd_tax_credit"    # R&D税額控除
+
+# ----------------------------------------------------------------------------
+# TEMPORAL PATTERN ANALYSIS
+# ----------------------------------------------------------------------------
+# 時系列パターン分析の設定
+
+# 分析対象の時系列変数
+temporal_variables:
+  - "roa"
+  - "rd_intensity"
+  - "capital_intensity"
+  - "sales_growth"
+
+# 移動平均の期間
+moving_average_window: 3
+
+# トレンド分析
+trend_analysis:
+  enabled: true
+  method: "linear"  # Options: "linear", "polynomial", "loess"
+
+# 構造変化検定
+structural_break_test:
+  enabled: true
+  method: "chow"  # Options: "chow", "cusum", "qlr"
+
+# ----------------------------------------------------------------------------
+# DATA QUALITY
+# ----------------------------------------------------------------------------
+# データ品質管理の設定
+
+# 最小観測数
+min_observations: 100
+
+# 最大欠損率（変数ごと）
+max_missing_rate: 0.3
+
+# 外れ値処理
+outlier_method: "iqr"  # Options: "iqr", "zscore", "isolation_forest"
+outlier_threshold: 3.0  # IQR multiplier or Z-score threshold
+
+# Winsorization
+winsorize:
+  enabled: true
+  percentiles: [0.01, 0.99]  # 1st and 99th percentiles
+  variables:
+    - "roa"
+    - "roe"
+    - "sales_growth"
+    - "leverage"
+
+# 欠損値処理
+missing_data:
+  method: "listwise_deletion"  # Options: "listwise_deletion", "mean_imputation", "median_imputation", "knn_imputation"
+  
+  # KNN Imputation パラメータ
+  knn_params:
+    n_neighbors: 5
+    weights: "uniform"
+
+# データ変換
+transformations:
+  # 対数変換
+  log_transform:
+    - "total_assets"
+    - "sales"
+    - "market_value"
+  
+  # 標準化
+  standardize:
+    - "rd_intensity"
+    - "capital_intensity"
+    - "advertising_intensity"
+
+# ----------------------------------------------------------------------------
+# VISUALIZATION
+# ----------------------------------------------------------------------------
+# 可視化の設定
+
+# 図のフォーマット
+figure_format: "png"  # Options: "png", "pdf", "svg"
+
+# 解像度（DPI）
+figure_dpi: 300
+
+# 図のサイズ（インチ）
+figure_size:
+  width: 10
+  height: 8
+
+# カラーパレット
+color_palette: "Set2"  # Options: "Set1", "Set2", "Set3", "Pastel1", "viridis", "plasma"
+
+# 図のスタイル
+plot_style: "seaborn-v0_8-whitegrid"  # Options: "seaborn-v0_8-whitegrid", "ggplot", "bmh"
+
+# 生成する図
+figures_to_generate:
+  - "strategic_groups"       # 戦略的グループの可視化
+  - "feature_importance"     # 特徴量重要度
+  - "anomaly_detection"      # 異常値の可視化
+  - "temporal_patterns"      # 時系列パターン
+  - "correlation_heatmap"    # 相関ヒートマップ
+  - "prediction_scatter"     # 予測vs実測のプロット
+  - "cluster_profiles"       # クラスタプロファイル
+  - "shap_summary"           # SHAP summary plot
+
+# インタラクティブ可視化
+interactive_plots:
+  enabled: true
+  backend: "plotly"  # Options: "plotly", "bokeh"
+
+# ----------------------------------------------------------------------------
+# OUTPUT SETTINGS
+# ----------------------------------------------------------------------------
+# 出力設定
+
+# モデルの保存
+save_models: true
+
+# HTMLレポートの生成
+generate_html_report: true
+
+# LaTeX表の生成
+generate_latex_tables: true
+
+# JSONレポートの生成
+generate_json_report: true
+
+# 中間ファイルの保存
+save_intermediate_results: true
+
+# ファイル命名規則
+naming_convention:
+  prefix: "datamining_"
+  include_timestamp: true
+  include_hash: false
+
+# 圧縮
+compress_output:
+  enabled: false
+  format: "zip"  # Options: "zip", "tar.gz"
+
+# ----------------------------------------------------------------------------
+# COMPUTATIONAL SETTINGS
+# ----------------------------------------------------------------------------
+# 計算設定
+
+# 乱数シード（再現性確保）
+random_seed: 42
+
+# 並列処理
+n_jobs: -1  # -1 = use all available cores
+
+# メモリ管理
+memory_limit_gb: 16
+
+# キャッシュ
+cache_results: true
+cache_dir: "./cache/"
+
+# 進捗表示
+verbose: true
+progress_bar: true
+
+# ----------------------------------------------------------------------------
+# ADVANCED SETTINGS
+# ----------------------------------------------------------------------------
+# 高度な設定
+
+# Deep Learning（オプション）
+deep_learning:
+  enabled: false
+  framework: "pytorch"  # Options: "pytorch", "tensorflow"
+  
+  # Neural Network アーキテクチャ
+  architecture:
+    hidden_layers: [128, 64, 32]
+    activation: "relu"
+    dropout: 0.2
+    batch_normalization: true
+  
+  # トレーニング設定
+  training:
+    epochs: 100
+    batch_size: 32
+    learning_rate: 0.001
+    optimizer: "adam"
+    early_stopping:
+      enabled: true
+      patience: 10
+
+# テキスト分析（年次報告書など）
+text_analysis:
+  enabled: false
+  documents_path: "./data/text/"
+  
+  # テキスト前処理
+  preprocessing:
+    lowercase: true
+    remove_stopwords: true
+    lemmatization: true
+  
+  # トピックモデリング
+  topic_modeling:
+    method: "lda"  # Options: "lda", "nmf", "lsi"
+    n_topics: 10
+  
+  # 感情分析
+  sentiment_analysis:
+    enabled: true
+    model: "vader"  # Options: "vader", "textblob", "transformers"
+
+# ネットワーク分析（企業間関係など）
+network_analysis:
+  enabled: false
+  network_file: "./data/network/firm_network.csv"
+  
+  # ネットワーク指標
+  metrics:
+    - "degree_centrality"
+    - "betweenness_centrality"
+    - "closeness_centrality"
+    - "eigenvector_centrality"
+  
+  # コミュニティ検出
+  community_detection:
+    method: "louvain"  # Options: "louvain", "label_propagation", "girvan_newman"
+
+# ----------------------------------------------------------------------------
+# RESEARCH TRANSPARENCY
+# ----------------------------------------------------------------------------
+# 研究の透明性
+
+# プレ登録
+preregistration:
+  enabled: false
+  url: ""
+  osf_project: ""
+
+# データ共有
+data_sharing:
+  enabled: false
+  repository: "osf"  # Options: "osf", "dataverse", "figshare"
+  embargo_period_months: 0
+
+# コード共有
+code_sharing:
+  enabled: true
+  repository: "github"
+  license: "MIT"
+
+# 再現性パッケージ
+reproducibility:
+  # 環境情報の保存
+  save_environment: true
+  
+  # Docker化
+  docker:
+    enabled: false
+    base_image: "python:3.11"
+  
+  # パッケージバージョンの記録
+  record_package_versions: true
+
+# ----------------------------------------------------------------------------
+# LOGGING & DEBUGGING
+# ----------------------------------------------------------------------------
+# ログとデバッグ
+
+# ログレベル
+# Options: "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+log_level: "INFO"
+
+# ログファイル
+log_to_file: true
+log_file_path: "./logs/datamining.log"
+
+# コンソール出力
+log_to_console: true
+
+# デバッグモード
+debug_mode: false
+
+# プロファイリング（実行時間分析）
+profiling:
+  enabled: false
+  output: "./profiling/datamining_profile.txt"
+
+# ----------------------------------------------------------------------------
+# NOTIFICATIONS
+# ----------------------------------------------------------------------------
+# 通知設定（オプション）
+
+notifications:
+  enabled: false
+  
+  # メール通知
+  email:
+    enabled: false
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender: "your_email@example.com"
+    recipients:
+      - "your_email@example.com"
+    subject: "Data Mining Analysis Complete"
+  
+  # Slack通知
+  slack:
+    enabled: false
+    webhook_url: "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+    channel: "#research-updates"
+
+# ----------------------------------------------------------------------------
+# QUALITY ASSURANCE
+# ----------------------------------------------------------------------------
+# 品質保証
+
+# 自動テスト
+automated_tests:
+  enabled: true
+  test_suite: "pytest"
+  coverage_threshold: 0.8
+
+# Benford's Law 検定（データ品質）
+benfords_law:
+  enabled: true
+  variables:
+    - "total_assets"
+    - "sales"
+    - "net_income"
+  significance_level: 0.05
+
+# 統計的検出力分析
+power_analysis:
+  enabled: true
+  alpha: 0.05
+  desired_power: 0.8
+  effect_size: "medium"
+
+# ----------------------------------------------------------------------------
+# DOCUMENTATION
+# ----------------------------------------------------------------------------
+# ドキュメント生成
+
+# 自動ドキュメント生成
+auto_documentation:
+  enabled: true
+  
+  # データディクショナリ
+  data_dictionary: true
+  
+  # メソッドセクション（論文用）
+  methods_section: true
+  
+  # コードブック
+  codebook: true
+  
+  # README
+  readme: true
+
+# 引用情報
+citation:
+  format: "APA"  # Options: "APA", "MLA", "Chicago"
+  bibtex: true
+
+# ----------------------------------------------------------------------------
+# NOTES
+# ----------------------------------------------------------------------------
+notes: |
+  このデータマイニング設定ファイルは、戦略経営研究のための
+  包括的な分析パイプラインを定義します。
+  
+  主要な分析内容:
+  1. 戦略的グループ分析 - 企業の戦略的ポジショニングの特定
+  2. パフォーマンス予測 - 機械学習による業績予測
+  3. 特徴量重要度 - どの戦略的変数が重要か
+  4. 異常検知 - 戦略的アウトライアの特定
+  5. 因果推論 - Double Machine Learning による因果効果の推定
+  6. 時系列分析 - 戦略的変数の時系列パターン
+  
+  設定のカスタマイズ:
+  - strategic_features: 自身の研究テーマに合わせて変更
+  - performance_target: 分析対象の業績指標を選択
+  - treatment_var & outcome_var: 因果推論の対象変数を指定
+  
+  計算時間の目安（データサイズによる）:
+  - 小規模 (~1,000観測): 5-10分
+  - 中規模 (~10,000観測): 20-40分
+  - 大規模 (~100,000観測): 1-2時間
+
+# ----------------------------------------------------------------------------
+# VERSION HISTORY
+# ----------------------------------------------------------------------------
+version_history:
+  - version: "3.1"
+    date: "2025-11-01"
+    changes: "初版 - 完全なデータマイニング設定"
+    author: "Strategic Management Research Hub"

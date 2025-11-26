@@ -1,0 +1,43 @@
+model,benchmark,score,unit,date,source,notes
+Gemini Ultra,MMLU,90.0,Percent,2024,Magecomp 2025,Massive Multitask Language Understanding
+GPT-4,MMLU,86.4,Percent,2023,OpenAI,
+Claude Opus 4,MMLU,86.8,Percent,2025,Anthropic,
+Claude Code,SWE-Bench,72.5,Percent,2025,Sacra 2025,Software Engineering Benchmark
+GPT-4.5,SWE-Bench,68,Percent,2025,Analysis,
+Gemini 2.5 Pro,SWE-Bench,70,Percent Estimated,2025,Analysis,
+Gemini 2.5,Hallucination Rate,37,Percent,2025,ThunderBit 2025.5,Lower is better
+GPT-4o,Hallucination Rate,60,Percent,2025,ThunderBit 2025.5,
+Claude Sonnet 4.5,Hallucination Rate,42,Percent Estimated,2025,Industry Analysis,
+Gemini 1.5 Pro,Context Window,2000000,Tokens,2025,DoIT Software 2025,
+Claude Opus 4,Context Window,2000000,Tokens,2025,Anthropic,
+GPT-4 Turbo,Context Window,128000,Tokens,2024,OpenAI,
+Gemini 2.0 Flash,Output Speed,263,Tokens/Second,2025,DoIT Software 2025,
+GPT-4o,Output Speed,180,Tokens/Second Estimated,2025,Analysis,
+Claude Sonnet 4.5,Output Speed,220,Tokens/Second Estimated,2025,Analysis,
+Gemini 2.0 Flash,Latency,0.68,Seconds,2025,DoIT Software 2025,Average response time
+GPT-4o,Latency,0.8,Seconds Estimated,2025,Analysis,
+Claude Sonnet 4.5,Latency,0.7,Seconds Estimated,2025,Analysis,
+Gemini 1.5 Flash,Input Price,0.07,USD per Million Tokens,2025,Google Cloud Pricing,
+Gemini 1.5 Flash,Output Price,0.30,USD per Million Tokens,2025,Google Cloud Pricing,
+GPT-4,Input Price,5+,USD per Million Tokens,2025,ThunderBit 2025,
+GPT-4,Output Price,20+,USD per Million Tokens,2025,ThunderBit 2025,
+Claude Opus 4,Input Price,3,USD per Million Tokens,2025,Sacra 2025,
+Claude Opus 4,Output Price,15,USD per Million Tokens,2025,Sacra 2025,
+Claude Sonnet 4,Input Price,3,USD per Million Tokens,2025,Sacra 2025,
+Claude Sonnet 4,Output Price,6,USD per Million Tokens,2025,Sacra 2025,
+Gemini 2.0 Flash,AI Quality Index,48,Score,2025,ThunderBit 2025,Artificial Analysis
+GPT-4o,AI Quality Index,41,Score,2025,ThunderBit 2025,
+o3-mini,AI Quality Index,66,Score,2025,DoIT Software 2025,OpenAI reasoning model
+Grok 3 Reasoning,AI Quality Index,66,Score,2025,DoIT Software 2025,
+Gemini 1.5,Elo Rating,1400+,Elo,2025,Mindset AI,Web development benchmark
+Claude 3.5 Sonnet,Elo Rating,1380,Elo Estimated,2024,Analysis,Prior to Gemini 1.5
+Gemini Ultra,GSM8K Math,94.4,Percent,2025,DataGlobeHub 2025,Mathematical reasoning
+Gemini Pro,GSM8K Math,86.5,Percent,2025,DataGlobeHub 2025,
+Industry Average,GSM8K Math,82.3,Percent,2025,DataGlobeHub 2025,
+Gemini 2.5 Pro,Image Understanding,100,Percent,2025,ThunderBit 2025,One comparison
+DeepSeek,Image Understanding,90,Percent,2025,ThunderBit 2025,
+Gemini,Audio Transcription,98.6,Percent,2025,SQ Magazine 2025,Clean speech datasets
+Whisper,Audio Transcription,95-97,Percent Estimated,2024,Analysis,OpenAI model
+Gemini,Real-time Translation,95,Percent,2025,SQ Magazine 2025,Top 50 languages
+Gemini Ultra,Medical QA Error Rate,5.4,Percent,2025,SQ Magazine 2025,Lower is better
+Gemini Pro,Medical QA Error Rate,9.2,Percent,2024,SQ Magazine 2025,Earlier version

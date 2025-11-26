@@ -1,0 +1,230 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="800" y="60" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    アジア太平洋E-commerce市場規模比較
+  </text>
+  
+  <!-- Table Header -->
+  <rect x="100" y="120" width="300" height="60" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  <rect x="400" y="120" width="250" height="60" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  <rect x="650" y="120" width="250" height="60" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  <rect x="900" y="120" width="300" height="60" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  <rect x="1200" y="120" width="300" height="60" fill="#1565c0" stroke="#0d47a1" stroke-width="2"/>
+  
+  <text x="250" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    市場層
+  </text>
+  <text x="525" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    国/地域
+  </text>
+  <text x="775" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    2024年市場規模
+  </text>
+  <text x="1050" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    年平均成長率
+  </text>
+  <text x="1350" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    世界シェア
+  </text>
+  
+  <!-- Row 1: 超成熟市場 - 中国 -->
+  <rect x="100" y="180" width="300" height="100" fill="#bbdefb" stroke="#1976d2" stroke-width="1"/>
+  <rect x="400" y="180" width="250" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="650" y="180" width="250" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="900" y="180" width="300" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="1200" y="180" width="300" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  
+  <text x="250" y="220" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0d47a1">
+    第1層
+  </text>
+  <text x="250" y="245" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">
+    超成熟市場
+  </text>
+  
+  <text x="525" y="235" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    中国
+  </text>
+  
+  <text x="775" y="225" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    1.8兆米ドル
+  </text>
+  <text x="775" y="250" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#616161">
+    (飽和に近い)
+  </text>
+  
+  <text x="1050" y="235" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    8-10%
+  </text>
+  
+  <text x="1350" y="235" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    ~50%
+  </text>
+  
+  <!-- Row 2: 超成熟市場 - 韓国 -->
+  <rect x="100" y="280" width="300" height="80" fill="#bbdefb" stroke="#1976d2" stroke-width="1"/>
+  <rect x="400" y="280" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="650" y="280" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="900" y="280" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="1200" y="280" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  
+  <text x="525" y="325" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    韓国
+  </text>
+  
+  <text x="775" y="325" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    120億米ドル
+  </text>
+  
+  <text x="1050" y="325" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    9-11%
+  </text>
+  
+  <text x="1350" y="325" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    2-3%
+  </text>
+  
+  <!-- Row 3: 成熟市場 - 日本 -->
+  <rect x="100" y="360" width="300" height="80" fill="#90caf9" stroke="#1976d2" stroke-width="1"/>
+  <rect x="400" y="360" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="650" y="360" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="900" y="360" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="1200" y="360" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  
+  <text x="250" y="410" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0d47a1">
+    第2層
+  </text>
+  <text x="250" y="430" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">
+    成熟市場
+  </text>
+  
+  <text x="525" y="405" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    日本
+  </text>
+  
+  <text x="775" y="405" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    220億米ドル
+  </text>
+  
+  <text x="1050" y="405" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    6-8%
+  </text>
+  
+  <text x="1350" y="405" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    4-5%
+  </text>
+  
+  <!-- Row 4: 急成長市場 - インド -->
+  <rect x="100" y="440" width="300" height="80" fill="#64b5f6" stroke="#1976d2" stroke-width="1"/>
+  <rect x="400" y="440" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="650" y="440" width="250" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="900" y="440" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="1200" y="440" width="300" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  
+  <text x="250" y="490" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0d47a1">
+    第3層
+  </text>
+  <text x="250" y="510" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">
+    急成長市場
+  </text>
+  
+  <text x="525" y="485" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    インド
+  </text>
+  
+  <text x="775" y="485" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    110億米ドル
+  </text>
+  
+  <text x="1050" y="485" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    20-25%
+  </text>
+  
+  <text x="1350" y="485" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    2-3%
+  </text>
+  
+  <!-- Row 5: 新興市場 - 東南アジア -->
+  <rect x="100" y="520" width="300" height="100" fill="#42a5f5" stroke="#1976d2" stroke-width="1"/>
+  <rect x="400" y="520" width="250" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="650" y="520" width="250" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="900" y="520" width="300" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  <rect x="1200" y="520" width="300" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+  
+  <text x="250" y="560" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#0d47a1">
+    第4層
+  </text>
+  <text x="250" y="585" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#1565c0">
+    新興市場
+  </text>
+  
+  <text x="525" y="555" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1a1a1a">
+    東南アジア
+  </text>
+  <text x="525" y="580" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#616161">
+    (ASEAN-6)
+  </text>
+  
+  <text x="775" y="560" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    130億米ドル
+  </text>
+  <text x="775" y="585" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#616161">
+    (急拡大中)
+  </text>
+  
+  <text x="1050" y="570" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    15-20%
+  </text>
+  
+  <text x="1350" y="570" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#1a1a1a">
+    3-4%
+  </text>
+  
+  <!-- Total Row -->
+  <rect x="100" y="620" width="300" height="80" fill="#263238" stroke="#000000" stroke-width="2"/>
+  <rect x="400" y="620" width="250" height="80" fill="#37474f" stroke="#000000" stroke-width="2"/>
+  <rect x="650" y="620" width="250" height="80" fill="#37474f" stroke="#000000" stroke-width="2"/>
+  <rect x="900" y="620" width="300" height="80" fill="#37474f" stroke="#000000" stroke-width="2"/>
+  <rect x="1200" y="620" width="300" height="80" fill="#37474f" stroke="#000000" stroke-width="2"/>
+  
+  <text x="250" y="665" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    アジア太平洋
+  </text>
+  <text x="250" y="685" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#ffffff">
+    合計
+  </text>
+  
+  <text x="525" y="665" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    —
+  </text>
+  
+  <text x="775" y="665" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    2.90兆米ドル
+  </text>
+  
+  <text x="1050" y="665" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    12.8%
+  </text>
+  
+  <text x="1350" y="665" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    38.5%
+  </text>
+  
+  <!-- Note -->
+  <text x="100" y="750" font-family="Arial, sans-serif" font-size="13" fill="#616161">
+    注1: 2024年時点の推定値。中国の市場規模は単独で世界の約50%を占める。
+  </text>
+  <text x="100" y="775" font-family="Arial, sans-serif" font-size="13" fill="#616161">
+    注2: 2034年までにアジア太平洋市場は9.67兆米ドルに達すると予測される（eMarketer, 2023）。
+  </text>
+  <text x="100" y="800" font-family="Arial, sans-serif" font-size="13" fill="#616161">
+    注3: 成長率は市場成熟度によって顕著な差異を示す（超成熟8-10% vs 急成長20-25%）。
+  </text>
+  
+  <!-- Source -->
+  <text x="100" y="850" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#757575">
+    出典: eMarketer (2023), Grand View Research (2023), 各国統計局データより筆者作成
+  </text>
+</svg>

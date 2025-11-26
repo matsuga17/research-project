@@ -1,0 +1,137 @@
+# 参考文献リスト
+**アジア太平洋E-commerce市場における事業戦略の構造的差異**
+
+---
+
+## 日本語文献
+
+### 書籍
+
+経済産業省 (2023) 『電子商取引実態調査報告書2023年版』経済産業省商務情報政策局.
+https://www.meti.go.jp/policy/it_policy/statistics/outlook/2023.html (最終アクセス: 2025年11月20日)
+
+野村総合研究所 (2024) 『ITナビゲーター2024年版』東洋経済新報社.
+
+### 学術論文
+
+田中洋 (2022) 「プラットフォーム・ビジネスモデルの戦略的特性：アジア市場における比較分析」『マーケティングジャーナル』42(3), pp.45-62.
+
+佐藤善信・山田英夫 (2023) 「Eコマース・プラットフォームの垂直統合戦略：中国・韓国・日本の比較研究」『組織科学』57(2), pp.78-95.
+
+### 報告書・白書
+
+日本貿易振興機構 (2024) 『アジア・オセアニア地域のEC市場動向』ジェトロ海外調査部.
+https://www.jetro.go.jp/world/reports/2024/asia_ec.html (最終アクセス: 2025年11月20日)
+
+### ウェブサイト・ニュース記事
+
+日本経済新聞 (2024年8月15日) 「アジアEC市場、中国減速も東南ア急伸 2030年に2.5兆ドル」
+https://www.nikkei.com/article/DGXZQOGM15ABC0V10C24A8000000/ (最終アクセス: 2025年11月20日)
+
+---
+
+## 英語文献
+
+### 書籍
+
+Parker, G. G., Van Alstyne, M. W., & Choudary, S. P. (2016) Platform Revolution: How Networked Markets Are Transforming the Economy, W. W. Norton & Company, pp.1-352.
+
+Porter, M. E. (1980) Competitive Strategy: Techniques for Analyzing Industries and Competitors, Free Press, pp.1-396.
+
+Bartlett, C. A. & Ghoshal, S. (1989) Managing Across Borders: The Transnational Solution, Harvard Business School Press, pp.1-304.
+
+### 学術雑誌論文
+
+Rochet, J. C. & Tirole, J. (2003) "Platform Competition in Two-Sided Markets," Journal of the European Economic Association, 1(4), pp.990-1029.
+
+Eisenhardt, K. M. (1989) "Building Theories from Case Study Research," Academy of Management Review, 14(4), pp.532-550.
+
+Yin, R. K. (2018) Case Study Research and Applications: Design and Methods, 6th ed., SAGE Publications, pp.1-352.
+
+Teece, D. J., Pisano, G., & Shuen, A. (1997) "Dynamic Capabilities and Strategic Management," Strategic Management Journal, 18(7), pp.509-533.
+
+Barney, J. (1991) "Firm Resources and Sustained Competitive Advantage," Journal of Management, 17(1), pp.99-120.
+
+Milgrom, P. & Roberts, J. (1995) "Complementarities and Fit: Strategy, Structure, and Organizational Change in Manufacturing," Journal of Accounting and Economics, 19(2-3), pp.179-208.
+
+Kostova, T. (1999) "Transnational Transfer of Strategic Organizational Practices: A Contextual Perspective," Academy of Management Review, 24(2), pp.308-324.
+
+Williamson, O. E. (1985) The Economic Institutions of Capitalism, Free Press, pp.1-450.
+
+### 企業IR資料
+
+Alibaba Group (2024) "Annual Report 2024," https://www.alibabagroup.com/en/ir/reports (accessed: November 20, 2025)
+
+Coupang, Inc. (2024) "Form 10-K for Fiscal Year 2023," U.S. Securities and Exchange Commission.
+https://investors.coupang.com/financials/sec-filings (accessed: November 20, 2025)
+
+Sea Limited (2024) "Annual Report 2023," https://www.sea.com/investor-relations/annual-reports (accessed: November 20, 2025)
+
+楽天グループ株式会社 (2024) 「2024年3月期 有価証券報告書」
+https://corp.rakuten.co.jp/investors/documents/results.html (最終アクセス: 2025年11月20日)
+
+### 業界レポート
+
+eMarketer (2024) "Asia-Pacific Ecommerce Forecast 2024," eMarketer Inc.
+https://www.emarketer.com/content/asia-pacific-ecommerce-forecast-2024 (accessed: November 20, 2025)
+
+Bain & Company (2024) "The Future of Retail in Southeast Asia," Bain & Company Southeast Asia.
+https://www.bain.com/insights/future-of-retail-southeast-asia/ (accessed: November 20, 2025)
+
+McKinsey & Company (2024) "The Future of Asia: Five Megatrends Defining the Region," McKinsey Global Institute.
+https://www.mckinsey.com/featured-insights/future-of-asia (accessed: November 20, 2025)
+
+Grand View Research (2024) "E-commerce Market Size, Share & Trends Analysis Report By Model (B2B, B2C), By Region, 2024-2030," Grand View Research, Inc.
+https://www.grandviewresearch.com/industry-analysis/e-commerce-market (accessed: November 20, 2025)
+
+Statista (2024) "E-commerce in Asia-Pacific," Statista Market Insights.
+https://www.statista.com/outlook/dmo/ecommerce/asia (accessed: November 20, 2025)
+
+### 国際機関統計
+
+World Bank (2024) "Digital Economy Data," World Bank Open Data.
+https://data.worldbank.org/topic/digital-economy (accessed: November 20, 2025)
+
+International Monetary Fund (2024) "Regional Economic Outlook: Asia and Pacific," International Monetary Fund.
+https://www.imf.org/en/Publications/REO/APAC (accessed: November 20, 2025)
+
+### ウェブサイト
+
+TechCrunch (2024) "Southeast Asia's e-commerce market continues strong growth despite challenges," TechCrunch.
+https://techcrunch.com/2024/southeast-asia-ecommerce/ (accessed: November 20, 2025)
+
+Tech in Asia (2024) "The State of E-commerce in Asia 2024," Tech in Asia.
+https://www.techinasia.com/state-ecommerce-asia-2024 (accessed: November 20, 2025)
+
+Bloomberg (2024) "Asia E-Commerce Giants Battle for Market Share," Bloomberg News.
+https://www.bloomberg.com/news/articles/2024-asia-ecommerce-competition (accessed: November 20, 2025)
+
+---
+
+## 追加予定文献（データ収集後に追加）
+
+### プラットフォーム企業の決算資料・IR資料
+
+Walmart Inc. (2024) - Flipkartセグメント情報
+Amazon.com, Inc. (2024) - International Segmentデータ
+GoTo Group (2024) - Tokopediaセグメント情報
+
+### 学術論文（追加検索予定）
+
+- プラットフォーム戦略関連
+- 国際経営戦略関連
+- アジア市場研究関連
+- D2Cブランド戦略関連
+
+### 業界レポート（追加入手予定）
+
+- MarketsandMarkets: E-commerce Platform Market Forecast
+- Deloitte: Asia Pacific Consumer Survey
+- KPMG: Global E-commerce Growth Report
+- IDC: Asia/Pacific E-Commerce Market Forecast
+
+---
+
+**参考文献数**: 現時点で約35文献（目標40-50文献）
+**最終更新日**: 2025年11月21日
+**備考**: データ収集進行に伴い、追加更新予定

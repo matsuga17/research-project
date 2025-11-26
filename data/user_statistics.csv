@@ -1,0 +1,39 @@
+company,metric,value,unit,year,month,source,notes
+OpenAI ChatGPT,Weekly Active Users,800,Million,2025,September,DemandSage 2025,
+OpenAI ChatGPT,Weekly Active Users,700,Million,2025,July,SaaStr 2025,
+OpenAI ChatGPT,Weekly Active Users,500,Million,2025,March,SaaStr 2025,
+OpenAI ChatGPT,Weekly Active Users,400,Million,2025,February,Feedough 2025,
+OpenAI ChatGPT,Monthly Active Users,461,Million,2025,Latest,Various,
+OpenAI ChatGPT,Daily Active Users,122.6,Million,2025,Latest,SaaStr 2025,
+OpenAI ChatGPT,Daily Prompts,2.5,Billion,2025,Latest,Index.dev 2025,
+OpenAI ChatGPT,Monthly Visits,5.8,Billion,2025,Latest,DemandSage 2025,
+OpenAI ChatGPT,Daily Visits,193.33,Million,2025,Latest,DemandSage 2025,
+OpenAI ChatGPT,App Downloads,64.27,Million,2025,August,DemandSage 2025,Monthly
+OpenAI ChatGPT,Cumulative App Downloads,80,Million,2024-2025,Cumulative,Business of Apps,Since May 2024 launch
+Google Gemini,Monthly Active Users,450,Million,2025,July,Backlinko 2025,
+Google Gemini,Monthly Active Users,400,Million,2025,May,SQ Magazine 2025,
+Google Gemini,Daily Active Users,35,Million,2025,Latest,Business of Apps,
+Google Gemini,Monthly Visits,284.1,Million,2025,February,DoIT Software 2025,
+Google Gemini,AI Overviews Users,2,Billion,2025,July,AppLabX 2025,Monthly via Search
+Google Gemini,AI Overviews Users,1.5,Billion,2025,May,AboutChromebooks 2025,Monthly via Search
+Google Gemini,App Downloads,75,Million,2024,Annual,Business of Apps,
+Google Gemini,Deployed Countries,182,Countries,2025,Mid,SQ Magazine 2025,
+Google Gemini,Educational Users,14.5,Million,2025,Latest,SQ Magazine 2025,Via Google for Education
+Anthropic Claude,Monthly Active Users,16,Million,2025,January,TapTwice 2025,
+Anthropic Claude,Monthly Active Users,18.8,Million,2024,November,TapTwice 2025,
+Anthropic Claude,User Growth,-15,Percent,2024-2025,Nov-Jan,TapTwice 2025,Decline
+Perplexity,Monthly Active Users,22,Million,2025,Latest,SaaStr 2025,
+Perplexity,Monthly Visits,110.4,Million,2025,March,SaaStr 2025,Similarweb
+Perplexity,Monthly Queries,780,Million,2025,May,SaaStr 2025,
+Microsoft Copilot,Monthly Active Users,80-100,Million,2025,Estimated,Analysis,Estimated range
+OpenAI,Enterprise Users,3,Million,2025,August,SaaStr 2025,Paying business users
+OpenAI,Enterprise Users,2,Million,2025,February,SaaStr 2025,
+OpenAI,Enterprise Users,0.6,Million,2024,April,Feedough 2025,
+Google Gemini,US Enterprise Adoption,46,Percent,2025,Latest,AppLabX 2025,Of US enterprises
+OpenAI,Fortune 500 Adoption,92,Percent,2025,Latest,Feedough 2025,Using OpenAI products
+Anthropic,Deloitte Deployment,470000,Employees,2025,October,Sacra 2025,Largest enterprise deployment
+Google Gemini,US Traffic Share,17.54,Percent,2025,Latest,DoIT Software 2025,
+Google Gemini,India Traffic Share,9.04,Percent,2025,Latest,DoIT Software 2025,
+Google Gemini,Indonesia Traffic Share,5.25,Percent,2025,Latest,DoIT Software 2025,
+OpenAI ChatGPT,US Traffic Share,19,Percent,2025,Latest,Feedough 2025,
+OpenAI ChatGPT,India Traffic Share,7,Percent,2025,Latest,Feedough 2025,

@@ -1,0 +1,133 @@
+2025-11-01 08:56:26,050 - INFO - ================================================================================
+2025-11-01 08:56:26,050 - INFO - PHASE 1: DATA COLLECTION
+2025-11-01 08:56:26,050 - INFO - ================================================================================
+2025-11-01 08:56:26,050 - INFO - Fetching company list from EDINET...
+2025-11-01 08:56:26,050 - INFO - Found 15 companies
+2025-11-01 08:56:26,050 - INFO - Collecting financial data for 15 firms, 14 years...
+2025-11-01 08:56:26,053 - INFO - Collected 210 firm-year observations
+2025-11-01 08:56:26,053 - INFO - Collecting patent data from USPTO...
+2025-11-01 08:56:26,054 - INFO - Collected patent data for 15 firms
+2025-11-01 08:56:26,054 - INFO - Collecting World Bank data...
+2025-11-01 08:56:26,054 - INFO - Collected macro data for 14 years
+2025-11-01 08:56:26,057 - INFO - Raw data saved: 210 observations
+2025-11-01 08:56:26,057 - INFO - 
+================================================================================
+2025-11-01 08:56:26,057 - INFO - PHASE 2: DATA CLEANING & VARIABLE CONSTRUCTION
+2025-11-01 08:56:26,057 - INFO - ================================================================================
+2025-11-01 08:56:26,057 - INFO - Cleaning data and constructing variables...
+2025-11-01 08:56:26,060 - INFO - Data cleaning: 210 → 210 observations (0 dropped)
+2025-11-01 08:56:26,063 - INFO - Cleaned data saved: 210 observations
+2025-11-01 08:56:26,063 - INFO - 
+================================================================================
+2025-11-01 08:56:26,063 - INFO - PHASE 3: DESCRIPTIVE STATISTICS
+2025-11-01 08:56:26,063 - INFO - ================================================================================
+2025-11-01 08:56:26,063 - INFO - Generating descriptive statistics...
+2025-11-01 08:56:26,070 - WARNING - High correlations detected:
+2025-11-01 08:56:26,071 - WARNING -   patent_count <-> high_tech: 0.93
+2025-11-01 08:56:26,071 - INFO - 
+================================================================================
+2025-11-01 08:56:26,071 - INFO - PHASE 4: REGRESSION ANALYSIS
+2025-11-01 08:56:26,071 - INFO - ================================================================================
+2025-11-01 08:56:26,071 - INFO - Running regression analysis...
+2025-11-01 08:56:26,092 - ERROR - Error: 
+The model cannot be estimated. The included effects have fully absorbed
+one or more of the variables. This occurs when one or more of the dependent
+variable is perfectly explained using the effects included in the model.
+
+The following variables or variable combinations have been fully absorbed
+or have become perfectly collinear after effects are removed:
+
+          log_age
+
+Set drop_absorbed=True to automatically drop absorbed variables.
+Traceback (most recent call last):
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/scripts/japanese_firms_roa.py", line 672, in main
+    models = run_regressions(df, output_dir)
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/scripts/japanese_firms_roa.py", line 403, in run_regressions
+    ).fit(cov_type='clustered', cluster_entity=True)
+      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/research_env/lib/python3.13/site-packages/linearmodels/panel/model.py", line 1941, in fit
+    check_absorbed(x, [str(var) for var in self.exog.vars])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/research_env/lib/python3.13/site-packages/linearmodels/panel/utility.py", line 475, in check_absorbed
+    raise AbsorbingEffectError(msg)
+linearmodels.panel.utility.AbsorbingEffectError: 
+The model cannot be estimated. The included effects have fully absorbed
+one or more of the variables. This occurs when one or more of the dependent
+variable is perfectly explained using the effects included in the model.
+
+The following variables or variable combinations have been fully absorbed
+or have become perfectly collinear after effects are removed:
+
+          log_age
+
+Set drop_absorbed=True to automatically drop absorbed variables.
+
+
+================================================================================
+JAPANESE FIRMS R&D AND PERFORMANCE STUDY
+Strategic Management Research Hub
+================================================================================
+Start time: 2025-11-01 08:56:26.050485
+
+
+================================================================================
+TABLE 1: SAMPLE COMPOSITION BY INDUSTRY
+================================================================================
+Industry  N Firms  Avg ROA  Avg R&D Intensity  % of Sample
+    ゴム製品        1 0.044085           0.045422          6.7
+      化学        2 0.043497           0.042091         13.3
+      機械        1 0.039060           0.046706          6.7
+    繊維製品        1 0.045148           0.046819          6.7
+   輸送用機器        2 0.041213           0.040065         13.3
+    電気機器        8 0.046962           0.043809         53.3
+
+================================================================================
+TABLE 2: DESCRIPTIVE STATISTICS
+================================================================================
+                N    mean     std     min     25%     50%     75%     max
+roa           210   0.045   0.020   0.011   0.027   0.044   0.063   0.079
+rd_intensity  210   0.044   0.018   0.016   0.032   0.040   0.051   0.098
+log_assets    210  15.451   0.590  14.018  15.048  15.538  15.978  16.296
+leverage      210   0.404   0.111   0.206   0.312   0.409   0.496   0.594
+log_age       210   3.591   0.112   3.401   3.497   3.597   3.689   3.761
+patent_count  210  36.419  16.637  10.000  20.000  40.500  51.000  78.000
+high_tech     210   0.533   0.500   0.000   0.000   1.000   1.000   1.000
+
+================================================================================
+TABLE 3: CORRELATION MATRIX
+================================================================================
+               roa  rd_intensity  log_assets  leverage  log_age  patent_count  high_tech
+roa           1.00         -0.05        0.04     -0.09     0.11          0.10       0.11
+rd_intensity -0.05          1.00        0.03     -0.03    -0.04          0.01       0.01
+log_assets    0.04          0.03        1.00     -0.03     0.18         -0.05       0.00
+leverage     -0.09         -0.03       -0.03      1.00    -0.07          0.02      -0.01
+log_age       0.11         -0.04        0.18     -0.07     1.00          0.01       0.00
+patent_count  0.10          0.01       -0.05      0.02     0.01          1.00       0.93
+high_tech     0.11          0.01        0.00     -0.01     0.00          0.93       1.00
+Traceback (most recent call last):
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/scripts/japanese_firms_roa.py", line 709, in <module>
+    main()
+    ~~~~^^
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/scripts/japanese_firms_roa.py", line 672, in main
+    models = run_regressions(df, output_dir)
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/scripts/japanese_firms_roa.py", line 403, in run_regressions
+    ).fit(cov_type='clustered', cluster_entity=True)
+      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/research_env/lib/python3.13/site-packages/linearmodels/panel/model.py", line 1941, in fit
+    check_absorbed(x, [str(var) for var in self.exog.vars])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/changu/Desktop/研究/skills/user/strategic-management-research-hub/research_env/lib/python3.13/site-packages/linearmodels/panel/utility.py", line 475, in check_absorbed
+    raise AbsorbingEffectError(msg)
+linearmodels.panel.utility.AbsorbingEffectError: 
+The model cannot be estimated. The included effects have fully absorbed
+one or more of the variables. This occurs when one or more of the dependent
+variable is perfectly explained using the effects included in the model.
+
+The following variables or variable combinations have been fully absorbed
+or have become perfectly collinear after effects are removed:
+
+          log_age
+
+Set drop_absorbed=True to automatically drop absorbed variables.
+

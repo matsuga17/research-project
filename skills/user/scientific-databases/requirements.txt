@@ -1,0 +1,127 @@
+# Scientific Databases - Python Dependencies
+# Version 1.0
+
+# ============================================================================
+# Core Dependencies
+# ============================================================================
+requests>=2.31.0
+urllib3>=2.0.0
+python-dateutil>=2.8.2
+
+# ============================================================================
+# Data Manipulation & Analysis
+# ============================================================================
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# ============================================================================
+# Biological Databases (Core)
+# ============================================================================
+biopython>=1.81
+bioservices>=1.11.2
+
+# ============================================================================
+# Literature Databases (PubMed, bioRxiv)
+# ============================================================================
+# Biopython covers PubMed (Bio.Entrez)
+# requests covers bioRxiv API
+
+# ============================================================================
+# Protein Databases
+# ============================================================================
+# UniProt - covered by requests + biopython
+# PDB - biopython + rcsb-api
+rcsb-api>=1.0.0
+# AlphaFold - biopython
+# STRING - requests
+
+# ============================================================================
+# Genomics & Gene Databases
+# ============================================================================
+# NCBI Gene - biopython (E-utilities)
+# Ensembl - requests
+# GEO - GEOparse (optional, for advanced use)
+# GEOparse>=2.0.3
+mygene>=3.2.2
+
+# ============================================================================
+# Drug & Chemical Databases
+# ============================================================================
+# DrugBank
+drugbank-downloader>=0.1.0
+bioversions>=0.5.0
+lxml>=4.9.0
+
+# ChEMBL
+chembl-webresource-client>=0.10.8
+
+# PubChem
+pubchempy>=1.0.4
+
+# Chemical informatics (optional - can be challenging to install)
+# rdkit>=2023.3.1  # Uncomment if needed, may require conda
+
+# ============================================================================
+# Pathway & Systems Databases
+# ============================================================================
+# KEGG - bioservices or requests
+# Reactome - requests
+# Open Targets - requests
+
+# ============================================================================
+# Network Analysis (STRING)
+# ============================================================================
+networkx>=3.0
+python-louvain>=0.16
+
+# ============================================================================
+# Visualization
+# ============================================================================
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ============================================================================
+# Text Analysis (for literature processing)
+# ============================================================================
+nltk>=3.8.0
+# vaderSentiment>=3.3.2  # Uncomment if needed
+
+# ============================================================================
+# Testing
+# ============================================================================
+pytest>=7.4.0
+
+# ============================================================================
+# Utilities
+# ============================================================================
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+
+# ============================================================================
+# Optional: Google Cloud (for AlphaFold bulk downloads)
+# ============================================================================
+# google-cloud-bigquery>=3.11.0
+# gsutil>=5.25
+
+# ============================================================================
+# Optional: Jupyter Integration
+# ============================================================================
+# jupyter>=1.0.0
+# ipykernel>=6.25.0
+
+# ============================================================================
+# Platform-specific notes:
+# ============================================================================
+# macOS: All packages should install cleanly
+# Linux: May need build-essential, python3-dev
+# Windows: Most packages work, RDKit may need conda
+#
+# For RDKit installation issues:
+#   conda create -n scientific-db python=3.10
+#   conda activate scientific-db  
+#   conda install -c conda-forge rdkit
+#   pip install -r requirements.txt
+#
+# Minimum Python version: 3.9
+# Recommended: Python 3.10 or 3.11

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- Vertical axis label -->
+  <text x="30" y="400" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle" transform="rotate(-90 30 400)">市場成熟度（高→低）</text>
+  
+  <!-- Arrow indicating maturity increase -->
+  <line x1="30" y1="700" x2="30" y2="80" stroke="#333333" stroke-width="4" marker-end="url(#arrowhead)"/>
+  
+  <!-- Layer 1: Super-mature (China, Korea) -->
+  <rect x="100" y="90" width="850" height="140" fill="#1a5490" stroke="#000000" stroke-width="3" rx="8"/>
+  <text x="525" y="125" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">第1層：超成熟市場（中国・韓国）</text>
+  <text x="120" y="160" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">特徴：デジタル浸透率90%超、自国プラットフォーム支配、ソーシャルコマース統合、成長鈍化</text>
+  <text x="120" y="185" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">主要プレイヤー：Tmall/Taobao, WeChat, Coupang, Naver</text>
+  <text x="120" y="210" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffcc00">最適戦略：ハイブリッド戦略（大規模市場）/ 垂直統合戦略（小規模市場）</text>
+  
+  <!-- Layer 2: Mature (Japan) -->
+  <rect x="100" y="250" width="850" height="140" fill="#2874a6" stroke="#000000" stroke-width="3" rx="8"/>
+  <text x="525" y="285" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">第2層：成熟市場（日本）</text>
+  <text x="120" y="320" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">特徴：デジタル浸透率70%、慎重な消費者、品質重視、人口減少、成長鈍化（年8%）</text>
+  <text x="120" y="345" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">主要プレイヤー：楽天, Amazon JP, Yahoo! Shopping</text>
+  <text x="120" y="370" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffcc00">最適戦略：品質重視型ハイブリッド戦略</text>
+  
+  <!-- Layer 3: Rapid Growth (India) -->
+  <rect x="100" y="410" width="850" height="140" fill="#52be80" stroke="#000000" stroke-width="3" rx="8"/>
+  <text x="525" y="445" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">第3層：急成長市場（インド）</text>
+  <text x="120" y="480" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">特徴：デジタル浸透率急拡大（50%）、爆発的成長（CAGR 40%）、巨大な未開拓市場</text>
+  <text x="120" y="505" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">主要プレイヤー：Flipkart, Amazon India, Nykaa, Meesho</text>
+  <text x="120" y="530" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffcc00">最適戦略：エコシステム戦略（第三者販売者動員型）</text>
+  
+  <!-- Layer 4: Emerging (Southeast Asia) -->
+  <rect x="100" y="570" width="850" height="140" fill="#f39c12" stroke="#000000" stroke-width="3" rx="8"/>
+  <text x="525" y="605" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">第4層：新興市場（東南アジア ASEAN-6）</text>
+  <text x="120" y="640" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">特徴：中程度デジタル浸透率、ソーシャルコマース先導、インフラ格差大、制度的多様性高</text>
+  <text x="120" y="665" font-family="Arial, sans-serif" font-size="15" fill="#ffffff">主要プレイヤー：Shopee, Tokopedia, Lazada, TikTok Shop</text>
+  <text x="120" y="690" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">最適戦略：ローカライズ型ハイブリッド戦略（国別カスタマイズ）</text>
+  
+  <!-- Right side: Strategic characteristics bar -->
+  <rect x="970" y="90" width="10" height="140" fill="#1a5490"/>
+  <rect x="970" y="250" width="10" height="140" fill="#2874a6"/>
+  <rect x="970" y="410" width="10" height="140" fill="#52be80"/>
+  <rect x="970" y="570" width="10" height="140" fill="#f39c12"/>
+  
+  <!-- Bottom legend -->
+  <rect x="100" y="730" width="850" height="1" fill="#666666"/>
+  
+  <!-- Arrow definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#333333"/>
+    </marker>
+  </defs>
+  
+</svg>

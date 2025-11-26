@@ -1,0 +1,127 @@
+# 構成概念の定義：Tutorial 01用
+# 資源ベース理論（RBV）に基づく組織能力と企業業績の測定
+
+constructs:
+  organizational_capability:
+    description: "組織能力：RBVに基づく多次元的測定"
+    items:
+      - OC1  # R&D投資比率
+      - OC2  # 特許出願数
+      - OC3  # 新製品開発サイクル（逆転）
+      - OC4  # 従業員訓練投資比率
+      - OC5  # プロセス改善提案数
+    
+    # 逆転項目の指定
+    reverse_items:
+      - OC3  # 開発サイクルが短いほど高能力
+    
+    # 理論的根拠
+    theoretical_basis: "Barney (1991) Resource-Based View; Teece et al. (1997) Dynamic Capabilities"
+    
+    # 測定項目の詳細
+    item_descriptions:
+      OC1: "R&D投資額（対売上高比率、%）"
+      OC2: "特許出願数（年間）"
+      OC3: "新製品開発サイクル（日数）※逆転項目"
+      OC4: "従業員訓練投資額（対売上高比率、%）"
+      OC5: "プロセス改善提案数（年間、従業員千人当たり）"
+    
+  firm_performance:
+    description: "企業業績：財務的・市場的成果の統合的測定"
+    items:
+      - FP1  # ROA
+      - FP2  # 売上成長率
+      - FP3  # 市場シェア
+      - FP4  # Tobin's Q
+    
+    theoretical_basis: "Venkatraman & Ramanujam (1986) Performance Measurement Framework"
+    
+    # 測定項目の詳細
+    item_descriptions:
+      FP1: "ROA（総資産利益率、%）"
+      FP2: "売上成長率（3年平均、%）"
+      FP3: "市場シェア（産業内相対順位、0-1）"
+      FP4: "株主価値創造（Tobin's Q）"
+
+# 妥当性検証の設定
+validation:
+  reliability:
+    - cronbach_alpha  # 内的整合性
+    - composite_reliability  # 合成信頼性
+    
+  convergent_validity:
+    - average_variance_extracted  # AVE ≥ 0.5
+    
+  discriminant_validity:
+    - fornell_larcker  # √AVE > 構成概念間相関
+    - htmt  # HTMT < 0.85
+
+  # 信頼性基準
+  thresholds:
+    cronbach_alpha_acceptable: 0.70
+    cronbach_alpha_good: 0.80
+    composite_reliability_acceptable: 0.70
+    composite_reliability_good: 0.80
+    ave_minimum: 0.50
+    htmt_threshold: 0.85
+
+# 確認的因子分析（CFA）の設定
+cfa:
+  method: "ml"  # 最尤推定法（Maximum Likelihood）
+  
+  # モデル適合度指標
+  fit_indices:
+    - chi_square  # カイ二乗検定
+    - cfi  # 比較適合度指標
+    - tli  # Tucker-Lewis指標
+    - rmsea  # 近似二乗平均平方根誤差
+    - srmr  # 標準化残差二乗平均平方根
+  
+  # 適合度基準（Hu & Bentler, 1999）
+  fit_thresholds:
+    cfi_good: 0.95
+    cfi_acceptable: 0.90
+    tli_good: 0.95
+    tli_acceptable: 0.90
+    rmsea_good: 0.06
+    rmsea_acceptable: 0.08
+    srmr_good: 0.05
+    srmr_acceptable: 0.08
+  
+  # 推定オプション
+  options:
+    standardized: true  # 標準化解の出力
+    robust: false  # 頑健標準誤差（通常はfalse）
+    missing: "listwise"  # 欠損値処理：リストワイズ削除
+
+# データ要件
+data_requirements:
+  minimum_sample_size: 200  # CFA実施の最小サンプルサイズ
+  recommended_sample_size: 250  # 推奨サンプルサイズ
+  missing_threshold: 0.05  # 許容欠損率（5%）
+  
+# レポート出力設定
+output:
+  formats:
+    - json  # 機械可読形式
+    - markdown  # 人間可読形式
+  
+  include:
+    - descriptive_statistics  # 記述統計
+    - correlation_matrix  # 相関行列
+    - reliability_analysis  # 信頼性分析
+    - validity_analysis  # 妥当性分析
+    - cfa_results  # CFA結果
+    - diagnostic_plots  # 診断プロット
+
+# 参考文献
+references:
+  primary:
+    - "Barney, J. (1991). Firm resources and sustained competitive advantage. Journal of Management, 17(1), 99-120."
+    - "Fornell, C., & Larcker, D. F. (1981). Evaluating structural equation models. Journal of Marketing Research, 18(1), 39-50."
+    - "Hu, L. T., & Bentler, P. M. (1999). Cutoff criteria for fit indexes. Structural Equation Modeling, 6(1), 1-55."
+  
+  supporting:
+    - "Churchill, G. A. (1979). A paradigm for developing better measures. Journal of Marketing Research, 16(1), 64-73."
+    - "Messick, S. (1995). Validity of psychological assessment. American Psychologist, 50(9), 741-749."
+    - "Henseler, J., et al. (2015). A new criterion for discriminant validity. Journal of the Academy of Marketing Science, 43(1), 115-135."

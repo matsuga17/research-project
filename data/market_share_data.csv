@@ -1,0 +1,23 @@
+company,market_segment,market_share_percent,metric_type,year,quarter,source
+OpenAI,Consumer,59.5,Market Share,2025,Q3,MarkTechPost 2025.10.25
+OpenAI,Consumer,60.5,Market Share,2025,Q3,Visual Capitalist 2025.9
+Microsoft Copilot,Consumer,14.3,Market Share,2025,Q3,MarkTechPost 2025.10.25
+Google Gemini,Consumer,13.5,Market Share,2025,Q3,SQ Magazine 2025
+Google Gemini,Consumer,13.3,Market Share,2025,Q1,Magecomp 2025.2
+Perplexity,Consumer,6.2,Market Share,2025,Q3,SQ Magazine 2025
+Perplexity,Consumer,8.03,Market Share,2025,Q2,SaaStr 2025
+Claude,Consumer,3.2,Market Share,2025,Q3,SQ Magazine 2025
+Anthropic Claude,Enterprise,32,LLM Usage Share,2025,Mid-year,Menlo Ventures 2025
+OpenAI,Enterprise,25,LLM Usage Share,2025,Mid-year,Menlo Ventures 2025
+Google,Enterprise,20,LLM Usage Share,2025,Mid-year,Menlo Ventures 2025
+Meta Llama,Enterprise,9,LLM Usage Share,2025,Mid-year,Menlo Ventures 2025
+DeepSeek,Enterprise,1,LLM Usage Share,2025,Mid-year,Menlo Ventures 2025
+Anthropic Claude,Coding,42,Market Share,2025,Mid-year,Menlo Ventures 2025
+OpenAI,Coding,21,Market Share,2025,Mid-year,Menlo Ventures 2025
+Google,Coding,15-18,Market Share (Estimated),2025,Mid-year,Analysis
+Meta Llama,Coding,12,Market Share,2025,Mid-year,Analysis
+OpenAI,Enterprise,50,LLM Usage Share,2023,Annual,Menlo Ventures 2025
+Anthropic Claude,Enterprise,12,LLM Usage Share,2023,Annual,Menlo Ventures 2025
+OpenAI,Consumer,76,Market Share,2024,Q1,Whop 2025
+OpenAI,Consumer,62.5,B2C Subscription Sales,2024,November,Backlinko 2025
+Google Gemini,AI Tool Sector,20,Market Share,2025,January,Magecomp 2025.2

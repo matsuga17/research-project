@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1100">
+  <!-- Background -->
+  <rect width="1400" height="1100" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <rect x="50" y="30" width="1300" height="60" fill="#1a5490" stroke="#000000" stroke-width="3" rx="10"/>
+  <text x="700" y="70" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">本研究の学術的・実務的貢献の全体像</text>
+  
+  <!-- Top Section: Research Question -->
+  <rect x="250" y="130" width="900" height="100" fill="#e8f4f8" stroke="#1a5490" stroke-width="3" rx="10"/>
+  <text x="700" y="165" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1a5490" text-anchor="middle">リサーチクエスチョン（RQ）</text>
+  <text x="700" y="195" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">「アジア太平洋E-commerce市場における市場成熟度の差異は、</text>
+  <text x="700" y="215" font-family="Arial, sans-serif" font-size="13" fill="#333333" text-anchor="middle">プラットフォーム企業の事業戦略パターンにどのような構造的差異をもたらすのか？」</text>
+  
+  <!-- Arrow down -->
+  <line x1="700" y1="230" x2="700" y2="270" stroke="#333333" stroke-width="4" marker-end="url(#arrowhead)"/>
+  
+  <!-- Middle Section: Methodology -->
+  <rect x="250" y="280" width="900" height="80" fill="#f0f0f0" stroke="#333333" stroke-width="2" rx="8"/>
+  <text x="700" y="310" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">研究方法論</text>
+  <text x="700" y="335" font-family="Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">複数ケーススタディ法（8社）× クロスケース分析 × 理論構築</text>
+  <text x="700" y="352" font-family="Arial, sans-serif" font-size="12" fill="#555555" text-anchor="middle">データソース：IR資料、財務データ、業界レポート、ニュース記事のトライアンギュレーション</text>
+  
+  <!-- Arrow down split to two -->
+  <line x1="700" y1="360" x2="700" y2="390" stroke="#333333" stroke-width="4"/>
+  <line x1="700" y1="390" x2="350" y2="420" stroke="#333333" stroke-width="4" marker-end="url(#arrowhead)"/>
+  <line x1="700" y1="390" x2="1050" y2="420" stroke="#333333" stroke-width="4" marker-end="url(#arrowhead)"/>
+  
+  <!-- Left Branch: Academic Contributions -->
+  <rect x="100" y="430" width="500" height="450" fill="#e8f5e9" stroke="#388e3c" stroke-width="4" rx="12"/>
+  <text x="350" y="470" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#388e3c" text-anchor="middle">学術的貢献</text>
+  
+  <!-- Contribution 1 -->
+  <rect x="130" y="490" width="440" height="75" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="6"/>
+  <text x="350" y="515" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">①プラットフォーム理論の拡張</text>
+  <text x="150" y="535" font-family="Arial, sans-serif" font-size="11" fill="#333333">「市場成熟度」という新変数の導入</text>
+  <text x="150" y="550" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 文脈依存的プラットフォーム戦略論の構築</text>
+  
+  <!-- Contribution 2 -->
+  <rect x="130" y="575" width="440" height="75" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="6"/>
+  <text x="350" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">②国際経営戦略論の精緻化</text>
+  <text x="150" y="620" font-family="Arial, sans-serif" font-size="11" fill="#333333">「グローバル統合 vs ローカル適応」二分法の超克</text>
+  <text x="150" y="635" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 市場成熟度に応じた段階的適応モデルの提示</text>
+  
+  <!-- Contribution 3 -->
+  <rect x="130" y="660" width="440" height="75" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="6"/>
+  <text x="350" y="685" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">③多元的理論統合</text>
+  <text x="150" y="705" font-family="Arial, sans-serif" font-size="11" fill="#333333">制度理論 + 動的能力論 + 取引コスト経済学</text>
+  <text x="150" y="720" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 市場成熟度適応型戦略理論の構築</text>
+  
+  <!-- Contribution 4 -->
+  <rect x="130" y="745" width="440" height="75" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="6"/>
+  <text x="350" y="770" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32" text-anchor="middle">④因果メカニズムの解明</text>
+  <text x="150" y="790" font-family="Arial, sans-serif" font-size="11" fill="#333333">5つの中核命題 + 3つの因果メカニズム</text>
+  <text x="150" y="805" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 実証的に検証された理論的枠組み</text>
+  
+  <text x="350" y="845" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1b5e20" text-anchor="middle">対象読者：学術研究者</text>
+  <text x="350" y="865" font-family="Arial, sans-serif" font-size="11" fill="#555555" text-anchor="middle">国際経営戦略論、プラットフォーム経済、</text>
+  <text x="350" y="880" font-family="Arial, sans-serif" font-size="11" fill="#555555" text-anchor="middle">制度理論、アジア市場研究の研究者</text>
+  
+  <!-- Right Branch: Practical Contributions -->
+  <rect x="800" y="430" width="500" height="450" fill="#e3f2fd" stroke="#1976d2" stroke-width="4" rx="12"/>
+  <text x="1050" y="470" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1976d2" text-anchor="middle">実務的貢献</text>
+  
+  <!-- Practical 1 -->
+  <rect x="830" y="490" width="440" height="75" fill="#bbdefb" stroke="#1976d2" stroke-width="2" rx="6"/>
+  <text x="1050" y="515" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0d47a1" text-anchor="middle">①市場層別戦略選択ガイドライン</text>
+  <text x="850" y="535" font-family="Arial, sans-serif" font-size="11" fill="#333333">各市場層における最適戦略パターンの提示</text>
+  <text x="850" y="550" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 市場参入・拡大戦略の意思決定支援</text>
+  
+  <!-- Practical 2 -->
+  <rect x="830" y="575" width="440" height="75" fill="#bbdefb" stroke="#1976d2" stroke-width="2" rx="6"/>
+  <text x="1050" y="600" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0d47a1" text-anchor="middle">②段階的戦略進化の設計</text>
+  <text x="850" y="620" font-family="Arial, sans-serif" font-size="11" fill="#333333">市場成熟に応じた戦略調整プロセス</text>
+  <text x="850" y="635" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 動的環境適応の実行計画</text>
+  
+  <!-- Practical 3 -->
+  <rect x="830" y="660" width="440" height="75" fill="#bbdefb" stroke="#1976d2" stroke-width="2" rx="6"/>
+  <text x="1050" y="685" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0d47a1" text-anchor="middle">③D2Cブランドの依存度管理</text>
+  <text x="850" y="705" font-family="Arial, sans-serif" font-size="11" fill="#333333">市場別最適プラットフォーム依存度</text>
+  <text x="850" y="720" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 成長性と収益性のバランス設計</text>
+  
+  <!-- Practical 4 -->
+  <rect x="830" y="745" width="440" height="75" fill="#bbdefb" stroke="#1976d2" stroke-width="2" rx="6"/>
+  <text x="1050" y="770" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0d47a1" text-anchor="middle">④投資評価フレームワーク</text>
+  <text x="850" y="790" font-family="Arial, sans-serif" font-size="11" fill="#333333">市場成熟度×戦略適合性による企業評価</text>
+  <text x="850" y="805" font-family="Arial, sans-serif" font-size="11" fill="#555555">→ 投資判断とリスク評価の指標</text>
+  
+  <text x="1050" y="845" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#01579b" text-anchor="middle">対象読者：実務家</text>
+  <text x="1050" y="865" font-family="Arial, sans-serif" font-size="11" fill="#555555" text-anchor="middle">E-commerce企業経営者、戦略コンサルタント、</text>
+  <text x="1050" y="880" font-family="Arial, sans-serif" font-size="11" fill="#555555" text-anchor="middle">投資家・アナリスト、政策立案者</text>
+  
+  <!-- Bottom: Integration -->
+  <rect x="250" y="920" width="900" height="140" fill="#fff3e0" stroke="#f57c00" stroke-width="4" rx="12"/>
+  <text x="700" y="955" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f57c00" text-anchor="middle">統合的価値提案</text>
+  
+  <text x="700" y="985" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">市場成熟度という新しい理論的視点の導入により、</text>
+  <text x="700" y="1005" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">アジア太平洋E-commerce市場の戦略的多様性を体系的に理解する</text>
+  <text x="700" y="1025" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">学術的に厳密かつ実務的に有用な統合的枠組みを提供</text>
+  
+  <text x="700" y="1050" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#e65100" text-anchor="middle">理論と実践の架橋による知識創造への貢献</text>
+  
+  <!-- Arrow definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#333333"/>
+    </marker>
+  </defs>
+  
+</svg>

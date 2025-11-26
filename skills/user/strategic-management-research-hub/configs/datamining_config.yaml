@@ -1,0 +1,454 @@
+# Strategic Management Research Hub - Data Mining Configuration
+# ================================================================
+# Version: 3.1
+# Purpose: Centralized configuration for all data mining workflows
+# Last Updated: 2025-11-01
+
+# ============================================================================
+# PROJECT SETTINGS
+# ============================================================================
+project:
+  name: "strategic_research_project"
+  output_dir: "./datamining_output/"
+  random_seed: 42
+  logging_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  save_intermediate: true
+  overwrite_existing: false
+
+# ============================================================================
+# DATA SETTINGS
+# ============================================================================
+data:
+  # Panel data identifiers
+  firm_id: "gvkey"           # Compustat: gvkey, EDINET: seccode
+  time_var: "year"           # or "date", "fiscal_year"
+  
+  # Data sources priority
+  sources:
+    primary: "compustat"     # compustat, edinet, orbis
+    secondary: ["patents", "crsp"]
+    
+  # Sample criteria
+  sample:
+    start_year: 2010
+    end_year: 2023
+    min_observations_per_firm: 3
+    industries: ["manufacturing"]  # SIC 2000-3999, or ["all"]
+    countries: ["US"]  # ["US", "JP", "KR"] or ["all"]
+    
+  # Data quality
+  quality:
+    remove_outliers: true
+    outlier_method: "ensemble"  # ensemble, isolation_forest, lof
+    outlier_contamination: 0.05
+    winsorize: true
+    winsorize_limits: [0.01, 0.99]
+    
+# ============================================================================
+# STRATEGIC GROUP ANALYSIS
+# ============================================================================
+strategic_groups:
+  enabled: true
+  
+  # Features for clustering
+  features:
+    - "rd_intensity"
+    - "advertising_intensity"
+    - "capital_intensity"
+    - "international_sales_ratio"
+    - "vertical_integration"
+    
+  # Clustering parameters
+  method: "kmeans"  # kmeans, hierarchical, gmm, dbscan
+  n_clusters: null  # null = auto-detect optimal k
+  optimal_k_method: "silhouette"  # elbow, silhouette, gap
+  max_k: 10
+  
+  # Preprocessing
+  scale_features: true
+  scaler: "standard"  # standard, robust, minmax
+  
+  # Validation
+  validate: true
+  compute_stability: true
+  
+  # Output
+  save_cluster_profiles: true
+  generate_visualizations: true
+
+# ============================================================================
+# PERFORMANCE PREDICTION
+# ============================================================================
+performance_prediction:
+  enabled: true
+  
+  # Target and features
+  target: "roa_lead1"  # roa, roe, tobin_q, sales_growth
+  features:
+    - "rd_intensity_lag1"
+    - "firm_size_lag1"
+    - "leverage_lag1"
+    - "firm_age"
+    - "industry_concentration"
+    - "env_dynamism"
+  
+  # Model selection
+  model_type: "ensemble"  # linear, tree, ensemble, nn, auto
+  models:
+    ensemble:
+      - "RandomForest"
+      - "GradientBoosting"
+      - "XGBoost"  # if available
+      - "LightGBM"  # if available
+  
+  # Training parameters
+  test_size: 0.2
+  cv_folds: 5
+  tune_hyperparameters: true
+  
+  # Hyperparameter tuning
+  tuning:
+    method: "randomized_search"  # grid_search, randomized_search
+    n_iter: 20
+    scoring: "r2"
+    
+  # Feature engineering
+  feature_engineering:
+    interaction_terms: true
+    polynomial_features: false
+    polynomial_degree: 2
+    
+  # Output
+  save_model: true
+  save_predictions: true
+  save_feature_importance: true
+
+# ============================================================================
+# FEATURE IMPORTANCE ANALYSIS
+# ============================================================================
+feature_importance:
+  enabled: true
+  
+  methods:
+    - "ensemble"       # Random Forest + Gradient Boosting
+    - "permutation"    # Permutation importance
+    - "shap"          # SHAP values (if available)
+  
+  top_n_features: 20
+  
+  # Visualization
+  plot_importance: true
+  plot_type: "horizontal_bar"  # horizontal_bar, vertical_bar, heatmap
+
+# ============================================================================
+# ANOMALY DETECTION
+# ============================================================================
+anomaly_detection:
+  enabled: true
+  
+  features:
+    - "roa"
+    - "rd_intensity"
+    - "leverage"
+    - "sales_growth"
+    
+  method: "ensemble"  # isolation_forest, lof, elliptic, ocsvm, ensemble
+  contamination: 0.05  # Expected proportion of outliers
+  
+  # Output
+  save_outlier_list: true
+  investigate_top_outliers: 10
+
+# ============================================================================
+# TEMPORAL PATTERN ANALYSIS
+# ============================================================================
+temporal_patterns:
+  enabled: true
+  
+  variables:
+    - "rd_intensity"
+    - "capital_intensity"
+    
+  method: "trajectory_clustering"  # trajectory_clustering, change_point
+  
+  # Trajectory clustering
+  trajectory_clustering:
+    n_clusters: 5
+    
+  # Change point detection
+  change_point:
+    threshold: 2.0  # Z-score threshold
+    min_segment_length: 3
+
+# ============================================================================
+# CAUSAL INFERENCE
+# ============================================================================
+causal_inference:
+  enabled: true
+  
+  # ----------------------------------------
+  # Causal Forest (Heterogeneous Effects)
+  # ----------------------------------------
+  causal_forest:
+    enabled: true
+    treatment: "ma_dummy"
+    outcome: "roa_change"
+    controls:
+      - "firm_size"
+      - "leverage"
+      - "firm_age"
+      - "prior_ma_count"
+    heterogeneity_vars:
+      - "firm_size"
+      - "rd_intensity"
+      - "industry_dynamism"
+      - "prior_ma_experience"
+    discrete_treatment: true
+    n_estimators: 100
+    min_samples_leaf: 10
+  
+  # ----------------------------------------
+  # Double Machine Learning
+  # ----------------------------------------
+  dml:
+    enabled: true
+    treatment: "rd_intensity"
+    outcome: "roa_lead2"
+    controls:
+      - "firm_size"
+      - "firm_age"
+      - "leverage"
+      - "cash_ratio"
+      - "tangibility"
+      - "market_to_book"
+      - "sales_growth"
+      - "industry_concentration"
+    discrete_treatment: false
+    cv_folds: 5
+  
+  # ----------------------------------------
+  # Synthetic Control
+  # ----------------------------------------
+  synthetic_control:
+    enabled: false  # Requires specific case study setup
+    treated_unit: "AAPL"
+    treatment_time: "2014-05"
+    outcome_var: "patent_count"
+    donor_pool:
+      - "MSFT"
+      - "GOOG"
+      - "AMZN"
+      - "FB"
+    optimize_method: "L2"
+  
+  # ----------------------------------------
+  # Propensity Score Matching
+  # ----------------------------------------
+  psm:
+    enabled: true
+    treatment: "alliance_formed"
+    outcome: "innovation_output"
+    covariates:
+      - "firm_size"
+      - "rd_intensity"
+      - "prior_alliances"
+      - "firm_age"
+      - "leverage"
+    matching_method: "nearest"
+    n_neighbors: 1
+    caliper: 0.1
+
+# ============================================================================
+# EXPLAINABLE AI (XAI)
+# ============================================================================
+explainability:
+  enabled: true
+  
+  # SHAP (SHapley Additive exPlanations)
+  shap:
+    enabled: true  # Requires shap library
+    sample_size: 100  # Sample for SHAP value computation (speed)
+    plot_summary: true
+    plot_dependence: true
+    top_features: 10
+  
+  # LIME (Local Interpretable Model-agnostic Explanations)
+  lime:
+    enabled: false  # Optional, more computationally intensive
+    n_samples: 5000
+
+# ============================================================================
+# VISUALIZATION
+# ============================================================================
+visualization:
+  style: "seaborn-v0_8-darkgrid"  # matplotlib style
+  dpi: 300
+  figure_format: "png"  # png, pdf, svg
+  save_figures: true
+  
+  color_palette: "viridis"  # viridis, plasma, Set1, tab10
+  
+  # Publication-ready formatting
+  publication_ready: true
+  font_family: "Arial"
+  font_size: 12
+  title_size: 14
+  label_size: 12
+
+# ============================================================================
+# REPORTING
+# ============================================================================
+reporting:
+  generate_html_report: true
+  generate_pdf_report: false  # Requires additional libraries
+  
+  # Report sections
+  include:
+    - "summary_statistics"
+    - "strategic_groups"
+    - "performance_prediction"
+    - "feature_importance"
+    - "anomaly_detection"
+    - "causal_inference"
+    - "recommendations"
+  
+  # Executive summary
+  executive_summary:
+    length: "concise"  # concise, detailed
+    key_findings_limit: 5
+    
+# ============================================================================
+# PERFORMANCE & OPTIMIZATION
+# ============================================================================
+performance:
+  parallel_processing: true
+  n_jobs: -1  # -1 = use all CPUs
+  cache_intermediate: true
+  memory_limit_gb: 16
+
+# ============================================================================
+# REPRODUCIBILITY
+# ============================================================================
+reproducibility:
+  save_config: true
+  save_data_dictionary: true
+  save_processing_log: true
+  version_control: true
+  
+  # Documentation
+  documentation:
+    auto_generate: true
+    include_code: true
+    include_parameters: true
+    include_diagnostics: true
+
+# ============================================================================
+# ADVANCED OPTIONS
+# ============================================================================
+advanced:
+  # Deep Learning (if applicable)
+  deep_learning:
+    enabled: false
+    framework: "pytorch"  # pytorch, tensorflow
+    
+  # GPU acceleration
+  gpu:
+    enabled: false
+    device: "cuda:0"
+  
+  # Distributed computing
+  distributed:
+    enabled: false
+    backend: "dask"  # dask, ray
+    
+  # Cloud integration
+  cloud:
+    enabled: false
+    provider: "aws"  # aws, gcp, azure
+    bucket: ""
+
+# ============================================================================
+# RESEARCH-SPECIFIC SETTINGS
+# ============================================================================
+research:
+  # Theoretical framework
+  theory: "RBV"  # RBV, TCE, Institutional, Dynamic_Capabilities
+  
+  # Research question
+  research_question: "What drives heterogeneous firm performance?"
+  
+  # Hypotheses
+  hypotheses:
+    - "H1: R&D intensity positively affects firm performance"
+    - "H2: Environmental dynamism moderates the R&D-performance relationship"
+  
+  # Target journal
+  target_journal: "SMJ"  # SMJ, AMJ, ASQ, OS, JMS
+  
+  # Robustness checks
+  robustness:
+    alternative_dvs: ["roe", "tobin_q"]
+    alternative_samples: ["exclude_crisis", "balanced_panel"]
+    alternative_specifications: ["lagged_dv", "first_differences"]
+
+# ============================================================================
+# DATA DICTIONARY (Variable Definitions)
+# ============================================================================
+variables:
+  # Dependent Variables
+  roa:
+    description: "Return on Assets"
+    formula: "net_income / total_assets"
+    source: "Compustat"
+    unit: "ratio"
+    
+  roe:
+    description: "Return on Equity"
+    formula: "net_income / common_equity"
+    source: "Compustat"
+    unit: "ratio"
+    
+  tobin_q:
+    description: "Tobin's Q (market-based performance)"
+    formula: "(market_cap + total_debt - cash) / total_assets"
+    source: "Compustat + CRSP"
+    unit: "ratio"
+  
+  # Independent Variables
+  rd_intensity:
+    description: "R&D Intensity"
+    formula: "rd_expenditure / sales"
+    source: "Compustat"
+    unit: "ratio"
+    missing_as_zero: true
+    
+  firm_size:
+    description: "Firm Size (log of total assets)"
+    formula: "log(total_assets)"
+    source: "Compustat"
+    unit: "log_millions_USD"
+    
+  leverage:
+    description: "Financial Leverage"
+    formula: "total_debt / total_assets"
+    source: "Compustat"
+    unit: "ratio"
+    
+  firm_age:
+    description: "Firm Age"
+    formula: "current_year - founding_year"
+    source: "Compustat"
+    unit: "years"
+    
+  # Control Variables
+  industry_concentration:
+    description: "Industry Concentration (HHI)"
+    formula: "sum(market_share^2) at industry level"
+    source: "Computed from Compustat"
+    unit: "index"
+    
+  env_dynamism:
+    description: "Environmental Dynamism"
+    formula: "std(industry_sales) / mean(industry_sales) over 5 years"
+    source: "Computed from Compustat"
+    unit: "coefficient_of_variation"

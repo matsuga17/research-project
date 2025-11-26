@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#ffffff"/>
+  
+  <!-- Title Area -->
+  <rect x="50" y="30" width="1300" height="60" fill="#1a5490" stroke="#000000" stroke-width="2" rx="10"/>
+  <text x="700" y="70" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">市場成熟度適応型プラットフォーム戦略理論の統合的枠組み</text>
+  
+  <!-- Four Major Theories (Top Layer) -->
+  
+  <!-- Theory 1: Platform Theory -->
+  <rect x="80" y="130" width="280" height="120" fill="#e8f4f8" stroke="#1a5490" stroke-width="3" rx="10"/>
+  <text x="220" y="165" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a5490" text-anchor="middle">プラットフォーム理論</text>
+  <text x="220" y="185" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Rochet & Tirole (2003)</text>
+  <text x="220" y="200" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Parker et al. (2016)</text>
+  <text x="100" y="225" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 間接ネットワーク効果</text>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ エコシステム戦略</text>
+  
+  <!-- Theory 2: Institutional Theory -->
+  <rect x="390" y="130" width="280" height="120" fill="#e8f8f0" stroke="#52be80" stroke-width="3" rx="10"/>
+  <text x="530" y="165" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#52be80" text-anchor="middle">制度的距離理論</text>
+  <text x="530" y="185" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Kostova (1999)</text>
+  <text x="530" y="200" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">DiMaggio & Powell (1983)</text>
+  <text x="410" y="225" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 制度的多様性への適応</text>
+  <text x="410" y="240" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ ローカライゼーション</text>
+  
+  <!-- Theory 3: Dynamic Capabilities -->
+  <rect x="700" y="130" width="280" height="120" fill="#fff4e6" stroke="#f39c12" stroke-width="3" rx="10"/>
+  <text x="840" y="165" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f39c12" text-anchor="middle">動的能力理論</text>
+  <text x="840" y="185" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Teece et al. (1997)</text>
+  <text x="840" y="200" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Eisenhardt & Martin (2000)</text>
+  <text x="720" y="225" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 環境変化への適応</text>
+  <text x="720" y="240" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 戦略的柔軟性</text>
+  
+  <!-- Theory 4: Transaction Cost Economics & RBV -->
+  <rect x="1010" y="130" width="280" height="120" fill="#fce8e8" stroke="#c0392b" stroke-width="3" rx="10"/>
+  <text x="1150" y="155" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#c0392b" text-anchor="middle">取引コスト経済学</text>
+  <text x="1150" y="175" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#c0392b" text-anchor="middle">& 資源ベース理論</text>
+  <text x="1150" y="195" font-family="Arial, sans-serif" font-size="11" fill="#333333" text-anchor="middle">Williamson (1985), Barney (1991)</text>
+  <text x="1030" y="220" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 垂直統合の経済性</text>
+  <text x="1030" y="235" font-family="Arial, sans-serif" font-size="12" fill="#555555">→ 組織的相補性</text>
+  
+  <!-- Arrows pointing down to integration -->
+  <line x1="220" y1="250" x2="300" y2="310" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="530" y1="250" x2="500" y2="310" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="840" y1="250" x2="800" y2="310" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="1150" y1="250" x2="900" y2="310" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Integration Layer: Core Propositions -->
+  <rect x="200" y="320" width="900" height="180" fill="#f0f0f0" stroke="#333333" stroke-width="4" rx="15"/>
+  <text x="650" y="355" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1a5490" text-anchor="middle">統合的理論：5つの中核命題</text>
+  
+  <!-- Proposition 1 -->
+  <text x="220" y="390" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">命題1（市場成熟度-戦略パターン適合）</text>
+  <text x="240" y="410" font-family="Arial, sans-serif" font-size="11" fill="#555555">最適戦略は市場成熟度により体系的に異なる</text>
+  
+  <!-- Proposition 2 -->
+  <text x="220" y="435" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">命題2（市場規模調整）</text>
+  <text x="240" y="455" font-family="Arial, sans-serif" font-size="11" fill="#555555">同一成熟度でも市場規模が戦略を調整</text>
+  
+  <!-- Proposition 3 -->
+  <text x="650" y="390" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">命題3（制度的距離複雑性）</text>
+  <text x="670" y="410" font-family="Arial, sans-serif" font-size="11" fill="#555555">制度的距離が戦略複雑性を決定</text>
+  
+  <!-- Proposition 4 -->
+  <text x="650" y="435" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">命題4（動的適応経路依存性）</text>
+  <text x="670" y="455" font-family="Arial, sans-serif" font-size="11" fill="#555555">戦略進化は初期選択により制約</text>
+  
+  <!-- Proposition 5 -->
+  <text x="220" y="480" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#333333">命題5（組織的相補性持続性）</text>
+  <text x="240" y="495" font-family="Arial, sans-serif" font-size="11" fill="#555555">ハイブリッド戦略の相補性が持続的競争優位の源泉</text>
+  
+  <!-- Arrows pointing down to mechanisms -->
+  <line x1="350" y1="500" x2="300" y2="550" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="650" y1="500" x2="650" y2="550" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="950" y1="500" x2="1000" y2="550" stroke="#333333" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Three Causal Mechanisms -->
+  
+  <!-- Mechanism 1 -->
+  <rect x="100" y="560" width="350" height="180" fill="#e3f2fd" stroke="#1976d2" stroke-width="3" rx="10"/>
+  <text x="275" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1976d2" text-anchor="middle">メカニズム1：市場成熟度→垂直統合度</text>
+  <text x="120" y="615" font-family="Arial, sans-serif" font-size="12" fill="#333333">① 市場成熟度↑ → 競争激化 + 差別化余地↓</text>
+  <text x="120" y="638" font-family="Arial, sans-serif" font-size="12" fill="#333333">② 競争激化 → 品質管理 + 効率性が競争優位源泉</text>
+  <text x="120" y="661" font-family="Arial, sans-serif" font-size="12" fill="#333333">③ 品質要求↑ → 垂直統合度↑</text>
+  <text x="120" y="684" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">例：Coupang（韓国超成熟市場での完全垂直統合）</text>
+  <text x="120" y="704" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">理論：取引コスト経済学</text>
+  
+  <!-- Mechanism 2 -->
+  <rect x="500" y="560" width="350" height="180" fill="#e8f5e9" stroke="#388e3c" stroke-width="3" rx="10"/>
+  <text x="675" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#388e3c" text-anchor="middle">メカニズム2：市場規模→エコシステム経済性</text>
+  <text x="520" y="615" font-family="Arial, sans-serif" font-size="12" fill="#333333">① 市場規模↑ → 販売者・消費者プール拡大</text>
+  <text x="520" y="638" font-family="Arial, sans-serif" font-size="12" fill="#333333">② プール拡大 → 間接ネットワーク効果強化</text>
+  <text x="520" y="661" font-family="Arial, sans-serif" font-size="12" fill="#333333">③ ネットワーク効果↑ → エコシステム開放便益↑</text>
+  <text x="520" y="684" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">例：Alibaba（大規模市場でのハイブリッド戦略）</text>
+  <text x="520" y="704" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">理論：プラットフォーム理論</text>
+  
+  <!-- Mechanism 3 -->
+  <rect x="900" y="560" width="350" height="180" fill="#fff3e0" stroke="#f57c00" stroke-width="3" rx="10"/>
+  <text x="1075" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f57c00" text-anchor="middle">メカニズム3：制度的距離→戦略複雑性</text>
+  <text x="920" y="615" font-family="Arial, sans-serif" font-size="12" fill="#333333">① 制度的距離↑ → 標準化戦略の限界</text>
+  <text x="920" y="638" font-family="Arial, sans-serif" font-size="12" fill="#333333">② 標準化限界 → 市場別ローカライゼーション必要</text>
+  <text x="920" y="661" font-family="Arial, sans-serif" font-size="12" fill="#333333">③ ローカライゼーション蓄積 → 複雑戦略パターン</text>
+  <text x="920" y="684" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">例：Sea Limited（東南アジア国別カスタマイズ）</text>
+  <text x="920" y="704" font-family="Arial, sans-serif" font-size="11" font-style="italic" fill="#555555">理論：制度的距離理論</text>
+  
+  <!-- Bottom: Empirical Evidence -->
+  <rect x="200" y="780" width="900" height="180" fill="#fafafa" stroke="#333333" stroke-width="3" rx="10"/>
+  <text x="650" y="815" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle">実証的エビデンス：8社のクロスケース分析</text>
+  
+  <text x="220" y="850" font-family="Arial, sans-serif" font-size="13" fill="#1a5490" font-weight="bold">超成熟市場（中国・韓国）</text>
+  <text x="240" y="870" font-family="Arial, sans-serif" font-size="11" fill="#555555">Alibaba/Tmall（ハイブリッド）, Coupang（垂直統合）</text>
+  
+  <text x="220" y="895" font-family="Arial, sans-serif" font-size="13" fill="#52be80" font-weight="bold">急成長市場（インド）</text>
+  <text x="240" y="915" font-family="Arial, sans-serif" font-size="11" fill="#555555">Flipkart, Amazon India（両社ともエコシステム戦略）</text>
+  
+  <text x="650" y="850" font-family="Arial, sans-serif" font-size="13" fill="#2874a6" font-weight="bold">成熟市場（日本）</text>
+  <text x="670" y="870" font-family="Arial, sans-serif" font-size="11" fill="#555555">楽天, Amazon Japan（品質重視型ハイブリッド）</text>
+  
+  <text x="650" y="895" font-family="Arial, sans-serif" font-size="13" fill="#f39c12" font-weight="bold">新興市場（東南アジア）</text>
+  <text x="670" y="915" font-family="Arial, sans-serif" font-size="11" fill="#555555">Sea Limited/Shopee, Tokopedia（ローカライズ型ハイブリッド）</text>
+  
+  <!-- Arrow definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#333333"/>
+    </marker>
+  </defs>
+  
+</svg>

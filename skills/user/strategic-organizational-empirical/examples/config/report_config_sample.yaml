@@ -1,0 +1,262 @@
+# Academic Report Generator Configuration
+# 学術報告書生成システム設定ファイル
+
+# ==========================================
+# Report Metadata (報告書メタデータ)
+# ==========================================
+metadata:
+  title: "組織能力と企業パフォーマンスの関係性：資源ベース理論に基づく実証研究"
+  authors:
+    - "山田 太郎"
+    - "佐藤 花子"
+  institution: "東京大学 大学院経済学研究科"
+  date: "2025-11-08"
+  abstract: |
+    本研究は、資源ベース理論（RBV）の枠組みに基づき、組織能力が企業パフォーマンスに
+    及ぼす影響を実証的に検証する。日本の上場企業500社を対象とした横断的分析により、
+    組織の動的能力と企業の財務パフォーマンスの間に正の関係が存在することを明らかにした。
+    さらに、環境の不確実性がこの関係を調整することを示した。これらの知見は、RBVの
+    理論的精緻化に貢献するとともに、実務的には組織能力への戦略的投資の重要性を示唆する。
+  keywords:
+    - "資源ベース理論"
+    - "組織能力"
+    - "動的能力"
+    - "企業パフォーマンス"
+    - "戦略的経営"
+
+# ==========================================
+# Theoretical Framework (理論的枠組み)
+# ==========================================
+theory_framework:
+  theory: "RBV"  # Options: RBV, TCE, Institutional, Dynamic Capabilities
+  context: |
+    現代の競争環境において、企業の持続的競争優位の源泉を理解することは、
+    戦略経営論における中心的課題である。資源ベース理論（Barney, 1991）は、
+    企業内部の資源と能力が競争優位の基盤であると主張する。特に、Teece et al. (1997)
+    による動的能力の概念は、変化する環境下での資源再構成の重要性を強調している。
+  
+  research_questions:
+    - "組織の動的能力は企業パフォーマンスに正の影響を与えるか？"
+    - "環境の不確実性は、組織能力とパフォーマンスの関係を調整するか？"
+  
+  hypotheses:
+    - "H1: 組織の動的能力は企業の財務パフォーマンスに正の影響を与える"
+    - "H2: 環境の不確実性が高いほど、動的能力とパフォーマンスの正の関係は強まる"
+
+# ==========================================
+# Methods (研究方法)
+# ==========================================
+methods:
+  sample:
+    source: "日経データベース、有価証券報告書"
+    n: 500
+    time_period: "2020-2024年度"
+    selection_criteria: |
+      東京証券取引所プライム市場に上場する製造業企業を対象とした。
+      データ欠損が20%以上の企業、および分析期間中に大規模M&Aを
+      実施した企業は除外した。
+  
+  measures:
+    dependent_var:
+      name: "企業パフォーマンス"
+      description: "総資産利益率（ROA）の3期平均値として操作化"
+      scale: "連続変数（%）"
+      reliability: 0.92
+    
+    independent_var:
+      name: "組織の動的能力"
+      description: |
+        Teece et al. (1997)の概念化に基づき、(1)機会の感知、
+        (2)機会の捕捉、(3)資源の再構成、の3次元から測定。
+        各次元4項目、計12項目のリッカート尺度（7段階）。
+      items: 12
+      scale: "7点リッカート尺度（1=全く当てはまらない、7=非常に当てはまる）"
+      reliability: 0.89
+    
+    moderator:
+      name: "環境の不確実性"
+      description: |
+        Miller & Friesen (1983)の尺度を用いて、市場、技術、
+        規制の3側面から測定。各側面3項目、計9項目。
+      items: 9
+      scale: "7点リッカート尺度"
+      reliability: 0.86
+    
+    control_vars:
+      - name: "企業規模"
+        description: "従業員数の自然対数"
+      - name: "企業年齢"
+        description: "設立からの経過年数"
+      - name: "産業ダミー"
+        description: "日本標準産業分類の中分類に基づく"
+      - name: "年度ダミー"
+        description: "マクロ経済要因を統制"
+  
+  procedures:
+    steps:
+      - "記述統計量と相関係数の算出"
+      - "構成概念妥当性の確認（確認的因子分析）"
+      - "階層的重回帰分析の実施"
+      - "調整効果の検証（交互作用項の投入）"
+      - "頑健性チェック（代替的尺度、サブサンプル分析）"
+    software: "Python 3.11 (statsmodels, scipy)"
+    significance_level: 0.05
+    missing_data: "リストワイズ削除法"
+
+# ==========================================
+# Results Structure (結果構造)
+# ==========================================
+results:
+  descriptive_stats:
+    file: "outputs/descriptive_statistics.csv"
+    include_correlations: true
+  
+  main_analysis:
+    type: "hierarchical_regression"
+    models:
+      - name: "Model 1: Controls only"
+        description: "統制変数のみ"
+      - name: "Model 2: Main effects"
+        description: "統制変数 + 独立変数"
+      - name: "Model 3: Interaction"
+        description: "統制変数 + 独立変数 + 交互作用項"
+  
+  robustness:
+    alternative_specs:
+      - "代替的従属変数（ROE、トービンのq）での再分析"
+      - "固定効果モデルによる再推定"
+    subsample:
+      - "企業規模別分析（大企業 vs 中堅企業）"
+      - "産業別分析（ハイテク産業 vs 伝統的産業）"
+
+# ==========================================
+# Discussion (考察)
+# ==========================================
+discussion:
+  interpretation: |
+    分析結果は、組織の動的能力が企業パフォーマンスに正の影響を与えることを
+    示しており、仮説H1は支持された。具体的には、動的能力が1標準偏差増加すると、
+    ROAは約0.8%ポイント向上することが明らかになった（β = 0.32, p < .001）。
+    
+    さらに、環境の不確実性が高い状況下では、動的能力とパフォーマンスの正の関係が
+    より強くなることが確認され、仮説H2も支持された（β_interaction = 0.15, p < .01）。
+    これは、不確実な環境においてこそ、資源を柔軟に再構成する能力の価値が高まることを
+    示唆している。
+  
+  contributions:
+    - |
+      **理論的貢献1**: 資源ベース理論と動的能力論を統合し、組織能力の
+      パフォーマンス効果を実証的に確認した。これは、Barney (1991)の静的な
+      RBV枠組みとTeece et al. (1997)の動的視点を架橋する知見である。
+    - |
+      **理論的貢献2**: 環境の不確実性という文脈要因の調整効果を明らかにし、
+      動的能力の価値が文脈依存的であることを示した。これは、Eisenhardt & Martin (2000)
+      の議論を実証的に支持するものである。
+    - |
+      **方法論的貢献**: 動的能力の多次元的測定尺度を開発し、構成概念妥当性を
+      確認した。この尺度は今後の研究での活用が期待される。
+  
+  implications: |
+    実務的には、本研究の知見は以下の示唆を提供する。第一に、企業は組織の
+    動的能力の開発に戦略的に投資すべきである。特に、環境変化の激しい産業に
+    おいては、この能力が競争優位の重要な源泉となる。第二に、動的能力は
+    単なる個人のスキルではなく、組織的ルーティンとして埋め込まれる必要がある。
+    第三に、経営者は環境の不確実性を脅威ではなく、動的能力を活かす機会として
+    認識すべきである。
+  
+  limitations:
+    - |
+      **横断的データの限界**: 本研究は横断的データに基づくため、因果関係の
+      方向性を確定的に主張することには慎重であるべきである。今後、縦断的
+      データやパネルデータを用いた研究が求められる。
+    - |
+      **共通方法バイアスの可能性**: 独立変数と従属変数の一部が同一回答者
+      からの自己報告であるため、共通方法バイアスの可能性がある。ただし、
+      Harman's single-factor testでは深刻なバイアスは検出されなかった。
+    - |
+      **測定の課題**: 動的能力の操作化は理論的概念の複雑性を完全には
+      捉えきれていない可能性がある。今後、より精緻な測定尺度の開発が必要である。
+    - |
+      **サンプルの限定**: 日本の製造業企業に限定されており、他の産業や
+      他の国への一般化可能性には限界がある。
+
+# ==========================================
+# Figures and Tables (図表)
+# ==========================================
+figures:
+  - number: 1
+    title: "理論的フレームワーク"
+    file: "figures/theoretical_framework.png"
+    caption: |
+      組織の動的能力、環境の不確実性、企業パフォーマンスの関係性を示す概念図。
+      動的能力からパフォーマンスへの直接効果（H1）と、環境の不確実性による
+      調整効果（H2）を表現している。
+    source: "筆者作成"
+  
+  - number: 2
+    title: "調整効果の可視化"
+    file: "figures/interaction_plot.png"
+    caption: |
+      環境の不確実性が動的能力とパフォーマンスの関係を調整する様子を示す。
+      不確実性が高い（+1SD）場合、低い（-1SD）場合と比較して、動的能力の
+      効果がより強くなることが確認できる。
+    source: "分析結果より筆者作成"
+
+tables:
+  - number: 1
+    title: "記述統計量と相関係数"
+    file: "outputs/descriptive_correlations.csv"
+  
+  - number: 2
+    title: "階層的回帰分析結果"
+    file: "outputs/regression_results.csv"
+    note: |
+      ***p < .001, **p < .01, *p < .05. 括弧内は頑健標準誤差。
+      N = 500. 全モデルで産業ダミーと年度ダミーを統制（係数省略）。
+
+# ==========================================
+# Key References (主要参考文献)
+# ==========================================
+key_references:
+  - authors: "Barney, J. B."
+    year: 1991
+    title: "Firm resources and sustained competitive advantage"
+    journal: "Journal of Management"
+    volume: "17"
+    pages: "99-120"
+    doi: "10.1177/014920639101700108"
+  
+  - authors: "Teece, D. J., Pisano, G., & Shuen, A."
+    year: 1997
+    title: "Dynamic capabilities and strategic management"
+    journal: "Strategic Management Journal"
+    volume: "18"
+    pages: "509-533"
+    doi: "10.1002/(SICI)1097-0266(199708)18:7<509::AID-SMJ882>3.0.CO;2-Z"
+  
+  - authors: "Eisenhardt, K. M., & Martin, J. A."
+    year: 2000
+    title: "Dynamic capabilities: What are they?"
+    journal: "Strategic Management Journal"
+    volume: "21"
+    pages: "1105-1121"
+    doi: "10.1002/1097-0266(200010/11)21:10/11<1105::AID-SMJ133>3.0.CO;2-E"
+  
+  - authors: "Miller, D., & Friesen, P. H."
+    year: 1983
+    title: "Strategy-making and environment: The third link"
+    journal: "Strategic Management Journal"
+    volume: "4"
+    pages: "221-235"
+    doi: "10.1002/smj.4250040304"
+
+# ==========================================
+# Output Settings (出力設定)
+# ==========================================
+output:
+  format: "markdown"  # Options: markdown, html, pdf
+  include_toc: true
+  include_page_numbers: false  # For PDF output
+  citation_style: "APA"  # Options: APA, AMA, Chicago
+  figure_format: "png"
+  table_format: "markdown"

@@ -1,0 +1,35 @@
+company,metric,value,unit,year,month,source,notes
+OpenAI,ARR,12,Billion USD,2025,July,SaaStr 2025.8,Annualized Recurring Revenue
+OpenAI,Monthly Revenue,1,Billion USD,2025,July,CNBC 2025,
+OpenAI,Revenue,3.7,Billion USD,2024,Annual,Business Insider 2024,
+OpenAI,Revenue,1.6,Billion USD,2023,Annual,OpenAI Statistics 2025,
+OpenAI,Loss,-5,Billion USD,2024,Annual,Reuters 2024,Operating Loss
+OpenAI,Valuation,300,Billion USD,2025,Latest,SaaStr 2025,
+OpenAI,Total Funding,57.9,Billion USD,2025,March,Index.dev 2025,Series F led by SoftBank
+OpenAI,Series F,40,Billion USD,2025,March,Index.dev 2025,SoftBank-led
+OpenAI,Microsoft Investment,13,Billion USD,2025,Cumulative,Various,Total strategic investment
+Anthropic,ARR,5,Billion USD,2025,July,Sacra 2025,Estimated
+Anthropic,ARR,3,Billion USD,2025,May,CNBC 2025,
+Anthropic,ARR,1,Billion USD,2024,December,Sacra 2025,
+Anthropic,Revenue,1,Billion USD,2024,Annual,TapTwice 2025,
+Anthropic,Valuation,183,Billion USD,2025,September,Sacra 2025,Series E+
+Anthropic,Valuation,61.5,Billion USD,2025,March,TapTwice 2025,Series E
+Anthropic,Valuation,18.4,Billion USD,2024,Annual,TapTwice 2025,
+Anthropic,Total Funding,14.3,Billion USD,2025,March,TapTwice 2025,
+Anthropic,Series E,3.5,Billion USD,2025,March,TapTwice 2025,Lightspeed-led
+Anthropic,Amazon Investment,8,Billion USD,2024-2025,Cumulative,Acquinox Capital,
+Anthropic,Google Investment,2,Billion USD,2023-2024,Cumulative,Acquinox Capital,
+Anthropic,Cash Burn,-3,Billion USD,2025,Estimated,VentureBeat 2025.8,Annual burn rate
+Anthropic,Claude Code Revenue,0.4,Billion USD,2025,July,Sacra 2025,Annualized
+Google,AI Investment,75,Billion USD,2025,Annual,TechInformed 2025.2,Capital expenditure
+Google,Cloud Revenue,11.96,Billion USD,2025,Q1,TechInformed 2025.2,Quarterly
+Google,Workspace AI Revenue,5,Billion USD,2025,Cumulative,Google Gemini Stats,New enterprise subscriptions
+Google,Market Cap,2500,Billion USD,2025,Latest,Various,Alphabet total
+Microsoft,Market Cap,3000,Billion USD,2025,Latest,Various,
+Microsoft,AI Investment,20,Billion USD,2025,Annual Estimated,Analysis,
+Google Gemini,Educational Licensing,120,Million USD,2025,H1,Claude AI Statistics,
+Claude,Pro Subscriptions,620,Million USD,2025,H1,Claude AI Statistics,
+Anthropic,Enterprise Licensing Growth,84,Percent,2025,YoY,Claude AI Statistics,
+OpenAI,ChatGPT Plus ARR,1.1,Billion USD,2025,Annual,OpenAI Statistics,
+OpenAI,Paying Subscribers,10,Million,2025,Latest,Backlinko 2025,ChatGPT Plus
+OpenAI,Enterprise Users,1,Million,2025,Latest,Backlinko 2025,"Enterprise, Team, Edu"

@@ -1,0 +1,132 @@
+# Research Project Configuration
+# Edit this file to customize your research project
+
+project:
+  name: "Strategic Management Research Project"
+  author: "Your Name"
+  institution: "Your University"
+  date: "2025-11-01"
+  version: "1.0"
+
+# Research Question
+research_question: |
+  Does R&D investment enhance firm performance?
+  What are the moderating effects of industry competition?
+
+# Sample Criteria
+sample:
+  industry: "manufacturing"  # or "all" for all industries
+  country: "Japan"  # or ["Japan", "USA", "Korea"] for multiple
+  start_year: 2010
+  end_year: 2023
+  min_observations: 5  # Minimum observations per firm
+  
+  # Optional filters
+  filters:
+    min_sales: 100  # Million USD
+    listed_only: true
+    exclude_financial: true
+
+# Data Sources
+data_sources:
+  primary:
+    - name: "EDINET"
+      type: "financial_statements"
+      api_key_env: "EDINET_API_KEY"  # Optional
+      
+    - name: "JPX"
+      type: "market_data"
+      api_key_env: "JPX_API_KEY"  # Optional
+  
+  secondary:
+    - name: "World Bank"
+      type: "macro_indicators"
+      
+  # Optional: ESG data
+  esg:
+    - name: "CDP"
+      type: "carbon_disclosure"
+      api_key_env: "CDP_API_KEY"
+
+# Variables
+variables:
+  dependent:
+    - name: "roa"
+      definition: "net_income / total_assets"
+      winsorize: 0.01  # 1% winsorization
+      
+    - name: "roe"
+      definition: "net_income / total_equity"
+      winsorize: 0.01
+  
+  independent:
+    - name: "rd_intensity"
+      definition: "rd_expense / sales"
+      winsorize: 0.01
+      lag: 1  # Use t-1 value
+      
+    - name: "innovation_dummy"
+      definition: "rd_intensity > 0"
+  
+  moderators:
+    - name: "industry_concentration"
+      definition: "herfindahl_index"
+      
+  controls:
+    - name: "firm_size"
+      definition: "log(total_assets)"
+      
+    - name: "firm_age"
+      definition: "current_year - founding_year"
+      
+    - name: "leverage"
+      definition: "total_debt / total_assets"
+      winsorize: 0.01
+
+# Analysis Settings
+analysis:
+  method: "panel_regression"  # panel_regression, did, psm, iv
+  
+  panel:
+    model: "fixed_effects"  # fixed_effects, random_effects, pooled_ols
+    time_effects: true
+    industry_effects: true
+    cluster: "firm_id"  # Standard error clustering
+  
+  robustness:
+    - "alternative_dv"  # Use ROE instead of ROA
+    - "subsample_large_firms"  # Firms with sales > 500M
+    - "exclude_outliers"  # Exclude top/bottom 1%
+    
+# Output Settings
+output:
+  tables:
+    format: "latex"  # latex, csv, excel
+    decimal_places: 3
+    
+  figures:
+    format: "png"  # png, pdf, svg
+    dpi: 300
+    style: "seaborn"  # seaborn, ggplot, classic
+    
+  logs:
+    level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+    file: "execution.log"
+
+# Computational Settings
+computation:
+  random_seed: 42
+  n_jobs: -1  # Use all CPU cores (-1)
+  memory_limit: "8GB"  # Maximum memory usage
+  
+# Quality Assurance
+quality:
+  check_multicollinearity: true
+  vif_threshold: 10
+  
+  check_missing: true
+  max_missing_rate: 0.2  # Maximum 20% missing
+  
+  check_outliers: true
+  outlier_method: "zscore"  # zscore, iqr
+  outlier_threshold: 3

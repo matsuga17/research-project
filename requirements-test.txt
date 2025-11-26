@@ -1,0 +1,80 @@
+# Test Requirements for Research Project
+# ======================================
+# テスト実行に必要な依存関係
+#
+# Installation:
+#   pip install -r requirements-test.txt
+#
+# For full testing with all features:
+#   pip install -r requirements-test.txt[full]
+
+# ====================
+# Core Testing Framework
+# ====================
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# ====================
+# Test Utilities
+# ====================
+pytest-xdist>=3.3.0          # Parallel test execution
+pytest-timeout>=2.1.0        # Test timeout handling
+pytest-randomly>=3.13.0      # Randomize test order
+pytest-repeat>=0.9.1         # Repeat tests for flakiness detection
+
+# ====================
+# HTTP Mocking
+# ====================
+responses>=0.23.0            # Mock requests library
+pytest-vcr>=1.0.2           # Record/replay HTTP interactions
+vcrpy>=5.1.0                # VCR cassette recording
+
+# ====================
+# Data Testing
+# ====================
+pytest-datadir>=1.4.1        # Test data directory fixtures
+pandas>=2.0.0                # DataFrame assertions
+numpy>=1.24.0                # Numerical assertions
+
+# ====================
+# Code Quality (CI/CD)
+# ====================
+flake8>=6.1.0               # Linting
+black>=23.7.0               # Code formatting
+mypy>=1.5.0                 # Static type checking
+isort>=5.12.0               # Import sorting
+
+# ====================
+# Coverage Reporting
+# ====================
+coverage>=7.3.0             # Coverage measurement
+codecov>=2.1.13             # Codecov integration
+
+# ====================
+# Documentation Testing
+# ====================
+# pytest-sphinx>=0.5.0      # Sphinx doctest (optional)
+
+# ====================
+# Async Testing (if needed)
+# ====================
+# pytest-asyncio>=0.21.0    # Async test support
+
+# ====================
+# Database Testing (if needed)
+# ====================
+# pytest-postgresql>=5.0.0  # PostgreSQL fixtures
+# pytest-mongodb>=2.4.0     # MongoDB fixtures
+
+# ====================
+# Fixture Data Generation
+# ====================
+faker>=19.3.0               # Fake data generation
+factory-boy>=3.3.0          # Test factories
+
+# ====================
+# Performance Testing
+# ====================
+# pytest-benchmark>=4.0.0   # Performance benchmarks
+# memory-profiler>=0.61.0   # Memory usage profiling

@@ -1,0 +1,47 @@
+================================================================================
+URL検証レポート
+生成日時: 2025年11月21日 07:47:56
+検証URL数: 35
+================================================================================
+
+✗ FAIL [HTTP Error 403] https://www.bloomberg.com/news/articles/2024-asia-ecommerce-competition
+✗ FAIL [Connection Error] https://www.goto-group.com/investor-relations
+✗ FAIL [HTTP Error 404] https://corp.rakuten.co.jp/investors/documents/results.html
+✗ FAIL [HTTP Error 404] https://techcrunch.com/2024/southeast-asia-ecommerce/
+✗ FAIL [HTTP Error 404] https://www.bain.com/insights/asia-pacific-ecommerce-report-2023/
+✓ OK  [200] https://www.emarketer.com/content/asia-pacific-ecommerce-forecast-2024
+✗ FAIL [HTTP Error 404] https://www.bain.com/insights/future-of-retail-southeast-asia/
+✗ FAIL [Timeout] https://www.mckinsey.com/featured-insights/future-of-asia
+✓ OK  [200] https://www.accelerationpartners.com/resources/transforming-2024-apac-ecommerce/
+✗ FAIL [HTTP Error 404] https://www.nikkei.com/article/DGXZQOGM15ABC0V10C24A8000000/
+✓ OK  [200] https://www.antgroup.com/en/reports
+✗ FAIL [Timeout] https://www.mckinsey.com/cn/our-insights/china-consumer-report-2023
+✗ FAIL [Timeout] https://www.imf.org/en/Publications/REO/APAC
+✗ FAIL [HTTP Error 403] https://ir.aboutcoupang.com/financial-information
+✗ FAIL [Connection Error] https://investors.coupang.com/financials/sec-filings
+✗ FAIL [HTTP Error 403] https://www.grandviewresearch.com/horizon/outlook/e-commerce-market/asia-pacific
+✗ FAIL [HTTP Error 404] https://economictimes.indiatimes.com/tech/flipkart-sellers-million
+✗ FAIL [HTTP Error 404] https://www.meti.go.jp/policy/it_policy/statistics/outlook/2023.html
+✗ FAIL [HTTP Error 403] https://www.statista.com/outlook/dmo/ecommerce/asia
+✓ OK  [200] https://www.expertmarketresearch.com/reports/asia-pacific-e-commerce-market
+✓ OK  [200] https://www.alibabagroup.com/en/ir/reports
+✗ FAIL [HTTP Error 404] https://corporate.walmart.com/financials
+✗ FAIL [HTTP Error 403] https://www.grandviewresearch.com/industry-analysis/e-commerce-market
+✓ OK  [200] https://www.meti.go.jp/policy/it_policy/statistics/outlook/index.html
+✗ FAIL [HTTP Error 404] https://www.emarketer.com/content/asia-pacific-ecommerce-forecast-2023
+✗ FAIL [HTTP Error 403] https://www.bloomberg.com/news/alibaba-cainiao-logistics-expansion
+✗ FAIL [HTTP Error 404] https://www.jetro.go.jp/world/reports/2024/asia_ec.html
+✓ OK  [200] https://corp.rakuten.co.jp/investors/
+✓ OK  [200] https://www.techinasia.com/sea-limited-southeast-asia-strategy
+✓ OK  [200] https://www.alibabagroup.com/en-US/ir-reports
+✓ OK  [200] https://www.sea.com/investor-relations/annual-reports
+✗ FAIL [HTTP Error 403] https://ir.aboutamazon.com/annual-reports
+✗ FAIL [Timeout] https://data.worldbank.org/topic/digital-economy
+✓ OK  [200] https://www.techinasia.com/state-ecommerce-asia-2024
+✗ FAIL [HTTP Error 404] https://www.nikkei.com/article/DGXZQOGM15000
+
+================================================================================
+検証結果サマリー
+成功: 11 / 失敗: 24 / 合計: 35
+成功率: 31.4%
+================================================================================

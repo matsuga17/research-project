@@ -1,0 +1,140 @@
+# US Corporate Analytics 設定ファイル
+
+# SEC EDGAR API設定
+sec_edgar:
+  api_key: "e1bfb8c9d7c5f3538093cb5f1dc9327b71279ad3854418d967ba37dad594f0b8"
+  user_agent: "US Corporate Analytics Research Tool (research@university.edu)"
+  rate_limit: 10  # リクエスト/秒
+  base_url: "https://data.sec.gov/api/xbrl"
+  submissions_url: "https://data.sec.gov/submissions"
+  
+# World Bank API設定
+world_bank:
+  base_url: "https://api.worldbank.org/v2"
+  format: "json"
+  per_page: 1000
+  date_range: "2000:2025"
+  
+# IMF API設定
+imf:
+  base_url: "https://www.imf.org/external/datamapper/api/v1"
+  format: "json"
+  
+# データ保存設定
+data_storage:
+  raw_data_path: "./data/raw"
+  processed_data_path: "./data/processed"
+  reports_path: "./reports"
+  cache_path: "./cache"
+  
+# 分析設定
+analysis:
+  default_years: 5
+  industry_classification: "SIC"  # SIC or NAICS
+  currency: "USD"
+  fiscal_year_end_month: 12
+  
+# 財務比率設定
+financial_ratios:
+  # 収益性指標
+  profitability:
+    - ROA
+    - ROE
+    - gross_margin
+    - operating_margin
+    - net_margin
+    - ROIC
+    
+  # 流動性指標
+  liquidity:
+    - current_ratio
+    - quick_ratio
+    - cash_ratio
+    - working_capital_ratio
+    
+  # レバレッジ指標
+  leverage:
+    - debt_ratio
+    - debt_to_equity
+    - equity_multiplier
+    - interest_coverage
+    - debt_service_coverage
+    
+  # 効率性指標
+  efficiency:
+    - asset_turnover
+    - inventory_turnover
+    - receivables_turnover
+    - payables_turnover
+    - fixed_asset_turnover
+    
+  # 成長性指標
+  growth:
+    - revenue_growth
+    - earnings_growth
+    - asset_growth
+    - equity_growth
+    
+  # 市場価値指標
+  market_value:
+    - EPS
+    - PER
+    - PBR
+    - dividend_yield
+    - market_to_book
+    
+# ガバナンス分析設定
+governance:
+  board_metrics:
+    - board_size
+    - independent_directors_ratio
+    - board_diversity_gender
+    - board_diversity_age
+    - board_meetings_per_year
+    
+  compensation_metrics:
+    - ceo_total_compensation
+    - ceo_base_salary
+    - ceo_bonus
+    - ceo_stock_awards
+    - ceo_option_awards
+    - pay_ratio
+    
+  ownership_metrics:
+    - institutional_ownership
+    - insider_ownership
+    - top5_ownership
+    - herfindahl_index
+    
+# 品質保証設定
+quality_assurance:
+  enable_benfords_law: true
+  benford_confidence_level: 0.05
+  outlier_detection: true
+  outlier_threshold: 3.0  # 標準偏差の倍数
+  cross_check: true
+  missing_data_threshold: 0.2  # 20%以上欠損の場合は警告
+  
+# レポート設定
+report:
+  default_format: "pdf"
+  include_charts: true
+  chart_style: "seaborn"
+  color_palette: "deep"
+  font_family: "Arial"
+  font_size: 10
+  
+# ロギング設定
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file_path: "./logs/analysis.log"
+  max_file_size: "10MB"
+  backup_count: 5
+  
+# パフォーマンス設定
+performance:
+  enable_cache: true
+  cache_ttl: 86400  # 24時間（秒）
+  parallel_processing: true
+  num_workers: 4
+  batch_size: 100
