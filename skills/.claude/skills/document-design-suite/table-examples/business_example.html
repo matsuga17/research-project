@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Table Example - ビジネス文書用表サンプル</title>
+  <style>
+    /* Business Style */
+    :root {
+      --biz-font: "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+      --biz-primary: #0d6efd;
+      --biz-primary-light: #e7f1ff;
+      --biz-border: #dee2e6;
+      --biz-text: #212529;
+    }
+
+    body {
+      font-family: var(--biz-font);
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      color: var(--biz-text);
+      line-height: 1.6;
+    }
+
+    h1 { margin-bottom: 10px; }
+    h2 { margin: 40px 0 20px; color: #333; font-size: 18px; }
+    p.desc { color: #666; margin-bottom: 30px; }
+
+    .table-container {
+      margin: 20px 0;
+    }
+
+    .table-caption {
+      margin-bottom: 8px;
+      font-size: 11pt;
+    }
+
+    .table-caption .table-number {
+      font-weight: 600;
+      color: var(--biz-primary);
+    }
+
+    .biz-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--biz-border);
+      font-size: 10pt;
+    }
+
+    .biz-table thead {
+      background: var(--biz-primary);
+    }
+
+    .biz-table th {
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      border: 1px solid var(--biz-border);
+    }
+
+    .biz-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--biz-border);
+    }
+
+    .biz-table.striped tbody tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    .biz-table td.numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .biz-table td.center {
+      text-align: center;
+    }
+
+    .biz-table tr.total {
+      font-weight: 600;
+      background: #e9ecef;
+      border-top: 2px solid var(--biz-primary);
+    }
+
+    .biz-table td.highlight {
+      background: #fff3cd;
+    }
+
+    .biz-table td.success {
+      background: #d1e7dd;
+    }
+
+    .biz-table td.danger {
+      background: #f8d7da;
+    }
+
+    /* Green variant */
+    .biz-table.green thead {
+      background: #198754;
+    }
+
+    .biz-table.green tr.total {
+      border-top-color: #198754;
+    }
+
+    /* Gray variant */
+    .biz-table.gray thead {
+      background: #495057;
+    }
+
+    /* Borderless */
+    .biz-table.borderless {
+      border: none;
+    }
+
+    .biz-table.borderless th,
+    .biz-table.borderless td {
+      border: none;
+      border-bottom: 1px solid var(--biz-border);
+    }
+
+    .biz-table.borderless thead {
+      border-bottom: 2px solid var(--biz-primary);
+      background: transparent;
+    }
+
+    .biz-table.borderless th {
+      color: var(--biz-text);
+    }
+
+    .table-notes {
+      margin-top: 8px;
+      font-size: 9pt;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Business Table Examples</h1>
+  <p class="desc">ビジネス文書（レポート・提案書）用の表サンプル</p>
+
+  <h2>1. 売上レポート（基本）</h2>
+  <div class="table-container">
+    <div class="table-caption">
+      <span class="table-number">表1.</span> 2024年度 四半期別売上実績
+    </div>
+    <table class="biz-table striped">
+      <thead>
+        <tr>
+          <th>部門</th>
+          <th>Q1</th>
+          <th>Q2</th>
+          <th>Q3</th>
+          <th>Q4</th>
+          <th>年間合計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>営業第一部</td>
+          <td class="numeric">¥12,500,000</td>
+          <td class="numeric">¥14,200,000</td>
+          <td class="numeric">¥13,800,000</td>
+          <td class="numeric">¥16,500,000</td>
+          <td class="numeric">¥57,000,000</td>
+        </tr>
+        <tr>
+          <td>営業第二部</td>
+          <td class="numeric">¥8,300,000</td>
+          <td class="numeric">¥9,100,000</td>
+          <td class="numeric">¥8,900,000</td>
+          <td class="numeric">¥10,200,000</td>
+          <td class="numeric">¥36,500,000</td>
+        </tr>
+        <tr>
+          <td>営業第三部</td>
+          <td class="numeric">¥6,200,000</td>
+          <td class="numeric">¥7,400,000</td>
+          <td class="numeric">¥7,100,000</td>
+          <td class="numeric">¥8,800,000</td>
+          <td class="numeric">¥29,500,000</td>
+        </tr>
+        <tr class="total">
+          <td>合計</td>
+          <td class="numeric">¥27,000,000</td>
+          <td class="numeric">¥30,700,000</td>
+          <td class="numeric">¥29,800,000</td>
+          <td class="numeric">¥35,500,000</td>
+          <td class="numeric">¥123,000,000</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-notes">
+      ※ 金額は税抜表示
+    </div>
+  </div>
+
+  <h2>2. KPI達成状況（条件付きハイライト）</h2>
+  <div class="table-container">
+    <div class="table-caption">
+      <span class="table-number">表2.</span> 主要KPI達成状況
+    </div>
+    <table class="biz-table striped green">
+      <thead>
+        <tr>
+          <th>KPI項目</th>
+          <th>目標</th>
+          <th>実績</th>
+          <th>達成率</th>
+          <th>評価</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>新規顧客獲得数</td>
+          <td class="numeric">150件</td>
+          <td class="numeric">172件</td>
+          <td class="numeric success">115%</td>
+          <td class="center success">◎</td>
+        </tr>
+        <tr>
+          <td>顧客満足度</td>
+          <td class="numeric">4.0</td>
+          <td class="numeric">4.2</td>
+          <td class="numeric success">105%</td>
+          <td class="center success">○</td>
+        </tr>
+        <tr>
+          <td>リピート率</td>
+          <td class="numeric">60%</td>
+          <td class="numeric">58%</td>
+          <td class="numeric highlight">97%</td>
+          <td class="center highlight">△</td>
+        </tr>
+        <tr>
+          <td>平均単価</td>
+          <td class="numeric">¥50,000</td>
+          <td class="numeric">¥45,200</td>
+          <td class="numeric danger">90%</td>
+          <td class="center danger">×</td>
+        </tr>
+        <tr>
+          <td>問い合わせ対応時間</td>
+          <td class="numeric">24時間以内</td>
+          <td class="numeric">18時間</td>
+          <td class="numeric success">達成</td>
+          <td class="center success">◎</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-notes">
+      評価基準: ◎ 110%以上 / ○ 100-109% / △ 90-99% / × 90%未満
+    </div>
+  </div>
+
+  <h2>3. 比較表（罫線なし）</h2>
+  <div class="table-container">
+    <div class="table-caption">
+      <span class="table-number">表3.</span> サービスプラン比較
+    </div>
+    <table class="biz-table borderless">
+      <thead>
+        <tr>
+          <th>機能</th>
+          <th>Basic</th>
+          <th>Standard</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>月額料金</td>
+          <td class="center">¥9,800</td>
+          <td class="center">¥19,800</td>
+          <td class="center">¥49,800</td>
+        </tr>
+        <tr>
+          <td>ユーザー数</td>
+          <td class="center">5名まで</td>
+          <td class="center">20名まで</td>
+          <td class="center">無制限</td>
+        </tr>
+        <tr>
+          <td>ストレージ</td>
+          <td class="center">10GB</td>
+          <td class="center">100GB</td>
+          <td class="center">1TB</td>
+        </tr>
+        <tr>
+          <td>API連携</td>
+          <td class="center">—</td>
+          <td class="center">✓</td>
+          <td class="center">✓</td>
+        </tr>
+        <tr>
+          <td>専用サポート</td>
+          <td class="center">—</td>
+          <td class="center">—</td>
+          <td class="center">✓</td>
+        </tr>
+        <tr>
+          <td>SLA保証</td>
+          <td class="center">99%</td>
+          <td class="center">99.5%</td>
+          <td class="center">99.9%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. プロジェクト予算表</h2>
+  <div class="table-container">
+    <div class="table-caption">
+      <span class="table-number">表4.</span> プロジェクト予算内訳
+    </div>
+    <table class="biz-table striped gray">
+      <thead>
+        <tr>
+          <th>費目</th>
+          <th>内訳</th>
+          <th>予算</th>
+          <th>実績</th>
+          <th>差異</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3">人件費</td>
+          <td>社内人件費</td>
+          <td class="numeric">¥3,000,000</td>
+          <td class="numeric">¥2,850,000</td>
+          <td class="numeric success">¥150,000</td>
+        </tr>
+        <tr>
+          <td>外注費</td>
+          <td class="numeric">¥2,000,000</td>
+          <td class="numeric">¥2,200,000</td>
+          <td class="numeric danger">-¥200,000</td>
+        </tr>
+        <tr>
+          <td>小計</td>
+          <td class="numeric">¥5,000,000</td>
+          <td class="numeric">¥5,050,000</td>
+          <td class="numeric danger">-¥50,000</td>
+        </tr>
+        <tr>
+          <td rowspan="3">設備費</td>
+          <td>ハードウェア</td>
+          <td class="numeric">¥1,500,000</td>
+          <td class="numeric">¥1,420,000</td>
+          <td class="numeric success">¥80,000</td>
+        </tr>
+        <tr>
+          <td>ソフトウェア</td>
+          <td class="numeric">¥800,000</td>
+          <td class="numeric">¥750,000</td>
+          <td class="numeric success">¥50,000</td>
+        </tr>
+        <tr>
+          <td>小計</td>
+          <td class="numeric">¥2,300,000</td>
+          <td class="numeric">¥2,170,000</td>
+          <td class="numeric success">¥130,000</td>
+        </tr>
+        <tr>
+          <td colspan="2">その他経費</td>
+          <td class="numeric">¥700,000</td>
+          <td class="numeric">¥680,000</td>
+          <td class="numeric success">¥20,000</td>
+        </tr>
+        <tr class="total">
+          <td colspan="2">合計</td>
+          <td class="numeric">¥8,000,000</td>
+          <td class="numeric">¥7,900,000</td>
+          <td class="numeric success">¥100,000</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-notes">
+      差異: プラスは予算内、マイナスは予算超過を示す
+    </div>
+  </div>
+
+</body>
+</html>

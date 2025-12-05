@@ -1,0 +1,261 @@
+/**
+ * Presentation Style - プレゼンテーション用表スタイル
+ * 16:9 / 4:3 スライド対応
+ *
+ * 特徴:
+ * - 大きなフォント（遠くからでも読める）
+ * - 高コントラスト
+ * - 最小限の情報量
+ * - ダーク/ライトテーマ対応
+ */
+
+/* ベース設定 */
+:root {
+  /* ライトテーマ */
+  --pres-light-bg: #ffffff;
+  --pres-light-header-bg: #2c3e50;
+  --pres-light-header-text: #ffffff;
+  --pres-light-row-odd: #ffffff;
+  --pres-light-row-even: #f8f9fa;
+  --pres-light-text: #212529;
+  --pres-light-border: #dee2e6;
+  --pres-light-highlight: #fff3cd;
+
+  /* ダークテーマ */
+  --pres-dark-bg: #1a1a2e;
+  --pres-dark-header-bg: #16213e;
+  --pres-dark-header-text: #ffffff;
+  --pres-dark-row-odd: #1a1a2e;
+  --pres-dark-row-even: #16213e;
+  --pres-dark-text: #eaeaea;
+  --pres-dark-border: #0f3460;
+  --pres-dark-highlight: #e94560;
+
+  /* 共通 */
+  --pres-font: "Helvetica Neue", "Noto Sans JP", "Hiragino Sans", Arial, sans-serif;
+  --pres-header-font-size: 28px;
+  --pres-body-font-size: 22px;
+  --pres-cell-padding: 16px 24px;
+  --pres-border-radius: 8px;
+}
+
+/* 16:9 コンテナ */
+.table-container.presentation {
+  font-family: var(--pres-font);
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.table-container.presentation.ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+/* ライトテーマ */
+.table-container.presentation.light {
+  background: var(--pres-light-bg);
+  color: var(--pres-light-text);
+}
+
+/* ダークテーマ */
+.table-container.presentation.dark {
+  background: var(--pres-dark-bg);
+  color: var(--pres-dark-text);
+}
+
+/* 表タイトル */
+.table-figure.presentation .table-caption {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.table-figure.presentation .table-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* メイン表 */
+.craftsman-table.presentation {
+  width: 100%;
+  max-width: 1600px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--pres-border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ライトテーマの表 */
+.craftsman-table.presentation.light {
+  background: var(--pres-light-bg);
+}
+
+.craftsman-table.presentation.light thead {
+  background: var(--pres-light-header-bg);
+}
+
+.craftsman-table.presentation.light th {
+  color: var(--pres-light-header-text);
+  font-size: var(--pres-header-font-size);
+  font-weight: 600;
+  padding: var(--pres-cell-padding);
+  text-align: center;
+  border: none;
+}
+
+.craftsman-table.presentation.light td {
+  font-size: var(--pres-body-font-size);
+  padding: var(--pres-cell-padding);
+  border-bottom: 1px solid var(--pres-light-border);
+  color: var(--pres-light-text);
+}
+
+.craftsman-table.presentation.light tbody tr:nth-child(odd) {
+  background: var(--pres-light-row-odd);
+}
+
+.craftsman-table.presentation.light tbody tr:nth-child(even) {
+  background: var(--pres-light-row-even);
+}
+
+.craftsman-table.presentation.light tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ダークテーマの表 */
+.craftsman-table.presentation.dark {
+  background: var(--pres-dark-bg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.craftsman-table.presentation.dark thead {
+  background: var(--pres-dark-header-bg);
+}
+
+.craftsman-table.presentation.dark th {
+  color: var(--pres-dark-header-text);
+  font-size: var(--pres-header-font-size);
+  font-weight: 600;
+  padding: var(--pres-cell-padding);
+  text-align: center;
+  border: none;
+}
+
+.craftsman-table.presentation.dark td {
+  font-size: var(--pres-body-font-size);
+  padding: var(--pres-cell-padding);
+  border-bottom: 1px solid var(--pres-dark-border);
+  color: var(--pres-dark-text);
+}
+
+.craftsman-table.presentation.dark tbody tr:nth-child(odd) {
+  background: var(--pres-dark-row-odd);
+}
+
+.craftsman-table.presentation.dark tbody tr:nth-child(even) {
+  background: var(--pres-dark-row-even);
+}
+
+/* 数値セル */
+.craftsman-table.presentation td.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ハイライトセル */
+.craftsman-table.presentation.light td.highlight {
+  background: var(--pres-light-highlight);
+  font-weight: 600;
+}
+
+.craftsman-table.presentation.dark td.highlight {
+  background: var(--pres-dark-highlight);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* アクセントカラー（カスタマイズ用） */
+.craftsman-table.presentation.accent-blue thead {
+  background: #0d6efd;
+}
+
+.craftsman-table.presentation.accent-green thead {
+  background: #198754;
+}
+
+.craftsman-table.presentation.accent-red thead {
+  background: #dc3545;
+}
+
+.craftsman-table.presentation.accent-purple thead {
+  background: #6f42c1;
+}
+
+.craftsman-table.presentation.accent-orange thead {
+  background: #fd7e14;
+}
+
+/* ミニマルスタイル */
+.craftsman-table.presentation.minimal {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.craftsman-table.presentation.minimal thead {
+  background: transparent;
+  border-bottom: 3px solid currentColor;
+}
+
+.craftsman-table.presentation.minimal th {
+  color: inherit;
+}
+
+.craftsman-table.presentation.minimal tbody tr {
+  background: transparent !important;
+}
+
+.craftsman-table.presentation.minimal td {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+/* 出典表示 */
+.table-notes.presentation {
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* レスポンシブ（小さい画面用） */
+@media (max-width: 1280px) {
+  :root {
+    --pres-header-font-size: 22px;
+    --pres-body-font-size: 18px;
+    --pres-cell-padding: 12px 16px;
+  }
+
+  .table-figure.presentation .table-title {
+    font-size: 28px;
+  }
+}
+
+/* 固定サイズ（画像出力用） */
+.table-container.presentation.fixed-1920 {
+  width: 1920px;
+  height: 1080px;
+  aspect-ratio: auto;
+}
+
+.table-container.presentation.fixed-1280 {
+  width: 1280px;
+  height: 720px;
+  aspect-ratio: auto;
+}

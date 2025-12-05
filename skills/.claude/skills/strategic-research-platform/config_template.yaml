@@ -1,0 +1,612 @@
+# ============================================================================
+# Strategic Management Research Hub - Configuration Template
+# ============================================================================
+# 
+# This YAML file defines all parameters for your research project.
+# Copy this template and customize for your specific study.
+#
+# Usage:
+#   python scripts/complete_pipeline.py --config my_research_config.yaml
+#
+# Version: 3.0
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# PROJECT METADATA
+# ----------------------------------------------------------------------------
+project:
+  name: "My Strategic Management Research"
+  description: "Impact of R&D investment on firm performance"
+  author: "Your Name"
+  institution: "Your University"
+  version: "1.0"
+  created_date: "2025-11-01"
+  
+# Research question and hypotheses
+research_question: |
+  How does R&D investment intensity affect firm financial performance,
+  and is this relationship moderated by firm size and industry dynamics?
+
+hypotheses:
+  - id: H1
+    statement: "R&D intensity is positively associated with ROA"
+  - id: H2
+    statement: "The R&D-performance relationship is stronger in high-tech industries"
+  - id: H3
+    statement: "Firm size moderates the R&D-performance relationship"
+
+# ----------------------------------------------------------------------------
+# DATA SOURCES
+# ----------------------------------------------------------------------------
+# Define all data sources for your research
+data_sources:
+  # Source 1: Compustat (Financial Data)
+  - name: "compustat"
+    type: "database"
+    provider: "WRDS"
+    description: "Firm-level financial data"
+    url: "https://wrds-www.wharton.upenn.edu/"
+    access_required: true
+    cost: "subscription"
+    
+    # Data collection parameters
+    collection:
+      library: "comp"
+      table: "funda"
+      date_range:
+        start: "2010-01-01"
+        end: "2023-12-31"
+      
+      # Variables to collect
+      variables:
+        - gvkey        # Firm identifier
+        - datadate     # Date
+        - fyear        # Fiscal year
+        - conm         # Company name
+        - sic          # SIC code
+        - at           # Total assets
+        - sale         # Sales
+        - xrd          # R&D expense
+        - ni           # Net income
+        - ebitda       # EBITDA
+        - lt           # Total liabilities
+        - capx         # Capital expenditure
+        - emp          # Employees
+        
+      # Filters
+      filters:
+        - "indfmt = 'INDL'"          # Industrial format
+        - "datafmt = 'STD'"          # Standard format
+        - "popsrc = 'D'"             # Domestic
+        - "consol = 'C'"             # Consolidated
+        - "curcd = 'USD'"            # US Dollars
+        
+  # Source 2: USPTO PatentsView (Patent Data)
+  - name: "uspto_patents"
+    type: "api"
+    provider: "USPTO PatentsView"
+    description: "Patent grants and citations"
+    url: "https://patentsview.org/apis/api-endpoints"
+    access_required: false
+    cost: "free"
+    
+    collection:
+      endpoint: "patents/query"
+      date_range:
+        start: "2010-01-01"
+        end: "2023-12-31"
+      
+      # Fields to retrieve
+      fields:
+        - patent_id
+        - patent_date
+        - patent_title
+        - patent_abstract
+        - assignee_id
+        - assignee_organization
+        - num_cited_by_patents
+        - ipc_class
+        
+      # Match to Compustat firms
+      matching:
+        method: "fuzzy_name_match"
+        threshold: 0.85
+        
+  # Source 3: EDINET (Japanese Firms)
+  - name: "edinet"
+    type: "api"
+    provider: "FSA Japan"
+    description: "Japanese corporate disclosures"
+    url: "https://disclosure.edinet-fsa.go.jp/"
+    access_required: false
+    cost: "free"
+    
+    collection:
+      date_range:
+        start: "2010-01-01"
+        end: "2023-12-31"
+      
+      document_types:
+        - "有価証券報告書"  # Annual securities report
+        
+      # Financial items to extract
+      financial_items:
+        - total_assets
+        - sales
+        - operating_income
+        - net_income
+        - r_and_d_expense
+        - num_employees
+        
+  # Source 4: World Bank (Macro Data)
+  - name: "world_bank"
+    type: "api"
+    provider: "World Bank"
+    description: "Country-level macroeconomic indicators"
+    url: "https://api.worldbank.org/v2/"
+    access_required: false
+    cost: "free"
+    
+    collection:
+      countries: ["USA", "JPN", "CHN", "DEU", "GBR"]
+      indicators:
+        - "NY.GDP.MKTP.CD"     # GDP (current US$)
+        - "NY.GDP.PCAP.CD"     # GDP per capita
+        - "GB.XPD.RSDV.GD.ZS"  # R&D expenditure (% of GDP)
+        - "NE.TRD.GNFS.ZS"     # Trade (% of GDP)
+        
+      date_range:
+        start: "2010"
+        end: "2023"
+
+# ----------------------------------------------------------------------------
+# SAMPLE CONSTRUCTION
+# ----------------------------------------------------------------------------
+sample_selection:
+  # Industry selection (SIC codes)
+  industries:
+    include:
+      - [20, 39]    # Manufacturing (SIC 20-39)
+      - [70, 89]    # Services (SIC 70-89)
+    exclude:
+      - [60, 67]    # Finance (SIC 60-67)
+      - [90, 99]    # Public administration
+      
+  # Time period
+  time_period:
+    start_year: 2010
+    end_year: 2023
+    
+  # Firm filters
+  firm_filters:
+    min_employees: 100
+    min_assets_million: 10       # Minimum $10M in assets
+    min_sales_million: 5         # Minimum $5M in sales
+    require_rd_data: true         # Exclude firms without R&D data
+    
+  # Data quality requirements
+  data_quality:
+    max_missing_years: 2          # Max consecutive years missing
+    min_consecutive_years: 5      # Min years with data
+    max_outlier_threshold: 3      # Standard deviations for outlier removal
+    
+  # Expected sample size
+  expected:
+    num_firms: 1000
+    num_observations: 10000
+    num_firm_years: 10000
+
+# ----------------------------------------------------------------------------
+# VARIABLE CONSTRUCTION
+# ----------------------------------------------------------------------------
+variables:
+  # Dependent variable
+  dependent:
+    name: "roa"
+    description: "Return on Assets"
+    formula: "ni / at"
+    unit: "ratio"
+    expected_range: [-0.5, 0.5]
+    
+  # Independent variables
+  independent:
+    - name: "rd_intensity"
+      description: "R&D intensity"
+      formula: "xrd / sale"
+      unit: "ratio"
+      expected_range: [0, 0.5]
+      
+    - name: "log_assets"
+      description: "Firm size (log total assets)"
+      formula: "log(at)"
+      unit: "log"
+      expected_range: [0, 15]
+      
+    - name: "firm_age"
+      description: "Years since founding"
+      formula: "current_year - founding_year"
+      unit: "years"
+      expected_range: [0, 150]
+      
+  # Control variables
+  controls:
+    - name: "leverage"
+      description: "Financial leverage"
+      formula: "lt / at"
+      expected_range: [0, 2]
+      
+    - name: "capital_intensity"
+      description: "Capital expenditure intensity"
+      formula: "capx / sale"
+      expected_range: [0, 1]
+      
+    - name: "sales_growth"
+      description: "Year-over-year sales growth"
+      formula: "(sale - sale_lag1) / sale_lag1"
+      expected_range: [-1, 2]
+      
+    - name: "industry_concentration"
+      description: "Herfindahl-Hirschman Index"
+      formula: "sum((firm_market_share)^2)"
+      expected_range: [0, 1]
+      
+  # Instrumental variables (for endogeneity)
+  instruments:
+    - name: "industry_avg_rd"
+      description: "Industry average R&D intensity"
+      formula: "mean(rd_intensity) by industry"
+      
+    - name: "rd_tax_credit"
+      description: "R&D tax credit rate"
+      source: "external_policy_data.csv"
+      
+  # Fixed effects
+  fixed_effects:
+    - "firm_id"        # Firm fixed effects
+    - "year"           # Year fixed effects
+    - "industry_year"  # Industry-year fixed effects
+
+# ----------------------------------------------------------------------------
+# DATA CLEANING
+# ----------------------------------------------------------------------------
+data_cleaning:
+  # Missing data handling
+  missing_data:
+    method: "listwise_deletion"  # Options: "listwise_deletion", "interpolation", "imputation"
+    
+    # Imputation (if method = "imputation")
+    imputation:
+      method: "median"  # Options: "mean", "median", "regression"
+      
+  # Outlier treatment
+  outliers:
+    method: "winsorize"  # Options: "winsorize", "truncate", "remove"
+    percentiles: [1, 99]  # Winsorize at 1st and 99th percentiles
+    
+    # Variables to winsorize
+    variables:
+      - roa
+      - rd_intensity
+      - sales_growth
+      - leverage
+      
+  # Data transformations
+  transformations:
+    - variable: "assets"
+      type: "log"
+      new_name: "log_assets"
+      
+    - variable: "rd_intensity"
+      type: "lag"
+      lag: 1
+      new_name: "rd_intensity_lag1"
+      
+  # Consistency checks
+  consistency_checks:
+    - check: "assets > 0"
+      action: "remove"
+    - check: "sales >= 0"
+      action: "remove"
+    - check: "rd_intensity >= 0 and rd_intensity <= 1"
+      action: "winsorize"
+
+# ----------------------------------------------------------------------------
+# STATISTICAL ANALYSIS
+# ----------------------------------------------------------------------------
+analysis:
+  # Descriptive statistics
+  descriptive:
+    statistics:
+      - mean
+      - median
+      - std
+      - min
+      - max
+      - p25    # 25th percentile
+      - p75    # 75th percentile
+      
+    # Variables to summarize
+    variables:
+      - roa
+      - rd_intensity
+      - log_assets
+      - leverage
+      - sales_growth
+      
+    # Group by (for separate statistics)
+    group_by:
+      - industry
+      - year
+      
+  # Correlation analysis
+  correlation:
+    method: "pearson"  # Options: "pearson", "spearman"
+    variables:
+      - roa
+      - rd_intensity
+      - log_assets
+      - leverage
+      - sales_growth
+      
+  # Regression models
+  models:
+    # Model 1: Baseline (OLS)
+    - name: "Model 1 - Baseline"
+      type: "ols"
+      formula: "roa ~ rd_intensity + log_assets + leverage + sales_growth"
+      
+    # Model 2: Panel Fixed Effects
+    - name: "Model 2 - Firm FE"
+      type: "panel_fe"
+      formula: "roa ~ rd_intensity + log_assets + leverage + sales_growth"
+      entity_effects: "firm_id"
+      time_effects: "year"
+      cluster: "firm_id"  # Clustered standard errors
+      
+    # Model 3: Interaction Effect
+    - name: "Model 3 - Moderation"
+      type: "panel_fe"
+      formula: "roa ~ rd_intensity * log_assets + leverage + sales_growth"
+      entity_effects: "firm_id"
+      time_effects: "year"
+      cluster: "firm_id"
+      
+    # Model 4: IV Regression (Endogeneity)
+    - name: "Model 4 - IV"
+      type: "iv"
+      formula: "roa ~ [rd_intensity ~ industry_avg_rd rd_tax_credit] + log_assets + leverage"
+      endogenous: ["rd_intensity"]
+      instruments: ["industry_avg_rd", "rd_tax_credit"]
+      
+    # Model 5: Difference-in-Differences (if applicable)
+    - name: "Model 5 - DiD"
+      type: "did"
+      formula: "roa ~ treated * post + log_assets + leverage"
+      treatment_group: "treated"
+      time_indicator: "post"
+      
+  # Robustness checks
+  robustness:
+    # Alternative specifications
+    - name: "Alternative DV"
+      description: "Use ROE instead of ROA"
+      change: "dependent variable"
+      formula: "roe ~ rd_intensity + log_assets + leverage"
+      
+    - name: "Lagged IV"
+      description: "Use lagged R&D intensity"
+      change: "independent variable"
+      formula: "roa ~ rd_intensity_lag1 + log_assets + leverage"
+      
+    - name: "Subsample - High-Tech"
+      description: "Restrict to high-tech industries"
+      change: "sample"
+      filter: "sic in [35, 36, 38, 73]"  # High-tech SIC codes
+      
+    - name: "Alternative SE"
+      description: "Use robust standard errors"
+      change: "standard errors"
+      se_type: "HC3"  # Heteroskedasticity-consistent
+      
+  # Diagnostic tests
+  diagnostics:
+    - "vif"              # Variance Inflation Factor (multicollinearity)
+    - "heteroskedasticity"  # Breusch-Pagan test
+    - "autocorrelation"     # Durbin-Watson test
+    - "normality"           # Shapiro-Wilk test (residuals)
+    - "hausman"             # Hausman test (FE vs. RE)
+
+# ----------------------------------------------------------------------------
+# VISUALIZATION
+# ----------------------------------------------------------------------------
+visualization:
+  # Figure settings
+  style: "seaborn-v0_8-whitegrid"
+  color_palette: "Set2"
+  figure_size: [10, 6]
+  dpi: 300
+  file_format: "png"  # Options: "png", "pdf", "svg"
+  
+  # Figures to generate
+  figures:
+    # Figure 1: Distribution of key variables
+    - name: "Figure 1 - Variable Distributions"
+      type: "histogram"
+      variables: ["roa", "rd_intensity", "log_assets"]
+      layout: "grid"
+      rows: 1
+      cols: 3
+      
+    # Figure 2: Correlation heatmap
+    - name: "Figure 2 - Correlation Matrix"
+      type: "heatmap"
+      variables: ["roa", "rd_intensity", "log_assets", "leverage", "sales_growth"]
+      
+    # Figure 3: Scatter plot with regression line
+    - name: "Figure 3 - R&D and Performance"
+      type: "scatter"
+      x: "rd_intensity"
+      y: "roa"
+      add_regression_line: true
+      color_by: "industry"
+      
+    # Figure 4: Time trends
+    - name: "Figure 4 - Temporal Trends"
+      type: "line"
+      x: "year"
+      y: "rd_intensity"
+      group_by: "industry"
+      
+    # Figure 5: Interaction plot
+    - name: "Figure 5 - Moderation Effect"
+      type: "interaction"
+      x: "rd_intensity"
+      y: "roa"
+      moderator: "log_assets"
+      moderator_values: ["mean-1sd", "mean", "mean+1sd"]
+
+# ----------------------------------------------------------------------------
+# OUTPUT SETTINGS
+# ----------------------------------------------------------------------------
+output:
+  # Output directory structure
+  directory: "output/"
+  subdirectories:
+    data: "data/"
+    tables: "tables/"
+    figures: "figures/"
+    logs: "logs/"
+    
+  # File naming convention
+  naming:
+    prefix: "research_"
+    include_timestamp: true
+    
+  # Table export formats
+  tables:
+    formats: ["csv", "xlsx", "tex"]  # LaTeX for publication
+    
+    # LaTeX table settings
+    latex:
+      caption: true
+      label: true
+      booktabs: true  # Professional table style
+      
+  # Data export
+  data:
+    save_raw: true
+    save_cleaned: true
+    save_final: true
+    format: "csv"  # Options: "csv", "stata", "parquet"
+    
+  # Logs
+  logging:
+    level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+    file: "pipeline.log"
+    console: true
+
+# ----------------------------------------------------------------------------
+# COMPUTATIONAL SETTINGS
+# ----------------------------------------------------------------------------
+computation:
+  # Parallel processing
+  parallel:
+    enabled: true
+    num_cores: 4  # Use -1 for all available cores
+    
+  # Random seed (for reproducibility)
+  random_seed: 42
+  
+  # Memory management
+  memory:
+    chunk_size: 10000  # Process data in chunks if > this size
+    max_memory_gb: 8   # Maximum memory to use
+    
+  # Performance
+  cache_results: true
+  verbose: true
+
+# ----------------------------------------------------------------------------
+# QUALITY ASSURANCE
+# ----------------------------------------------------------------------------
+quality_assurance:
+  # Pre-analysis checks
+  pre_analysis:
+    - check: "sample_size"
+      min_observations: 500
+      
+    - check: "missing_data"
+      max_missing_pct: 0.20  # Max 20% missing
+      
+    - check: "outliers"
+      method: "iqr"
+      threshold: 3
+      
+  # Post-analysis checks
+  post_analysis:
+    - check: "model_fit"
+      min_r_squared: 0.10
+      
+    - check: "standard_errors"
+      max_vif: 10  # Multicollinearity threshold
+      
+    - check: "residuals"
+      test_normality: true
+      test_heteroskedasticity: true
+      
+  # Replication requirements
+  replication:
+    save_environment: true  # Save package versions
+    save_code: true
+    save_logs: true
+    create_readme: true
+
+# ----------------------------------------------------------------------------
+# DOCUMENTATION
+# ----------------------------------------------------------------------------
+documentation:
+  # Automatic documentation generation
+  auto_generate:
+    data_dictionary: true
+    codebook: true
+    methods_section: true
+    
+  # Research transparency
+  transparency:
+    preregistration: false
+    preregistration_url: ""
+    data_sharing: true
+    code_sharing: true
+    
+  # Citation information
+  citation:
+    style: "APA"
+    bibtex: true
+
+# ----------------------------------------------------------------------------
+# NOTES & COMMENTS
+# ----------------------------------------------------------------------------
+notes: |
+  This configuration file defines all parameters for the research project.
+  
+  Key decisions:
+  - Used panel fixed effects to control for unobserved heterogeneity
+  - Winsorized financial ratios at 1st/99th percentiles to handle outliers
+  - Clustered standard errors at firm level to account for serial correlation
+  - Included industry-year fixed effects to control for time-varying industry trends
+  
+  Next steps:
+  1. Collect data from specified sources
+  2. Run data quality checks
+  3. Execute statistical analysis
+  4. Generate publication-ready tables and figures
+  5. Document results and prepare manuscript
+
+# ----------------------------------------------------------------------------
+# VERSION HISTORY
+# ----------------------------------------------------------------------------
+version_history:
+  - version: "1.0"
+    date: "2025-11-01"
+    changes: "Initial configuration"
+    author: "Your Name"

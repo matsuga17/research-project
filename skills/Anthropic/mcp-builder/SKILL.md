@@ -326,3 +326,172 @@ Load these resources as needed during development:
   - XML format specifications
   - Example questions and answers
   - Running an evaluation with the provided scripts
+
+---
+
+## Context Engineering Integration
+
+This section provides guidelines for applying Context Engineering principles throughout MCP server development, ensuring optimal context utilization and reliable agent interactions.
+
+### Context Budget Management
+
+**Target Usage**: 40-60% of context window
+
+**Phase-Specific Budgets**:
+
+| Phase | Context Budget | Focus |
+|-------|---------------|-------|
+| Phase 1: Research | ≤30% | API docs, protocol specs |
+| Phase 2: Implementation | ≤40% | Code, schemas, tests |
+| Phase 3: Review | ≤20% | Checklists, validation |
+| Phase 4: Evaluation | ≤30% | Questions, test results |
+
+### Phase Transition Protocol (意図的コンパクション)
+
+**After Phase 1 (Research) Completion**:
+```markdown
+## Phase 1 Summary (≤500 words)
+
+### API Understanding
+- Endpoints to implement: [list]
+- Authentication: [method]
+- Rate limits: [details]
+
+### Tool Design Decisions
+- Tool 1: [name] - [purpose]
+- Tool 2: [name] - [purpose]
+...
+
+### Implementation Priorities
+1. [Priority 1]
+2. [Priority 2]
+3. [Priority 3]
+```
+
+**After Phase 2 (Implementation) Completion**:
+```markdown
+## Phase 2 Summary (≤300 words)
+
+### Implemented Tools
+- [Tool 1]: [status] - [notes]
+- [Tool 2]: [status] - [notes]
+...
+
+### Shared Utilities Created
+- [Utility 1]: [purpose]
+...
+
+### Outstanding Issues
+- [Issue 1]
+...
+```
+
+**After Phase 3 (Review) Completion**:
+```markdown
+## Phase 3 Summary (≤200 words)
+
+### Quality Check Results
+- [ ] DRY compliance: [status]
+- [ ] Type safety: [status]
+- [ ] Error handling: [status]
+- [ ] Documentation: [status]
+
+### Required Fixes
+- [Fix 1]
+...
+```
+
+### Tool Design for Agent Context Efficiency
+
+**DO (Agent-Friendly Patterns)**:
+- Return high-signal information, not exhaustive data
+- Provide "concise" vs "detailed" response format options
+- Default to human-readable identifiers (names over IDs)
+- Design actionable error messages with next steps
+
+**DON'T (Context-Inefficient Patterns)**:
+- Return all fields when only a few are needed
+- Force agents to make multiple calls for common operations
+- Return raw technical codes without human-readable labels
+- Provide verbose error messages without guidance
+
+### Response Format Guidelines
+
+**Concise Mode (Default)**:
+```json
+{
+  "summary": "Brief description",
+  "key_fields": ["field1", "field2"],
+  "has_more": true,
+  "next_action": "Use detailed mode for full data"
+}
+```
+
+**Detailed Mode (On Request)**:
+```json
+{
+  "full_data": { ... },
+  "metadata": { ... },
+  "pagination": { ... }
+}
+```
+
+### Subagent Pattern for Research Phase
+
+For comprehensive API documentation research, delegate to subagents:
+
+```
+Main Agent (MCP Builder)
+    ├── Subagent 1: API endpoint survey → summary (≤200 words)
+    ├── Subagent 2: Authentication flow analysis → summary (≤200 words)
+    └── Subagent 3: Error response catalog → summary (≤200 words)
+```
+
+**Subagent Rules**:
+- READ-ONLY operations only
+- Return summaries, not full documentation
+- Parallelize for efficiency
+
+### Character Limit Strategy
+
+**Implementation Constants**:
+```python
+CHARACTER_LIMIT = 25000  # ~6,000 tokens
+TRUNCATION_MESSAGE = "Results truncated. Use filters to narrow results."
+```
+
+**Truncation Priority**:
+1. Keep: Identifiers, counts, status
+2. Truncate: Descriptions, content bodies
+3. Remove: Redundant metadata, verbose timestamps
+
+### Quality Checklist (Context Engineering)
+
+Before completing each phase, verify:
+
+**Phase 1**:
+- [ ] Research summary ≤500 words
+- [ ] Tool list prioritized (not exhaustive)
+- [ ] Unnecessary API details not loaded
+
+**Phase 2**:
+- [ ] Each tool has concise/detailed modes
+- [ ] CHARACTER_LIMIT implemented
+- [ ] Error messages include next actions
+
+**Phase 3**:
+- [ ] Response formats optimize for agent context
+- [ ] Pagination prevents context overflow
+- [ ] No duplicate data in responses
+
+**Phase 4**:
+- [ ] Evaluation questions don't require full context
+- [ ] Subagents used for parallel exploration
+- [ ] Results summarized before integration
+
+### Reference
+
+For detailed Context Engineering principles, see the `context-engineering` skill:
+- 12 Factor Agents principles
+- ACE-FCA (Advanced Context Engineering for Coding Agents)
+- Research-Plan-Implement workflow

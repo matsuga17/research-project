@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation Table Example - プレゼンテーション用表サンプル</title>
+  <style>
+    /* Presentation Style - 16:9 */
+    :root {
+      --pres-light-bg: #ffffff;
+      --pres-light-header-bg: #2c3e50;
+      --pres-light-header-text: #ffffff;
+      --pres-light-row-odd: #ffffff;
+      --pres-light-row-even: #f8f9fa;
+      --pres-light-text: #212529;
+      --pres-light-border: #dee2e6;
+
+      --pres-dark-bg: #1a1a2e;
+      --pres-dark-header-bg: #16213e;
+      --pres-dark-header-text: #ffffff;
+      --pres-dark-row-odd: #1a1a2e;
+      --pres-dark-row-even: #16213e;
+      --pres-dark-text: #eaeaea;
+      --pres-dark-border: #0f3460;
+
+      --pres-font: "Helvetica Neue", "Noto Sans JP", Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--pres-font);
+      background: #e9ecef;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    h2 {
+      margin: 40px 0 20px;
+      color: #555;
+    }
+
+    .slide {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .slide.light {
+      background: var(--pres-light-bg);
+      color: var(--pres-light-text);
+    }
+
+    .slide.dark {
+      background: var(--pres-dark-bg);
+      color: var(--pres-dark-text);
+    }
+
+    .slide-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .pres-table {
+      width: 100%;
+      max-width: 800px;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Light Theme Table */
+    .slide.light .pres-table {
+      background: var(--pres-light-bg);
+    }
+
+    .slide.light .pres-table thead {
+      background: var(--pres-light-header-bg);
+    }
+
+    .slide.light .pres-table th {
+      color: var(--pres-light-header-text);
+      font-size: 20px;
+      font-weight: 600;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .slide.light .pres-table td {
+      font-size: 18px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--pres-light-border);
+      color: var(--pres-light-text);
+    }
+
+    .slide.light .pres-table tbody tr:nth-child(odd) {
+      background: var(--pres-light-row-odd);
+    }
+
+    .slide.light .pres-table tbody tr:nth-child(even) {
+      background: var(--pres-light-row-even);
+    }
+
+    .slide.light .pres-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Dark Theme Table */
+    .slide.dark .pres-table {
+      background: var(--pres-dark-bg);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .slide.dark .pres-table thead {
+      background: var(--pres-dark-header-bg);
+    }
+
+    .slide.dark .pres-table th {
+      color: var(--pres-dark-header-text);
+      font-size: 20px;
+      font-weight: 600;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .slide.dark .pres-table td {
+      font-size: 18px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--pres-dark-border);
+      color: var(--pres-dark-text);
+    }
+
+    .slide.dark .pres-table tbody tr:nth-child(odd) {
+      background: var(--pres-dark-row-odd);
+    }
+
+    .slide.dark .pres-table tbody tr:nth-child(even) {
+      background: var(--pres-dark-row-even);
+    }
+
+    /* Numeric alignment */
+    .pres-table td.numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Highlight */
+    .pres-table td.highlight {
+      background: #fff3cd !important;
+      font-weight: 600;
+    }
+
+    .slide.dark .pres-table td.highlight {
+      background: #e94560 !important;
+      color: #fff;
+    }
+
+    /* Accent Colors */
+    .pres-table.accent-blue thead { background: #0d6efd; }
+    .pres-table.accent-green thead { background: #198754; }
+    .pres-table.accent-red thead { background: #dc3545; }
+    .pres-table.accent-purple thead { background: #6f42c1; }
+
+    .source {
+      margin-top: 16px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Presentation Table Examples</h1>
+  <p style="text-align: center; color: #666;">プレゼンテーション用表サンプル（16:9）</p>
+
+  <h2>Light Theme - 基本</h2>
+  <div class="slide light">
+    <div class="slide-title">四半期売上実績</div>
+    <table class="pres-table">
+      <thead>
+        <tr>
+          <th>地域</th>
+          <th>Q1</th>
+          <th>Q2</th>
+          <th>Q3</th>
+          <th>Q4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>北米</td>
+          <td class="numeric">$2.4M</td>
+          <td class="numeric">$2.8M</td>
+          <td class="numeric">$3.1M</td>
+          <td class="numeric highlight">$3.5M</td>
+        </tr>
+        <tr>
+          <td>欧州</td>
+          <td class="numeric">$1.8M</td>
+          <td class="numeric">$2.0M</td>
+          <td class="numeric">$2.2M</td>
+          <td class="numeric">$2.4M</td>
+        </tr>
+        <tr>
+          <td>アジア太平洋</td>
+          <td class="numeric">$1.2M</td>
+          <td class="numeric">$1.5M</td>
+          <td class="numeric">$1.8M</td>
+          <td class="numeric">$2.1M</td>
+        </tr>
+        <tr>
+          <td>その他</td>
+          <td class="numeric">$0.5M</td>
+          <td class="numeric">$0.6M</td>
+          <td class="numeric">$0.7M</td>
+          <td class="numeric">$0.8M</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="source">出典: 社内営業データ（2024年度）</div>
+  </div>
+
+  <h2>Dark Theme</h2>
+  <div class="slide dark">
+    <div class="slide-title">主要KPI比較</div>
+    <table class="pres-table">
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th>前年</th>
+          <th>今年</th>
+          <th>成長率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>月間アクティブユーザー</td>
+          <td class="numeric">1.2M</td>
+          <td class="numeric">1.8M</td>
+          <td class="numeric highlight">+50%</td>
+        </tr>
+        <tr>
+          <td>平均滞在時間</td>
+          <td class="numeric">8.5分</td>
+          <td class="numeric">12.3分</td>
+          <td class="numeric">+45%</td>
+        </tr>
+        <tr>
+          <td>コンバージョン率</td>
+          <td class="numeric">2.1%</td>
+          <td class="numeric">3.4%</td>
+          <td class="numeric">+62%</td>
+        </tr>
+        <tr>
+          <td>顧客獲得コスト</td>
+          <td class="numeric">$45</td>
+          <td class="numeric">$32</td>
+          <td class="numeric">-29%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Accent Color - Green</h2>
+  <div class="slide light">
+    <div class="slide-title">環境目標達成状況</div>
+    <table class="pres-table accent-green">
+      <thead>
+        <tr>
+          <th>目標項目</th>
+          <th>目標値</th>
+          <th>実績</th>
+          <th>達成率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CO2排出削減</td>
+          <td class="numeric">-20%</td>
+          <td class="numeric">-23%</td>
+          <td class="numeric highlight">115%</td>
+        </tr>
+        <tr>
+          <td>再生可能エネルギー比率</td>
+          <td class="numeric">50%</td>
+          <td class="numeric">48%</td>
+          <td class="numeric">96%</td>
+        </tr>
+        <tr>
+          <td>廃棄物リサイクル率</td>
+          <td class="numeric">80%</td>
+          <td class="numeric">85%</td>
+          <td class="numeric">106%</td>
+        </tr>
+        <tr>
+          <td>水使用量削減</td>
+          <td class="numeric">-15%</td>
+          <td class="numeric">-12%</td>
+          <td class="numeric">80%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Minimal Style</h2>
+  <div class="slide light">
+    <div class="slide-title">プロジェクトタイムライン</div>
+    <table class="pres-table" style="box-shadow: none; border-radius: 0;">
+      <thead style="background: transparent; border-bottom: 3px solid #333;">
+        <tr>
+          <th style="color: #333;">フェーズ</th>
+          <th style="color: #333;">期間</th>
+          <th style="color: #333;">担当</th>
+          <th style="color: #333;">ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background: transparent !important;">
+          <td>要件定義</td>
+          <td>4月</td>
+          <td>企画チーム</td>
+          <td style="color: #198754; font-weight: 600;">完了</td>
+        </tr>
+        <tr style="background: transparent !important;">
+          <td>設計</td>
+          <td>5月-6月</td>
+          <td>開発チーム</td>
+          <td style="color: #198754; font-weight: 600;">完了</td>
+        </tr>
+        <tr style="background: transparent !important;">
+          <td>実装</td>
+          <td>7月-9月</td>
+          <td>開発チーム</td>
+          <td style="color: #0d6efd; font-weight: 600;">進行中</td>
+        </tr>
+        <tr style="background: transparent !important;">
+          <td>テスト</td>
+          <td>10月</td>
+          <td>QAチーム</td>
+          <td style="color: #6c757d;">予定</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

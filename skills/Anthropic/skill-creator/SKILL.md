@@ -207,3 +207,112 @@ After testing the skill, users may request improvements. Often this happens righ
 2. Notice struggles or inefficiencies
 3. Identify how SKILL.md or bundled resources should be updated
 4. Implement changes and test again
+
+---
+
+## Context Engineering Integration
+
+This section provides guidelines for applying Context Engineering principles when creating skills, ensuring optimal context window utilization and improved reliability.
+
+### Context Budget Guidelines
+
+**Target Usage**: 40-60% of context window
+
+| Component | Budget Guideline |
+|-----------|-----------------|
+| SKILL.md body | ≤5,000 words (strict) |
+| Description | ≤100 words |
+| Single reference file | ≤10,000 words (recommend splitting if larger) |
+| Total loaded context | Monitor and stay within 60% |
+
+### Skill Design for Context Efficiency
+
+**DO (Context-Efficient Patterns)**:
+- Keep SKILL.md focused on **procedural instructions only**
+- Move detailed examples, schemas, and reference material to `references/`
+- Use scripts for deterministic operations (executed without loading)
+- Provide grep patterns for large reference files
+
+**DON'T (Context-Inefficient Patterns)**:
+- Duplicate information between SKILL.md and references
+- Include lengthy examples inline in SKILL.md
+- Load all references at skill activation (use progressive disclosure)
+- Create monolithic SKILL.md files (>5k words)
+
+### Workflow Structure Recommendations
+
+For skills with multi-step workflows, structure them using the **Research-Plan-Implement** pattern:
+
+```
+## Workflow
+
+### Phase 1: Research (調査)
+- Understand the task requirements
+- Identify relevant resources
+- Output: research-summary (≤500 words)
+
+### Phase 2: Plan (計画)
+- Define specific implementation steps
+- Identify dependencies and risks
+- Output: implementation-plan (≤800 words)
+
+### Phase 3: Implement (実装)
+- Execute plan step-by-step
+- Update status after each step
+- Output: final deliverable
+```
+
+### Compaction Points
+
+For skills with iterative or multi-phase processes, define explicit **compaction points**:
+
+```markdown
+### Compaction Protocol
+
+**After Research Phase**:
+- Compress findings to ≤500 words
+- Retain: conclusions, file paths, key decisions
+- Discard: exploration details, rejected options
+
+**After Plan Phase**:
+- Compress plan to ≤800 words
+- Retain: action items, dependencies, success criteria
+- Discard: planning rationale, considered alternatives
+
+**On Error**:
+- Compress error to ≤100 words
+- Format: [Error Type]: [Brief Description] → [Suggested Action]
+```
+
+### Multi-Agent Skill Guidelines
+
+For skills that spawn or coordinate multiple agents:
+
+**Agent Count Limits**:
+- Default: ≤3 concurrent agents
+- Maximum: ≤6 agents (only for highly parallel tasks)
+- Each agent should have focused, single responsibility
+
+**Inter-Agent Communication**:
+- Agents return **summaries only** (≤200 words each)
+- Main agent integrates summaries, not raw outputs
+- Avoid passing full context between agents
+
+### Quality Checklist (Context Engineering)
+
+Before packaging a skill, verify:
+
+- [ ] SKILL.md ≤5,000 words
+- [ ] Description ≤100 words and specific
+- [ ] Large content moved to `references/`
+- [ ] Workflow follows Research-Plan-Implement pattern (if applicable)
+- [ ] Compaction points defined (for multi-phase skills)
+- [ ] Agent count limited (for multi-agent skills)
+- [ ] No duplicated information between SKILL.md and references
+
+### Reference
+
+For detailed Context Engineering principles, see the `context-engineering` skill:
+- 12 Factor Agents principles
+- ACE-FCA (Advanced Context Engineering for Coding Agents)
+- Compaction techniques and templates

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "Table" }}</title>
+  <style>
+{{ css }}
+  </style>
+</head>
+<body>
+  <div class="{{ container_classes }}">
+    <figure class="{{ figure_classes }}">
+      {% if table_number or title %}
+      <figcaption class="table-caption">
+        {% if table_number %}<span class="table-number">{{ table_number }}</span>{% endif %}
+        {% if title %}<span class="table-title">{{ title }}</span>{% endif %}
+      </figcaption>
+      {% endif %}
+      <table class="{{ table_classes }}">
+        <thead>
+          <tr>
+            {% for header in headers %}
+            <th class="{{ header.class }}"{% if header.width %} style="width: {{ header.width }}"{% endif %}>{{ header.text }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr class="{{ row.class }}">
+            {% for cell in row.cells %}
+            <td class="{{ cell.class }}"{% if cell.style %} style="{{ cell.style }}"{% endif %}>{{ cell.text }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if notes %}
+      <div class="table-notes {{ style }}">
+        {% if notes.general %}<p class="note-general"><em>Note.</em> {{ notes.general }}</p>{% endif %}
+        {% if notes.specific %}<p class="note-specific">{{ notes.specific }}</p>{% endif %}
+        {% if notes.probability %}<p class="note-probability">{{ notes.probability }}</p>{% endif %}
+      </div>
+      {% endif %}
+    </figure>
+  </div>
+</body>
+</html>

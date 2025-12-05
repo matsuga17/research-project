@@ -1,0 +1,195 @@
+/**
+ * Minimal Style - ミニマル表スタイル
+ * 一般文書・ドキュメント・Web用
+ *
+ * 特徴:
+ * - シンプルで読みやすい
+ * - 余白で区切り
+ * - 軽量
+ * - どんな背景にも馴染む
+ */
+
+/* ベース設定 */
+:root {
+  --min-font: system-ui, -apple-system, "Segoe UI", "Noto Sans JP", sans-serif;
+  --min-font-size: 14px;
+  --min-line-height: 1.6;
+  --min-cell-padding: 12px 16px;
+  --min-text: #333333;
+  --min-text-secondary: #666666;
+  --min-border: #e0e0e0;
+  --min-header-border: #333333;
+}
+
+/* 表コンテナ */
+.table-container.minimal {
+  font-family: var(--min-font);
+  font-size: var(--min-font-size);
+  line-height: var(--min-line-height);
+  color: var(--min-text);
+  max-width: 100%;
+  margin: 1.5em 0;
+}
+
+/* 表タイトル */
+.table-figure.minimal .table-caption {
+  margin-bottom: 0.75em;
+  color: var(--min-text-secondary);
+  font-size: 0.9em;
+}
+
+/* メイン表 */
+.craftsman-table.minimal {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+/* ヘッダー */
+.craftsman-table.minimal thead {
+  border-bottom: 2px solid var(--min-header-border);
+}
+
+.craftsman-table.minimal th {
+  padding: var(--min-cell-padding);
+  font-weight: 600;
+  text-align: left;
+  color: var(--min-text);
+  background: transparent;
+  border: none;
+}
+
+/* ボディ */
+.craftsman-table.minimal td {
+  padding: var(--min-cell-padding);
+  border: none;
+  border-bottom: 1px solid var(--min-border);
+  vertical-align: top;
+}
+
+.craftsman-table.minimal tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 数値列 */
+.craftsman-table.minimal td.numeric,
+.craftsman-table.minimal th.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 中央揃え */
+.craftsman-table.minimal td.center,
+.craftsman-table.minimal th.center {
+  text-align: center;
+}
+
+/* ホバー */
+.craftsman-table.minimal tbody tr:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* ===== バリエーション ===== */
+
+/* 罫線なし */
+.craftsman-table.minimal.no-lines td {
+  border: none;
+}
+
+.craftsman-table.minimal.no-lines thead {
+  border-bottom: 1px solid var(--min-header-border);
+}
+
+/* 点線 */
+.craftsman-table.minimal.dotted td {
+  border-bottom-style: dotted;
+}
+
+/* 余白広め */
+.craftsman-table.minimal.spacious {
+  --min-cell-padding: 16px 20px;
+}
+
+/* コンパクト */
+.craftsman-table.minimal.compact {
+  --min-cell-padding: 8px 12px;
+  --min-font-size: 13px;
+}
+
+/* ===== ダークモード対応 ===== */
+@media (prefers-color-scheme: dark) {
+  .table-container.minimal.auto-dark {
+    --min-text: #e0e0e0;
+    --min-text-secondary: #a0a0a0;
+    --min-border: #404040;
+    --min-header-border: #e0e0e0;
+  }
+
+  .craftsman-table.minimal.auto-dark tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* 明示的ダークテーマ */
+.table-container.minimal.dark {
+  --min-text: #e0e0e0;
+  --min-text-secondary: #a0a0a0;
+  --min-border: #404040;
+  --min-header-border: #e0e0e0;
+}
+
+.craftsman-table.minimal.dark tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== 注釈 ===== */
+.table-notes.minimal {
+  margin-top: 0.75em;
+  font-size: 0.85em;
+  color: var(--min-text-secondary);
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 640px) {
+  .table-container.minimal.responsive {
+    overflow-x: auto;
+  }
+
+  .craftsman-table.minimal.responsive {
+    min-width: 500px;
+  }
+}
+
+/* スクロールシャドウ */
+.table-container.minimal.scroll-shadow {
+  position: relative;
+  overflow-x: auto;
+}
+
+.table-container.minimal.scroll-shadow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.table-container.minimal.scroll-shadow.scrollable::after {
+  opacity: 1;
+}
+
+/* ===== 印刷 ===== */
+@media print {
+  .table-container.minimal {
+    page-break-inside: avoid;
+  }
+
+  .craftsman-table.minimal td {
+    border-bottom: 1px solid #cccccc;
+  }
+}

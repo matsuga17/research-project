@@ -1,0 +1,256 @@
+/**
+ * Business Style - ビジネス文書用表スタイル
+ * レポート・提案書・企画書対応
+ *
+ * 特徴:
+ * - プロフェッショナルな外観
+ * - ブランドカラー対応
+ * - 複数のバリエーション
+ * - 印刷対応
+ */
+
+/* ベース設定 */
+:root {
+  --biz-font: "Helvetica Neue", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --biz-font-size: 10pt;
+  --biz-header-font-size: 10pt;
+  --biz-line-height: 1.5;
+  --biz-cell-padding: 10px 14px;
+
+  /* デフォルトカラー（ブルー） */
+  --biz-primary: #0d6efd;
+  --biz-primary-light: #e7f1ff;
+  --biz-header-bg: #0d6efd;
+  --biz-header-text: #ffffff;
+  --biz-border: #dee2e6;
+  --biz-text: #212529;
+  --biz-row-odd: #ffffff;
+  --biz-row-even: #f8f9fa;
+}
+
+/* 表コンテナ */
+.table-container.business {
+  font-family: var(--biz-font);
+  font-size: var(--biz-font-size);
+  line-height: var(--biz-line-height);
+  max-width: 100%;
+  margin: 1.5em 0;
+}
+
+/* 表タイトル */
+.table-figure.business .table-caption {
+  margin-bottom: 0.75em;
+}
+
+.table-figure.business .table-number {
+  font-weight: 600;
+  color: var(--biz-primary);
+}
+
+.table-figure.business .table-title {
+  font-weight: 600;
+  margin-left: 0.5em;
+}
+
+/* メイン表 */
+.craftsman-table.business {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--biz-border);
+}
+
+/* ヘッダー */
+.craftsman-table.business thead {
+  background: var(--biz-header-bg);
+}
+
+.craftsman-table.business th {
+  padding: var(--biz-cell-padding);
+  font-size: var(--biz-header-font-size);
+  font-weight: 600;
+  color: var(--biz-header-text);
+  text-align: center;
+  border: 1px solid var(--biz-border);
+  white-space: nowrap;
+}
+
+/* ボディ */
+.craftsman-table.business td {
+  padding: var(--biz-cell-padding);
+  color: var(--biz-text);
+  border: 1px solid var(--biz-border);
+  vertical-align: middle;
+}
+
+/* ゼブラストライプ */
+.craftsman-table.business.striped tbody tr:nth-child(odd) {
+  background: var(--biz-row-odd);
+}
+
+.craftsman-table.business.striped tbody tr:nth-child(even) {
+  background: var(--biz-row-even);
+}
+
+/* ホバー効果 */
+.craftsman-table.business.hoverable tbody tr:hover {
+  background: var(--biz-primary-light);
+}
+
+/* 数値列 */
+.craftsman-table.business td.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 中央揃え */
+.craftsman-table.business td.center {
+  text-align: center;
+}
+
+/* 合計行 */
+.craftsman-table.business tr.total {
+  font-weight: 600;
+  background: var(--biz-row-even);
+  border-top: 2px solid var(--biz-primary);
+}
+
+/* 小計行 */
+.craftsman-table.business tr.subtotal {
+  font-weight: 500;
+  background: var(--biz-row-even);
+  font-style: italic;
+}
+
+/* ハイライト */
+.craftsman-table.business td.highlight {
+  background: #fff3cd;
+}
+
+.craftsman-table.business td.highlight-success {
+  background: #d1e7dd;
+}
+
+.craftsman-table.business td.highlight-danger {
+  background: #f8d7da;
+}
+
+/* 注釈 */
+.table-notes.business {
+  margin-top: 0.5em;
+  font-size: 9pt;
+  color: #6c757d;
+}
+
+/* ===== カラーバリエーション ===== */
+
+/* グリーン */
+.craftsman-table.business.green {
+  --biz-primary: #198754;
+  --biz-primary-light: #d1e7dd;
+  --biz-header-bg: #198754;
+}
+
+/* レッド */
+.craftsman-table.business.red {
+  --biz-primary: #dc3545;
+  --biz-primary-light: #f8d7da;
+  --biz-header-bg: #dc3545;
+}
+
+/* グレー（コンサバティブ） */
+.craftsman-table.business.gray {
+  --biz-primary: #495057;
+  --biz-primary-light: #e9ecef;
+  --biz-header-bg: #495057;
+}
+
+/* ネイビー（フォーマル） */
+.craftsman-table.business.navy {
+  --biz-primary: #1e3a5f;
+  --biz-primary-light: #e8eef4;
+  --biz-header-bg: #1e3a5f;
+}
+
+/* ===== スタイルバリエーション ===== */
+
+/* ボーダーレス（罫線なし） */
+.craftsman-table.business.borderless {
+  border: none;
+}
+
+.craftsman-table.business.borderless th,
+.craftsman-table.business.borderless td {
+  border: none;
+  border-bottom: 1px solid var(--biz-border);
+}
+
+.craftsman-table.business.borderless thead {
+  border-bottom: 2px solid var(--biz-primary);
+}
+
+/* 横線のみ */
+.craftsman-table.business.horizontal {
+  border: none;
+  border-top: 1px solid var(--biz-border);
+  border-bottom: 1px solid var(--biz-border);
+}
+
+.craftsman-table.business.horizontal th,
+.craftsman-table.business.horizontal td {
+  border: none;
+  border-bottom: 1px solid var(--biz-border);
+}
+
+.craftsman-table.business.horizontal thead {
+  background: transparent;
+}
+
+.craftsman-table.business.horizontal th {
+  color: var(--biz-text);
+  border-bottom: 2px solid var(--biz-primary);
+}
+
+/* コンパクト */
+.craftsman-table.business.compact {
+  --biz-cell-padding: 6px 10px;
+  --biz-font-size: 9pt;
+  --biz-header-font-size: 9pt;
+}
+
+/* ワイド */
+.craftsman-table.business.wide {
+  --biz-cell-padding: 14px 20px;
+}
+
+/* ===== 印刷最適化 ===== */
+@media print {
+  .table-container.business {
+    page-break-inside: avoid;
+  }
+
+  .craftsman-table.business {
+    font-size: 9pt;
+  }
+
+  .craftsman-table.business th {
+    background: #f0f0f0 !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .craftsman-table.business.striped tbody tr:nth-child(even) {
+    background: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ===== A4レイアウト用 ===== */
+.table-container.business.a4 {
+  max-width: 170mm;
+}
+
+.table-container.business.a4-landscape {
+  max-width: 257mm;
+}

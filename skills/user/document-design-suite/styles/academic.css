@@ -1,0 +1,158 @@
+/**
+ * Academic Style - 学術論文用表スタイル
+ * APA 7th Edition / Chicago Manual of Style 準拠
+ *
+ * 特徴:
+ * - 3本線ルール（上部、ヘッダー下、最下部のみ罫線）
+ * - モノクロ基本
+ * - 注釈システム対応
+ * - 印刷最適化
+ */
+
+/* ベース設定 */
+:root {
+  --academic-font: "Times New Roman", "Noto Serif JP", "Hiragino Mincho Pro", serif;
+  --academic-font-size: 11pt;
+  --academic-line-height: 1.5;
+  --academic-border-color: #000000;
+  --academic-border-width: 1.5px;
+  --academic-cell-padding: 8px 12px;
+}
+
+/* 表コンテナ */
+.table-container.academic {
+  font-family: var(--academic-font);
+  font-size: var(--academic-font-size);
+  line-height: var(--academic-line-height);
+  max-width: 100%;
+  margin: 2em 0;
+}
+
+/* 表キャプション（APA形式） */
+.table-figure.academic .table-caption {
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+
+.table-figure.academic .table-number {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.table-figure.academic .table-title {
+  display: block;
+  font-style: italic;
+}
+
+/* メイン表 */
+.craftsman-table.academic {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  border-top: var(--academic-border-width) solid var(--academic-border-color);
+  border-bottom: var(--academic-border-width) solid var(--academic-border-color);
+}
+
+/* ヘッダー */
+.craftsman-table.academic thead {
+  border-bottom: var(--academic-border-width) solid var(--academic-border-color);
+}
+
+.craftsman-table.academic th {
+  padding: var(--academic-cell-padding);
+  text-align: center;
+  font-weight: normal;
+  vertical-align: bottom;
+  background: transparent;
+  border: none;
+}
+
+/* ボディ */
+.craftsman-table.academic td {
+  padding: var(--academic-cell-padding);
+  text-align: left;
+  vertical-align: top;
+  border: none;
+  background: transparent;
+}
+
+/* 数値列は右揃え */
+.craftsman-table.academic td.numeric,
+.craftsman-table.academic th.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 中央揃え */
+.craftsman-table.academic td.center,
+.craftsman-table.academic th.center {
+  text-align: center;
+}
+
+/* 注釈セクション */
+.table-notes.academic {
+  margin-top: 0.5em;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+.table-notes.academic p {
+  margin: 0.25em 0;
+  text-indent: 0;
+}
+
+/* 一般注 */
+.table-notes.academic .note-general em {
+  font-style: italic;
+}
+
+/* 特定注 */
+.table-notes.academic .note-specific sup {
+  font-size: 0.8em;
+  vertical-align: super;
+}
+
+/* 確率注 */
+.table-notes.academic .note-probability {
+  font-size: 10pt;
+}
+
+.table-notes.academic .note-probability em {
+  font-style: italic;
+}
+
+/* スパンセル（結合） */
+.craftsman-table.academic th[colspan],
+.craftsman-table.academic td[colspan] {
+  text-align: center;
+  border-bottom: 1px solid var(--academic-border-color);
+}
+
+/* サブヘッダー */
+.craftsman-table.academic .subheader {
+  font-style: italic;
+  padding-left: 1.5em;
+}
+
+/* 印刷最適化 */
+@media print {
+  .table-container.academic {
+    page-break-inside: avoid;
+  }
+
+  .craftsman-table.academic {
+    font-size: 10pt;
+  }
+}
+
+/* ダブルスペース版（論文投稿用） */
+.table-container.academic.double-spaced {
+  line-height: 2.0;
+}
+
+.table-container.academic.double-spaced .craftsman-table.academic td,
+.table-container.academic.double-spaced .craftsman-table.academic th {
+  padding: 12px;
+}

@@ -1,0 +1,314 @@
+%==============================================================================
+% Regression Table Template for Strategic Management Research
+%==============================================================================
+% This template follows best practices from top journals:
+% - Strategic Management Journal (SMJ)
+% - Academy of Management Journal (AMJ)
+% - American Economic Review (AER)
+%
+% Features:
+% - Multi-column format with model comparisons
+% - Robust/clustered standard errors in parentheses
+% - Significance stars (*, **, ***)
+% - Fixed effects indicators
+% - Model fit statistics (R², N, F-statistic)
+% - Professional formatting
+%
+% Author: Strategic & Organizational Research Hub
+% License: Apache 2.0
+%==============================================================================
+
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{siunitx}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+%==============================================================================
+% TABLE 1: OLS AND FIXED EFFECTS REGRESSION RESULTS
+%==============================================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Regression Results: Effect of R\&D Intensity on Firm Performance}
+\label{tab:regression_main}
+
+\begin{threeparttable}
+\small
+
+\begin{tabular}{l*{5}{c}}
+\toprule
+& \multicolumn{5}{c}{Dependent Variable: Return on Assets (ROA)} \\
+\cmidrule(lr){2-6}
+& (1) & (2) & (3) & (4) & (5) \\
+& OLS & FE & FE & FE & FE \\
+\midrule
+
+\multicolumn{6}{l}{\textit{Main Variables}} \\[0.2em]
+R\&D Intensity & 0.145*** & 0.112*** & 0.098*** & 0.087** & 0.095*** \\
+& (0.028) & (0.032) & (0.031) & (0.034) & (0.033) \\[0.5em]
+
+\multicolumn{6}{l}{\textit{Control Variables}} \\[0.2em]
+Firm Size (log assets) & & 0.024*** & 0.022*** & 0.020** & 0.021*** \\
+& & (0.006) & (0.006) & (0.008) & (0.007) \\[0.2em]
+
+Leverage & & & $-$0.156*** & $-$0.148*** & $-$0.151*** \\
+& & & (0.018) & (0.020) & (0.019) \\[0.2em]
+
+Firm Age & & & & 0.001 & 0.001 \\
+& & & & (0.002) & (0.002) \\[0.2em]
+
+Prior Performance (t-1) & & & & & 0.312*** \\
+& & & & & (0.042) \\[0.5em]
+
+\multicolumn{6}{l}{\textit{Interaction Terms}} \\[0.2em]
+R\&D × Firm Size & & & & 0.018* & \\
+& & & & (0.009) & \\[0.5em]
+
+\midrule
+Firm Fixed Effects & No & Yes & Yes & Yes & Yes \\
+Year Fixed Effects & No & Yes & Yes & Yes & Yes \\
+Industry Fixed Effects & Yes & No & No & No & No \\[0.5em]
+
+\midrule
+Observations & 25,500 & 25,500 & 24,706 & 24,706 & 22,134 \\
+Firms & 2,500 & 2,500 & 2,500 & 2,500 & 2,500 \\
+R-squared & 0.182 & 0.456 & 0.478 & 0.485 & 0.521 \\
+Adjusted R-squared & 0.178 & 0.421 & 0.443 & 0.449 & 0.487 \\
+F-statistic & 112.4 & 87.6 & 94.2 & 91.8 & 103.5 \\
+
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Notes:} This table reports regression results examining the relationship between R\&D intensity and firm performance (ROA). Column (1) presents pooled OLS results with industry fixed effects. Columns (2)-(5) present fixed effects (FE) panel regressions with firm and year fixed effects. Standard errors clustered by firm are reported in parentheses. All continuous variables are winsorized at the 1st and 99th percentiles. \\
+\item *** $p<0.01$, ** $p<0.05$, * $p<0.10$
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+%==============================================================================
+% TABLE 2: ROBUSTNESS CHECKS
+%==============================================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Robustness Checks}
+\label{tab:regression_robustness}
+
+\begin{threeparttable}
+\small
+
+\begin{tabular}{l*{4}{c}}
+\toprule
+& \multicolumn{4}{c}{Dependent Variable: ROA} \\
+\cmidrule(lr){2-5}
+& (1) & (2) & (3) & (4) \\
+& Baseline & Alternative DV & Subsample & Lagged IV \\
+& & (ROE) & (Large Firms) & (t-1) \\
+\midrule
+
+R\&D Intensity & 0.098*** & 0.186*** & 0.112** & \\
+& (0.031) & (0.048) & (0.045) & \\[0.2em]
+
+R\&D Intensity (t-1) & & & & 0.089** \\
+& & & & (0.035) \\[0.2em]
+
+Firm Size & 0.022*** & 0.034*** & 0.028* & 0.021*** \\
+& (0.006) & (0.009) & (0.015) & (0.007) \\[0.2em]
+
+Leverage & $-$0.156*** & $-$0.245*** & $-$0.168*** & $-$0.149*** \\
+& (0.018) & (0.028) & (0.032) & (0.019) \\[0.5em]
+
+\midrule
+Firm FE & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes & Yes \\[0.5em]
+
+\midrule
+Observations & 24,706 & 24,706 & 12,353 & 22,206 \\
+Firms & 2,500 & 2,500 & 1,250 & 2,500 \\
+R-squared & 0.478 & 0.412 & 0.521 & 0.469 \\
+
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Notes:} This table presents robustness checks. Column (1) replicates the baseline specification from Table 1. Column (2) uses Return on Equity (ROE) as an alternative dependent variable. Column (3) restricts the sample to large firms (above median total assets). Column (4) uses one-year lagged R\&D intensity to address potential endogeneity concerns. Standard errors clustered by firm in parentheses. \\
+\item *** $p<0.01$, ** $p<0.05$, * $p<0.10$
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+%==============================================================================
+% TABLE 3: MODERATION ANALYSIS
+%==============================================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Moderation Analysis: The Role of Firm Size}
+\label{tab:regression_moderation}
+
+\begin{threeparttable}
+\small
+
+\begin{tabular}{l*{3}{c}}
+\toprule
+& \multicolumn{3}{c}{Dependent Variable: ROA} \\
+\cmidrule(lr){2-4}
+& (1) & (2) & (3) \\
+& Main Effects & Interaction & Interaction \\
+& & (Centered) & (Split Sample) \\
+\midrule
+
+R\&D Intensity & 0.098*** & 0.095*** & \\
+& (0.031) & (0.033) & \\[0.2em]
+
+Firm Size & 0.022*** & 0.021*** & \\
+& (0.006) & (0.007) & \\[0.2em]
+
+R\&D × Firm Size & & 0.018* & \\
+& & (0.009) & \\[0.5em]
+
+\multicolumn{4}{l}{\textit{Split by Firm Size (Median):}} \\[0.2em]
+R\&D (Small Firms) & & & 0.076* \\
+& & & (0.042) \\[0.2em]
+
+R\&D (Large Firms) & & & 0.125*** \\
+& & & (0.038) \\[0.5em]
+
+Controls & Yes & Yes & Yes \\
+Firm FE & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes \\[0.5em]
+
+\midrule
+Observations & 24,706 & 24,706 & 12,353 / 12,353 \\
+R-squared & 0.478 & 0.485 & 0.461 / 0.512 \\
+F-test for difference & & & 2.85* \\
+
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Notes:} This table examines whether firm size moderates the relationship between R\&D intensity and performance. Column (1) presents the main effects model. Column (2) includes the interaction term (R\&D × Firm Size), with both variables mean-centered to reduce multicollinearity. Column (3) presents split-sample regressions for small and large firms. The F-test evaluates whether coefficients differ significantly between subsamples. Standard errors clustered by firm in parentheses. \\
+\item *** $p<0.01$, ** $p<0.05$, * $p<0.10$
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+%==============================================================================
+% TABLE 4: EVENT STUDY RESULTS (CUMULATIVE ABNORMAL RETURNS)
+%==============================================================================
+
+\begin{table}[htbp]
+\centering
+\caption{Event Study Results: Stock Market Reaction to M\&A Announcements}
+\label{tab:event_study}
+
+\begin{threeparttable}
+\small
+
+\begin{tabular}{l*{5}{c}}
+\toprule
+Event Window & N & Mean CAR & Median CAR & t-statistic & \% Positive \\
+\midrule
+
+[-1, 0] & 1,247 & 0.0182*** & 0.0145 & 8.45 & 58.3\% \\
+& & (0.0022) & & & \\[0.2em]
+
+[-1, +1] & 1,247 & 0.0216*** & 0.0168 & 7.92 & 60.1\% \\
+& & (0.0027) & & & \\[0.2em]
+
+[-2, +2] & 1,247 & 0.0234*** & 0.0189 & 6.88 & 61.5\% \\
+& & (0.0034) & & & \\[0.2em]
+
+[-5, +5] & 1,247 & 0.0198*** & 0.0152 & 4.95 & 59.7\% \\
+& & (0.0040) & & & \\[0.5em]
+
+\midrule
+\multicolumn{6}{l}{\textit{Cross-Sectional Determinants of CAR [-1, +1]}} \\[0.5em]
+
+\multicolumn{2}{l}{Acquirer Size (log)} & $-$0.0012* & & & \\
+\multicolumn{2}{l}{} & (0.0006) & & & \\[0.2em]
+
+\multicolumn{2}{l}{Relative Deal Size} & 0.0145*** & & & \\
+\multicolumn{2}{l}{} & (0.0038) & & & \\[0.2em]
+
+\multicolumn{2}{l}{Related Acquisition} & 0.0068** & & & \\
+\multicolumn{2}{l}{} & (0.0027) & & & \\[0.2em]
+
+\multicolumn{2}{l}{Prior Performance (ROA)} & 0.0324** & & & \\
+\multicolumn{2}{l}{} & (0.0128) & & & \\[0.5em]
+
+\multicolumn{2}{l}{R-squared} & 0.142 & & & \\
+\multicolumn{2}{l}{N} & 1,247 & & & \\
+
+\bottomrule
+\end{tabular}
+
+\begin{tablenotes}[flushleft]
+\small
+\item \textit{Notes:} This table reports cumulative abnormal returns (CAR) for M\&A announcements by U.S. public acquirers (2010-2023). Abnormal returns are calculated using the market model with a [-250, -11] day estimation window. Standard errors in parentheses. The lower panel presents OLS regression results explaining cross-sectional variation in CAR. \\
+\item *** $p<0.01$, ** $p<0.05$, * $p<0.10$
+\end{tablenotes}
+
+\end{threeparttable}
+\end{table}
+
+%==============================================================================
+% INSTRUCTIONS FOR USE
+%==============================================================================
+%
+% HOW TO ADAPT THIS TEMPLATE:
+%
+% 1. Replace variable names and labels:
+%    - Change "R&D Intensity" to your independent variable
+%    - Change "ROA" to your dependent variable
+%    - Update control variables as needed
+%
+% 2. Update model specifications:
+%    - Add/remove columns for different models
+%    - Modify fixed effects (industry, firm, year, country, etc.)
+%    - Include interaction terms or quadratic terms if needed
+%
+% 3. Fill in your actual results:
+%    - Replace coefficient values (e.g., 0.098)
+%    - Replace standard errors in parentheses (e.g., 0.031)
+%    - Update significance stars based on p-values
+%    - Update fit statistics (R², N, F-statistic)
+%
+% 4. Customize table notes:
+%    - Describe your sample and methodology
+%    - Explain any non-standard procedures
+%    - Define variables if not obvious
+%
+% 5. Significance levels:
+%    *** p<0.01 (1% level)
+%    **  p<0.05 (5% level)
+%    *   p<0.10 (10% level)
+%
+% 6. Standard error types (specify in notes):
+%    - Clustered by firm (most common in strategy research)
+%    - Clustered by industry
+%    - Heteroskedasticity-robust (White)
+%    - Bootstrap standard errors
+%
+% 7. Best practices:
+%    - Report both coefficients and standard errors
+%    - Always specify type of standard errors
+%    - Report sample size, R², and F-statistic
+%    - Use consistent decimal places (usually 3 for coefficients)
+%    - Include detailed notes explaining methodology
+%    - Reference the table in text: "Table \ref{tab:regression_main} presents..."
+%
+%==============================================================================
+
+\end{document}
